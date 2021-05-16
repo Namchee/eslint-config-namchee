@@ -11,7 +11,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "postinstall": "install-peerdeps @namchee/eslint-config --dev --only-peers"
+    "postinstall": "npx install-peerdeps @namchee/eslint-config --dev --only-peers"
   },
   "peerDependencies": {
     "@typescript-eslint/plugin": "^4.0.0",
@@ -20,7 +20,11 @@
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-jsdoc": "^22.1.0"
   },
-  "dependencies": {
-    "install-peerdeps": "^3.0.3"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "devDependencies": {
+    "auto": "^10.27.1"
   }
 }
