@@ -8,6 +8,10 @@
   "license": "MIT",
   "private": false,
   "peerDependencies": {
-    "eslint": ">= 3"
+    "eslint": ">= 6",
+    "@typescript-eslint/plugin": ">= 4",
+    "@typesscript-eslint/parser": ">= 4",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-jsdoc": "^22.1.0"
   }
 }
