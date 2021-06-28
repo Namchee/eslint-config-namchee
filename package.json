@@ -1,7 +1,7 @@
 {
   "name": "@namchee/eslint-config",
-  "version": "1.0.0",
-  "description": "My personal ESLint + Prettier configuration. Fits for most JS / TS projects.",
+  "version": "1.0.1",
+  "description": "My personal ESLint configuration. Fits for most JS / TS projects.",
   "main": "index.js",
   "files": ["index.js", ".prettierrc.js", "tsconfig.json"],
   "repository": "git@github.com:Namchee/eslint-config-namchee.git",
