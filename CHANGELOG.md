@@ -1,3 +1,16 @@
+# v1.0.3 (Mon Jun 28 2021)
+
+#### ⚠️ Pushed to `master`
+
+- :package: chore: Merge conflicts ([@Namchee](https://github.com/Namchee))
+- :ambulance: fix: Remove auto peer deps install and resort to manual installation ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.2 (Mon Jun 28 2021)
 
 #### ⚠️ Pushed to `master`
