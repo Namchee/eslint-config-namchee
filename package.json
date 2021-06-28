@@ -1,5 +1,5 @@
 {
-  "name": "@namchee/eslint-config",
+  "name": "eslint-config-namchee",
   "version": "1.0.1",
   "description": "My personal ESLint configuration. Fits for most JS / TS projects.",
   "main": "index.js",
@@ -11,9 +11,6 @@
   },
   "license": "MIT",
   "private": false,
-  "scripts": {
-    "postinstall": "npx install-peerdeps @namchee/eslint-config --only-peers"
-  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"

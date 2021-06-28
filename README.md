@@ -6,14 +6,14 @@ This configuration uses [google ESLint config](https://github.com/google/eslint-
 
 ## Installation
 
-You can install this configuration using your favorite Node package managers
+All you have to do is install all peer dependencies from this package and you're all set! Install peer dependencies easily with:
 
 ```bash
 # using npm
-npm install -D @namchee/eslint-config
+npx install-peerdeps eslint-config-namchee --dev --only-peers
 
-# using yarn
-yarn add -D @namchee/eslint-config
+# using pnpx
+pnpx install-peerdeps eslint-config-namchee --dev --only-peers
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ You can use this configuration by extending it in your ESLint configuration file
 
 ```js
 module.exports = {
-  extends: ['@namchee/eslint-config'],
+  extends: ['eslint-config-namchee'], // or 'namchee' for short 
   // ...
 }
 ```
