@@ -1,8 +1,9 @@
 {
   "name": "@namchee/eslint-config",
   "version": "1.0.0",
-  "description": "My personal ESLint configuration. Fits for most JS / TS projects.",
+  "description": "My personal ESLint + Prettier configuration. Fits for most JS / TS projects.",
   "main": "index.js",
+  "files": ["index.js", ".prettierrc.js", "tsconfig.json"],
   "repository": "git@github.com:Namchee/eslint-config-namchee.git",
   "author": {
     "name": "Cristopher Namchee",
@@ -11,18 +12,20 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "postinstall": "npx install-peerdeps @namchee/eslint-config --dev --only-peers"
-  },
-  "peerDependencies": {
-    "@typescript-eslint/plugin": "^4.0.0",
-    "@typesscript-eslint/parser": "^4.0.0",
-    "eslint": "^6.0.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-plugin-jsdoc": "^22.1.0"
+    "postinstall": "npx install-peerdeps @namchee/eslint-config --only-peers"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "eslint": "^7.29.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsdoc": "^35.4.0",
+    "prettier": "^2.3.2"
   },
   "devDependencies": {
     "auto": "^10.27.1"
