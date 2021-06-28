@@ -1,3 +1,17 @@
+# v1.0.2 (Mon Jun 28 2021)
+
+#### ⚠️ Pushed to `master`
+
+- :adhesive_badge: chore: Merge conflicts ([@Namchee](https://github.com/Namchee))
+- :memo: docs: Include prettier and tsconfig.json on documentation ([@Namchee](https://github.com/Namchee))
+- :sparkles: feat: Add prettier configuration ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.1 (Mon May 17 2021)
 
 #### ⚠️ Pushed to `master`
