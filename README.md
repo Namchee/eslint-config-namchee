@@ -1,4 +1,4 @@
-# @namchee/eslint-config
+# eslint-config-namchee
 
 :wrench: My personal and opinionated ESLint shareable configuration. Designed to be used with TypeScript (which means that you can extend the `tsconfig.json` from this package), although it will also work without it. To add cherry on top, Prettier config is also included.
 
