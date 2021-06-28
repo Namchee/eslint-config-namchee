@@ -1,3 +1,15 @@
+# v1.0.4 (Mon Jun 28 2021)
+
+#### ⚠️ Pushed to `master`
+
+- :memo: docs: Replace package name in README ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.3 (Mon Jun 28 2021)
 
 #### ⚠️ Pushed to `master`
