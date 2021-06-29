@@ -1,3 +1,18 @@
+# v1.0.5 (Tue Jun 29 2021)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of github.com:Namchee/eslint-config-namchee ([@Namchee](https://github.com/Namchee))
+- :memo: docs: Add TypeScript configuration documentation ([@Namchee](https://github.com/Namchee))
+- :sparkles: feat: Add stylelint configuration ([@Namchee](https://github.com/Namchee))
+- :art: refactor: Rename prettier config to prettier.config.js ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.4 (Mon Jun 28 2021)
 
 #### ⚠️ Pushed to `master`
