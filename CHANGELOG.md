@@ -1,3 +1,15 @@
+# v1.0.6 (Tue Jul 13 2021)
+
+#### 🐛 Bug Fix
+
+- feat: Add trailing commas and arrow parentheses options [#1](https://github.com/Namchee/eslint-config-namchee/pull/1) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.5 (Tue Jun 29 2021)
 
 #### ⚠️ Pushed to `master`
