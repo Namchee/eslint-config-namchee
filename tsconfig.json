@@ -4,10 +4,11 @@
     "lib": [
       "ES2019.Array",
       "ES2020.Promise",
+      "ES2019.Symbol",
       "DOM",
       "DOM.Iterable"
     ],
-    "module": "es2020",
+    "module": "ESNext",
     "allowJs": true,
     "checkJs": true,
     "skipLibCheck": true,
@@ -25,11 +26,5 @@
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-  },
-  "include": [
-    "**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  }
 }
