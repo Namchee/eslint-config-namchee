@@ -6,7 +6,21 @@ This configuration uses [google ESLint config](https://github.com/google/eslint-
 
 ## Installation
 
-All you have to do is install all peer dependencies from this package and you're all set! Install peer dependencies easily with:
+Install this package with your favorite package manager
+
+```bash
+# using npm
+npm install eslint-config-namchee -D
+
+# using yarn
+yarn add eslint-config-namchee -D
+
+# using pnpm
+pnpm add eslint-config-namchee -D
+```
+
+And then, install all peer dependencies from this package and you're all set!
+Install peer dependencies easily with the following commands
 
 ```bash
 # using npm
@@ -15,6 +29,8 @@ npx install-peerdeps eslint-config-namchee --dev --only-peers
 # using pnpx
 pnpx install-peerdeps eslint-config-namchee --dev --only-peers
 ```
+
+> Don't worry about the package manager, `install-peerdeps` will automatically detect and use the currently used package manager in you project.
 
 ## Usage
 
@@ -59,6 +75,8 @@ Below is the example of how to extend the configuration from your `stylelint.con
 
 > The TypeScript configuration provided by this package is tailored to output ESM modules, make sure to replace `modules` to something you like if ESM isn't what you're looking for.
 
+> Remember to add the `include` and `exclude` options yourself! Those options are not provided by this configuration to avoid bugged behavior of `tsconfig`.
+
 To use the TypeScript configuration file, extend this configuration in your TypeScript configuration file. Refer to the [official documentation](https://www.typescriptlang.org/tsconfig) for [how to extend TypeScript configuration file](https://www.typescriptlang.org/tsconfig#extends).
 
 ```json
@@ -66,6 +84,7 @@ To use the TypeScript configuration file, extend this configuration in your Type
   "extends": "eslint-config-namchee/tsconfig",
 }
 ```
+
 
 ## License
 
