@@ -6,7 +6,21 @@ This configuration uses [google ESLint config](https://github.com/google/eslint-
 
 ## Installation
 
-All you have to do is install all peer dependencies from this package and you're all set! Install peer dependencies easily with:
+Install this package with your favorite package manager
+
+```bash
+# using npm
+npm install eslint-config-namchee -D
+
+# using yarn
+yarn add eslint-config-namchee -D
+
+# using pnpm
+pnpm add eslint-config-namchee -D
+```
+
+And then, install all peer dependencies from this package and you're all set!
+Install peer dependencies easily with the following commands
 
 ```bash
 # using npm
@@ -15,6 +29,8 @@ npx install-peerdeps eslint-config-namchee --dev --only-peers
 # using pnpx
 pnpx install-peerdeps eslint-config-namchee --dev --only-peers
 ```
+
+> Don't worry about the package manager, `install-peerdeps` will automatically detect and use the currently used package manager in you project.
 
 ## Usage
 
