@@ -75,6 +75,8 @@ Below is the example of how to extend the configuration from your `stylelint.con
 
 > The TypeScript configuration provided by this package is tailored to output ESM modules, make sure to replace `modules` to something you like if ESM isn't what you're looking for.
 
+> Remember to add the `include` and `exclude` options yourself! Those options are not provided by this configuration to avoid bugged behavior of `tsconfig`.
+
 To use the TypeScript configuration file, extend this configuration in your TypeScript configuration file. Refer to the [official documentation](https://www.typescriptlang.org/tsconfig) for [how to extend TypeScript configuration file](https://www.typescriptlang.org/tsconfig#extends).
 
 ```json
@@ -82,6 +84,7 @@ To use the TypeScript configuration file, extend this configuration in your Type
   "extends": "eslint-config-namchee/tsconfig",
 }
 ```
+
 
 ## License
 
