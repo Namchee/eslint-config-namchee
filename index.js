@@ -37,6 +37,8 @@ module.exports = {
         code: 80,
         tabWidth: 2,
         ignoreUrls: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
       },
     ],
     'new-cap': 'off',
