@@ -1,3 +1,23 @@
+# v1.0.6 (Sun Sep 19 2021)
+
+#### 🐛 Bug Fix
+
+- fix: Include jsdoc plugin rules to eslint config [#5](https://github.com/Namchee/eslint-config-namchee/pull/5) ([@Namchee](https://github.com/Namchee))
+- feat: Ignore string for max-len rules [#3](https://github.com/Namchee/eslint-config-namchee/pull/3) ([@Namchee](https://github.com/Namchee))
+- fix: Remove 'include' and 'exclude' from tsconfig [#2](https://github.com/Namchee/eslint-config-namchee/pull/2) ([@Namchee](https://github.com/Namchee))
+- feat: Add trailing commas and arrow parentheses options [#1](https://github.com/Namchee/eslint-config-namchee/pull/1) ([@Namchee](https://github.com/Namchee))
+
+#### 🔩 Dependency Updates
+
+- build(deps): Bump path-parse from 1.0.6 to 1.0.7 [#4](https://github.com/Namchee/eslint-config-namchee/pull/4) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.5 (Tue Jun 29 2021)
 
 #### ⚠️ Pushed to `master`
