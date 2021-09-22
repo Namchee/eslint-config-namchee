@@ -1,6 +1,6 @@
-# eslint-config-namchee
+# ESLint Config Namchee
 
-My personal and opinionated ESLint + Prettier + Stylelint shareable configuration. Designed to be used with TypeScript (which means that you can extend the `tsconfig.json` from this package), although it will also work without it.
+Personal and opinionated ESLint + Prettier + Stylelint shareable configuration with batteries included. Designed to be used with TypeScript (which means that you can extend the `tsconfig.json` from this package), although the config also works without it.
 
 This configuration uses [google ESLint config](https://github.com/google/eslint-config-google) as the base config with some [JSDoc enchancements](https://github.com/gajus/eslint-plugin-jsdoc).
 
