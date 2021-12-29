@@ -62,6 +62,15 @@ module.exports = {
     'require-atomic-updates': 'off', // prevent async false alarm
     '@typescript-eslint/no-var-requires': 'off', // commonjs issue
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/camelcase': 'off' // prevent camelCase false alarm
+    '@typescript-eslint/camelcase': 'off', // prevent camelCase false alarm
+    'spaced-comment': [
+      'error',
+      'always',
+      {
+        markers: [
+          '/',
+        ],
+      },
+    ],
   },
 };
