@@ -1,3 +1,15 @@
+# v1.0.11 (Wed Dec 29 2021)
+
+#### 🐛 Bug Fix
+
+- feat: add typescript reference type comment rule [#7](https://github.com/Namchee/eslint-config-namchee/pull/7) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.6 (Wed Sep 22 2021)
 
 #### 🐛 Bug Fix
