@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "esnext",
     "lib": [
       "ES2019.Array",
       "ES2020.Promise",
@@ -14,6 +14,9 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "outDir": "./dist",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "preserveConstEnums": true,
     "removeComments": true,
     "strict": true,
@@ -26,5 +29,8 @@
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-  }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
