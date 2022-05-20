@@ -13,7 +13,7 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:jsdoc/recommended',
-    'google',
+    'xo',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -22,7 +22,9 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [
+    '@typescript-eslint',
     'jsdoc',
+    'prettier',
   ],
   rules: {
     'indent': [
@@ -61,7 +63,6 @@ module.exports = {
     'no-invalid-this': 'off', // prevent `this` false alarm on arrow functions
     'require-atomic-updates': 'off', // prevent async false alarm
     '@typescript-eslint/no-var-requires': 'off', // commonjs issue
-    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/camelcase': 'off', // prevent camelCase false alarm
     'spaced-comment': [
       'error',

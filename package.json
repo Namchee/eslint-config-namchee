@@ -24,16 +24,16 @@
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
     "eslint": "^8.15.0",
-    "eslint-plugin-jsdoc": "^36.1.0",
+    "eslint-plugin-jsdoc": "^39.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.2",
-    "prettier-eslint": "^13.0.0",
     "stylelint": "^14.8.2",
     "stylelint-config-standard": "^22.0.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.35",
-    "auto": "^10.27.1",
-    "typescript": "^4.3.4"
+    "auto": "^10.36.5",
+    "eslint-config-xo": "^0.41.0",
+    "typescript": "^4.6.4"
   }
 }
