@@ -21,18 +21,18 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.31.2",
-    "@typescript-eslint/parser": "^4.31.2",
-    "eslint": "^7.32.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "eslint": "^8.15.0",
     "eslint-plugin-jsdoc": "^36.1.0",
-    "prettier": "^2.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2",
     "prettier-eslint": "^13.0.0",
-    "stylelint": "^13.13.1",
+    "stylelint": "^14.8.2",
     "stylelint-config-standard": "^22.0.0"
   },
   "devDependencies": {
+    "@types/node": "^17.0.35",
     "auto": "^10.27.1",
     "typescript": "^4.3.4"
   }
