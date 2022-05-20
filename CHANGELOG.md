@@ -1,3 +1,15 @@
+# v1.0.12 (Fri May 20 2022)
+
+#### 🐛 Bug Fix
+
+- refactor: migrate to XO [#8](https://github.com/Namchee/eslint-config-namchee/pull/8) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.11 (Wed Dec 29 2021)
 
 #### 🐛 Bug Fix
