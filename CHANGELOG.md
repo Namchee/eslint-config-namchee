@@ -1,3 +1,15 @@
+# v1.0.13 (Sat May 21 2022)
+
+#### 🐛 Bug Fix
+
+- fix: move XO config to peer dependencies [#9](https://github.com/Namchee/eslint-config-namchee/pull/9) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.12 (Fri May 20 2022)
 
 #### 🐛 Bug Fix
