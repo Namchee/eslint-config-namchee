@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-namchee",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "My personal ESLint configuration. Fits for most JS / TS projects.",
   "main": "index.js",
   "files": [
