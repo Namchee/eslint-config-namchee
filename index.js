@@ -51,6 +51,7 @@ module.exports = {
         requireForBlockBody: true,
       },
     ],
+    'no-unused-vars': 'off', // prevent conflict with type declaration
     'require-jsdoc': 'off', // favor eslint-plugin-jsdoc
     'valid-jsdoc': 'off', // favor eslint-plugin-jsdoc
     '@typescript-eslint/no-var-requires': 'off', // commonjs issue
