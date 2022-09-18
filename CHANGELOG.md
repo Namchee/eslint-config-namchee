@@ -1,3 +1,15 @@
+# v1.0.14 (Sun Sep 18 2022)
+
+#### 🐛 Bug Fix
+
+- fix: turn off no-unused-vars rule [#10](https://github.com/Namchee/eslint-config-namchee/pull/10) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.13 (Sat May 21 2022)
 
 #### 🐛 Bug Fix
