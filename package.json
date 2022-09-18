@@ -21,8 +21,8 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.25.0",
-    "@typescript-eslint/parser": "^5.25.0",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
     "eslint": "^8.15.0",
     "eslint-config-xo": "^0.41.0",
     "eslint-plugin-jsdoc": "^39.3.0",
