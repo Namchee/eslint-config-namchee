@@ -25,7 +25,6 @@
     "@typescript-eslint/parser": "^5.37.0",
     "eslint": "^8.15.0",
     "eslint-config-xo": "^0.41.0",
-    "eslint-plugin-jsdoc": "^39.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.2",
     "stylelint": "^14.8.2",
