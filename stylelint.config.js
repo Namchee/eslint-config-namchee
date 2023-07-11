@@ -37,5 +37,20 @@ module.exports = {
     'media-feature-name-no-vendor-prefix': true,
     'media-feature-colon-space-before': 'never',
     'media-feature-colon-space-after': 'always',
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: [
+          'apply',
+          'config',
+          'layer',
+          'responsive',
+          'screen',
+          'tailwind',
+          'unocss',
+          'variants',
+        ],
+      },
+    ],
   },
 };
