@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
@@ -12,7 +13,6 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:jsdoc/recommended',
     'xo',
     'prettier',
   ],
@@ -52,8 +52,6 @@ module.exports = {
       },
     ],
     'no-unused-vars': 'off', // prevent conflict with type declaration
-    'require-jsdoc': 'off', // favor eslint-plugin-jsdoc
-    'valid-jsdoc': 'off', // favor eslint-plugin-jsdoc
     '@typescript-eslint/no-var-requires': 'off', // commonjs issue
     '@typescript-eslint/camelcase': 'off',
     'spaced-comment': [

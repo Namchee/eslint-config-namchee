@@ -21,19 +21,22 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.37.0",
-    "@typescript-eslint/parser": "^5.37.0",
-    "eslint": "^8.15.0",
-    "eslint-config-xo": "^0.41.0",
-    "eslint-plugin-jsdoc": "^39.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.6.2",
-    "stylelint": "^14.8.2",
-    "stylelint-config-standard": "^22.0.0"
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "eslint": "^8.44.0",
+    "eslint-config-xo": "^0.43.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^3.0.0",
+    "prettier-eslint": "^15.0.1",
+    "stylelint": "^15.10.1",
+    "stylelint-config-standard": "^34.0.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.35",
-    "auto": "^10.36.5",
+    "auto": "^10.46.0",
     "typescript": "^4.6.4"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
