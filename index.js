@@ -61,5 +61,6 @@ module.exports = {
         markers: ['/'],
       },
     ],
+    'quotes': ['error', 'single', { 'allowTemplateLiterals': true }],
   },
 };
