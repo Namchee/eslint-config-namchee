@@ -1,3 +1,15 @@
+# v1.0.16 (Wed Jul 12 2023)
+
+#### 🐛 Bug Fix
+
+- feat(eslint): enforce single quote style [#12](https://github.com/Namchee/eslint-config-namchee/pull/12) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.15 (Tue Jul 11 2023)
 
 #### 🐛 Bug Fix
