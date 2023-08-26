@@ -1,3 +1,15 @@
+# v1.0.17 (Sat Aug 26 2023)
+
+#### 🐛 Bug Fix
+
+- fix(deps): remove jsdoc integration from shared eslint config [#13](https://github.com/Namchee/eslint-config-namchee/pull/13) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.16 (Wed Jul 12 2023)
 
 #### 🐛 Bug Fix
