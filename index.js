@@ -23,7 +23,8 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'jsdoc', 'prettier'],
   rules: {
-    'indent': [
+    'indent': 'off',
+    '@typescript-eslint/indent': [
       'error',
       2,
       {
