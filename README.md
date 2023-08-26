@@ -45,6 +45,8 @@ module.exports = {
 }
 ```
 
+> Do note that this configuration is meant to be used with TypeScript in mind. Some features might not be compatible or available for vanilla JavaScript.
+
 ### Prettier
 
 To use the Prettier configuration, extend this configuration in your Prettier configuration file. Refer to the [official documentation](https://prettier.io/docs/en/index.html) for [how to extend Prettier configuration file](https://prettier.io/docs/en/configuration.html#sharing-configurations).

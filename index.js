@@ -23,7 +23,8 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
-    'indent': [
+    'indent': 'off',
+    '@typescript-eslint/indent': [
       'error',
       2,
       {
@@ -51,8 +52,9 @@ module.exports = {
         requireForBlockBody: true,
       },
     ],
-    'no-unused-vars': 'off', // prevent conflict with type declaration
-    '@typescript-eslint/no-var-requires': 'off', // commonjs issue
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
+    '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/camelcase': 'off',
     'spaced-comment': [
       'error',
@@ -61,6 +63,6 @@ module.exports = {
         markers: ['/'],
       },
     ],
-    'quotes': ['error', 'single', { 'allowTemplateLiterals': true }],
+    'quotes': ['error', 'single', { allowTemplateLiterals: true }],
   },
 };
