@@ -1,3 +1,15 @@
+# v1.0.18 (Sat Aug 26 2023)
+
+#### 🐛 Bug Fix
+
+- feat: august update [#14](https://github.com/Namchee/eslint-config-namchee/pull/14) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.17 (Sat Aug 26 2023)
 
 #### 🐛 Bug Fix
