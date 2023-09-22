@@ -1,3 +1,5 @@
+/* eslint @stylistic/migrate/rules: "error" */
+
 module.exports = {
   root: true,
   env: {
@@ -13,14 +15,19 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@stylistic/migrate/recommended',
     'xo',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 21,
+    ecmaVersion: 'latest',
     sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
+  reportUnusedDisableDirectives: true,
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
     'indent': 'off',
