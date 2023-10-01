@@ -1,5 +1,3 @@
-/* eslint @stylistic/migrate/rules: "error" */
-
 module.exports = {
   root: true,
   env: {
@@ -30,8 +28,8 @@ module.exports = {
   reportUnusedDisableDirectives: true,
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
-    'indent': 'off',
-    '@typescript-eslint/indent': [
+    '@stylistic/js/indent': 'off',
+    '@stylistic/ts/indent': [
       'error',
       2,
       {
@@ -49,9 +47,9 @@ module.exports = {
       },
     ],
     'new-cap': 'off',
-    'no-tabs': 'error',
-    'no-trailing-spaces': 'error',
-    'object-curly-spacing': ['error', 'always'],
+    '@stylistic/js/no-tabs': 'error',
+    '@stylistic/js/no-trailing-spaces': 'error',
+    '@stylistic/js/object-curly-spacing': ['error', 'always'],
     'arrow-parens': [
       'error',
       'as-needed',
@@ -63,7 +61,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/camelcase': 'off',
-    'spaced-comment': [
+    '@stylistic/js/spaced-comment': [
       'error',
       'always',
       {
