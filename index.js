@@ -8,48 +8,44 @@ const stylistic = require('@stylistic/eslint-plugin');
 const standardConfig = require('@eslint/js');
 const prettierConfig = require('eslint-config-prettier');
 
+const baseLangOptions = {
+  ecmaVersion: 'latest',
+  globals: {
+    Bun: false,
+  },
+};
+
+const basePlugins = {
+  prettier: prettier,
+  import: impor,
+  stylistic: stylistic,
+};
+
+const baseRules = {
+  'indent': 'off',
+  'stylistic/indent': [
+    'error',
+    2,
+    {
+      SwitchCase: 1,
+    },
+  ],
+};
+
 module.exports = [
   standardConfig.configs.recommended,
   prettierConfig,
   {
     // JavaScript config
-    languageOptions: {
-      ecmaVersion: 'latest',
-      globals: {
-        Bun: false,
-      },
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
-    plugins: {
-      prettier: prettier,
-      import: impor,
-      stylistic: stylistic,
-    },
-    rules: {
-      'indent': 'off',
-      'stylistic/indent': [
-        'error',
-        2,
-        {
-          SwitchCase: 1,
-        },
-      ],
-    },
+    languageOptions: baseLangOptions,
+    plugins: basePlugins,
+    rules: baseRules,
   },
   {
     // TypeScript config
     files: ['*.ts'],
     languageOptions: {
-      ecmaVersion: 'latest',
-      globals: {
-        Bun: false,
-      },
+      ...baseLangOptions,
       parser: parser,
       parserOptions: {
         ecmaVersion: 'latest',
@@ -60,22 +56,13 @@ module.exports = [
       },
     },
     plugins: {
+      ...basePlugins,
       '@typescript-eslint': ts,
-      'prettier': prettier,
-      'import': impor,
-      'stylistic': stylistic,
     },
     rules: {
       ...ts.configs['eslint-recommended'].rules,
       ...ts.configs['recommended'].rules,
-      'indent': 'off',
-      'stylistic/indent': [
-        'error',
-        2,
-        {
-          SwitchCase: 1,
-        },
-      ],
+      ...baseRules,
     },
     /*
     rules: {
