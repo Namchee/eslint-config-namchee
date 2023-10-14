@@ -1,8 +1,11 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
+
+overrides:
+  vitest: link:../vitest/packages/vitest
 
 dependencies:
   '@eslint/js':
@@ -49,6 +52,9 @@ devDependencies:
   typescript:
     specifier: ^4.6.4
     version: 4.6.4
+  vitest:
+    specifier: link:../vitest/packages/vitest
+    version: link:../vitest/packages/vitest
 
 packages:
 

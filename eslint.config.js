@@ -1,9 +1,9 @@
-const typescriptParser = require('@typescript-eslint/parser');
+const parser = require('@typescript-eslint/parser');
 
-const typescriptPlugin = require('@typescript-eslint/eslint-plugin');
-const prettierPlugin = require('eslint-plugin-prettier');
-const importPlugin = require('eslint-plugin-import');
-const stylisticPlugin = require('@stylistic/eslint-plugin');
+const ts = require('@typescript-eslint/eslint-plugin');
+const prettier = require('eslint-plugin-prettier');
+const impor = require('eslint-plugin-import');
+const stylistic = require('@stylistic/eslint-plugin');
 
 const standardConfig = require('@eslint/js');
 const prettierConfig = require('eslint-config-prettier');
@@ -12,12 +12,13 @@ module.exports = [
   standardConfig.configs.recommended,
   prettierConfig,
   {
+    files: ['*.ts'],
     languageOptions: {
       ecmaVersion: 'latest',
       globals: {
         Bun: false,
       },
-      parser: typescriptParser,
+      parser: parser,
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
@@ -27,12 +28,14 @@ module.exports = [
       },
     },
     plugins: {
-      typescript: typescriptPlugin,
-      prettier: prettierPlugin,
-      import: importPlugin,
-      stylistic: stylisticPlugin,
+      '@typescript-eslint': ts,
+      'prettier': prettier,
+      'import': impor,
+      'stylistic': stylistic,
     },
     rules: {
+      ...ts.configs['eslint-recommended'].rules,
+      ...ts.configs['recommended'].rules,
       'indent': 'off',
       'stylistic/indent': [
         'error',
