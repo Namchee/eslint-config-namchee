@@ -12,6 +12,38 @@ module.exports = [
   standardConfig.configs.recommended,
   prettierConfig,
   {
+    // JavaScript config
+    languageOptions: {
+      ecmaVersion: 'latest',
+      globals: {
+        Bun: false,
+      },
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    plugins: {
+      prettier: prettier,
+      import: impor,
+      stylistic: stylistic,
+    },
+    rules: {
+      'indent': 'off',
+      'stylistic/indent': [
+        'error',
+        2,
+        {
+          SwitchCase: 1,
+        },
+      ],
+    },
+  },
+  {
+    // TypeScript config
     files: ['*.ts'],
     languageOptions: {
       ecmaVersion: 'latest',
