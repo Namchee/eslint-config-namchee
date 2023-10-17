@@ -2,7 +2,9 @@ const parser = require('@typescript-eslint/parser');
 
 const ts = require('@typescript-eslint/eslint-plugin');
 const prettier = require('eslint-plugin-prettier');
-const impor = require('eslint-plugin-import');
+const importPlugin = require('eslint-plugin-import');
+const unicorn = require('eslint-plugin-unicorn');
+const canonical = require('eslint-plugin-canonical');
 const stylistic = require('@stylistic/eslint-plugin');
 
 const standardConfig = require('@eslint/js');
@@ -12,29 +14,30 @@ const baseLangOptions = {
   ecmaVersion: 'latest',
   globals: {
     Bun: false,
+    module: 'readonly',
+    require: 'readonly',
   },
 };
 
 const basePlugins = {
-  prettier: prettier,
-  import: impor,
-  stylistic: stylistic,
+  canonical,
+  import: importPlugin,
+  prettier,
+  stylistic,
+  unicorn,
 };
 
 const baseRules = {
-  'indent': 'off',
-  'stylistic/indent': [
-    'error',
-    2,
-    {
-      SwitchCase: 1,
-    },
-  ],
+  ...importPlugin.configs.recommended.rules,
+  ...unicorn.configs.recommended.rules,
+  ...canonical.configs.recommended.rules,
+  ...prettierConfig.rules,
+  'unicorn/prefer-module': 'off',
 };
 
 module.exports = [
   standardConfig.configs.recommended,
-  prettierConfig,
+  // importPlugin.configs.recommended,
   {
     // JavaScript config
     languageOptions: baseLangOptions,
@@ -48,11 +51,11 @@ module.exports = [
       ...baseLangOptions,
       parser: parser,
       parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
         ecmaFeatures: {
           jsx: true,
         },
+        ecmaVersion: 'latest',
+        sourceType: 'module',
       },
     },
     plugins: {

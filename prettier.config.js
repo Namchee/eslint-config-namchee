@@ -1,8 +1,8 @@
 module.exports = {
-  singleQuote: true,
-  quoteProps: 'consistent',
-  trailingCommas: 'all',
   arrowParens: 'avoid',
-  parser: 'typescript',
   endOfLine: 'auto',
+  parser: 'typescript',
+  quoteProps: 'consistent',
+  singleQuote: true,
+  trailingCommas: 'all',
 };

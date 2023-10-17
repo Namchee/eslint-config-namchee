@@ -10,8 +10,7 @@
     "tsconfig.json"
   ],
   "scripts": {
-    "lint": "eslint . --debug",
-    "test": "vitest --exclude ./foo.spec.ts --exclude ./bar.spec.ts"
+    "lint:debug": "ESLINT_USE_FLAT_CONFIG=true eslint . --debug -c index.js"
   },
   "repository": "git@github.com:Namchee/eslint-config-namchee.git",
   "author": {
@@ -44,8 +43,10 @@
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-canonical": "^4.15.1",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-unicorn": "^48.0.1",
     "prettier": "^3.0.3",
     "prettier-eslint": "^15.0.1"
   },
