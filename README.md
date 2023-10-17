@@ -34,7 +34,13 @@ module.exports = {
 }
 ```
 
-> Do note that this configuration is meant to be used with TypeScript in mind. Some features might not be compatible or available for vanilla JavaScript.
+If you are using the new [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), you can import the rules and use spread operator:
+
+```js
+import configNamchee from 'eslint-config-namchee';
+
+export default [...configNamchee];
+```
 
 ### Prettier
 
