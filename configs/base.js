@@ -1,4 +1,3 @@
-const prettier = require('eslint-plugin-prettier');
 const importPlugin = require('eslint-plugin-import');
 const unicorn = require('eslint-plugin-unicorn');
 const canonical = require('eslint-plugin-canonical');
@@ -19,7 +18,6 @@ module.exports = {
   plugins: {
     canonical,
     import: importPlugin,
-    prettier,
     stylistic,
     unicorn,
   },
@@ -39,7 +37,7 @@ module.exports = {
     'canonical/destructuring-property-newline': 'off',
     'canonical/sort-keys': 'off',
     'capitalized-comments': 'off',
-    'indent': [
+    indent: [
       'error',
       2,
       {
@@ -60,7 +58,7 @@ module.exports = {
     'no-trailing-spaces': 'error',
     'object-curly-spacing': ['error', 'always'],
     'quote-props': ['error', 'consistent-as-needed'],
-    'quotes': ['error', 'single', { allowTemplateLiterals: true }],
+    quotes: ['error', 'single', { allowTemplateLiterals: true }],
     'spaced-comment': [
       'error',
       'always',
