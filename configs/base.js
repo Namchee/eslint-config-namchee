@@ -16,7 +16,6 @@ module.exports = {
       require: 'readonly',
     },
   },
-
   plugins: {
     canonical,
     import: importPlugin,
@@ -24,7 +23,6 @@ module.exports = {
     stylistic,
     unicorn,
   },
-
   rules: {
     ...standard.configs.recommended.rules,
     ...importPlugin.configs.recommended.rules,
@@ -39,6 +37,7 @@ module.exports = {
       },
     ],
     'canonical/destructuring-property-newline': 'off',
+    'canonical/sort-keys': 'off',
     'capitalized-comments': 'off',
     'indent': [
       'error',

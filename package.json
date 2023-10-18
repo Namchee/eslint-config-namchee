@@ -4,10 +4,7 @@
   "description": "My personal ESLint configuration. Fits for most JS / TS projects.",
   "main": "index.js",
   "files": [
-    "index.js",
-    "prettier.config.js",
-    "stylelint.config.js",
-    "tsconfig.json"
+    "index.js"
   ],
   "scripts": {
     "lint:debug": "ESLINT_USE_FLAT_CONFIG=true eslint . --debug -c index.js"
@@ -31,8 +28,7 @@
     "@types/node": "^17.0.35",
     "auto": "^10.46.0",
     "eslint": "^8.50.0",
-    "typescript": "^4.6.4",
-    "vitest": "*"
+    "typescript": "^4.6.4"
   },
   "engines": {
     "node": ">=18"
@@ -50,10 +46,5 @@
     "eslint-plugin-unicorn": "^48.0.1",
     "prettier": "^3.0.3",
     "prettier-eslint": "^15.0.1"
-  },
-  "pnpm": {
-    "overrides": {
-      "vitest": "link:../vitest/packages/vitest"
-    }
   }
 }
