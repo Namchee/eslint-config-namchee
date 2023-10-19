@@ -2,15 +2,16 @@ const importPlugin = require('eslint-plugin-import');
 const unicorn = require('eslint-plugin-unicorn');
 const canonical = require('eslint-plugin-canonical');
 const stylistic = require('@stylistic/eslint-plugin');
+const node = require('eslint-plugin-node');
+const yaml = require('eslint-plugin-yaml');
 
 const standard = require('@eslint/js');
-const xo = require('eslint-config-xo');
 
 module.exports = {
   langOptions: {
     ecmaVersion: 'latest',
     globals: {
-      Bun: false,
+      Bun: 'readonly',
       module: 'readonly',
       require: 'readonly',
     },
@@ -26,7 +27,8 @@ module.exports = {
     ...importPlugin.configs.recommended.rules,
     ...unicorn.configs.recommended.rules,
     ...canonical.configs.recommended.rules,
-    ...xo.rules,
+    ...node.configs.recommended.rules,
+    'array-callback-return': 'error',
     'arrow-parens': [
       'error',
       'as-needed',
@@ -34,6 +36,18 @@ module.exports = {
         requireForBlockBody: true,
       },
     ],
+    'block-scoped-var': 'error',
+    'constructor-super': 'error',
+    'dot-notation': ['error', { allowKeywords: true }],
+    eqeqeq: ['error', 'smart'],
+    'no-array-constructor': 'error',
+    'no-async-promise-executor': 'error',
+    'no-caller': 'error',
+    'no-case-declarations': 'error',
+    'no-class-assign': 'error',
+    'no-compare-neg-zero': 'error',
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-control-regex': 'error',
     'canonical/destructuring-property-newline': 'off',
     'canonical/sort-keys': 'off',
     'capitalized-comments': 'off',

@@ -34,5 +34,9 @@ module.exports = {
     ],
     '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
     '@typescript-eslint/no-var-requires': 'off',
+
+    // this is handled with `lib` when using typescript
+    'node/no-unsupported-features/es-builtins': 'off',
+    'node/no-unsupported-features/es-syntax': 'off',
   },
 };
