@@ -2,8 +2,7 @@ const importPlugin = require('eslint-plugin-import');
 const unicorn = require('eslint-plugin-unicorn');
 const canonical = require('eslint-plugin-canonical');
 const stylistic = require('@stylistic/eslint-plugin');
-const node = require('eslint-plugin-node');
-const yaml = require('eslint-plugin-yaml');
+const node = require('eslint-plugin-n');
 
 const standard = require('@eslint/js');
 
@@ -21,13 +20,14 @@ module.exports = {
     import: importPlugin,
     stylistic,
     unicorn,
+    node,
   },
   rules: {
     ...standard.configs.recommended.rules,
     ...importPlugin.configs.recommended.rules,
     ...unicorn.configs.recommended.rules,
     ...canonical.configs.recommended.rules,
-    ...node.configs.recommended.rules,
+
     'array-callback-return': 'error',
     'arrow-parens': [
       'error',
@@ -39,7 +39,7 @@ module.exports = {
     'block-scoped-var': 'error',
     'constructor-super': 'error',
     'dot-notation': ['error', { allowKeywords: true }],
-    eqeqeq: ['error', 'smart'],
+    'eqeqeq': ['error', 'smart'],
     'no-array-constructor': 'error',
     'no-async-promise-executor': 'error',
     'no-caller': 'error',
@@ -51,7 +51,7 @@ module.exports = {
     'canonical/destructuring-property-newline': 'off',
     'canonical/sort-keys': 'off',
     'capitalized-comments': 'off',
-    indent: [
+    'indent': [
       'error',
       2,
       {
@@ -72,7 +72,7 @@ module.exports = {
     'no-trailing-spaces': 'error',
     'object-curly-spacing': ['error', 'always'],
     'quote-props': ['error', 'consistent-as-needed'],
-    quotes: ['error', 'single', { allowTemplateLiterals: true }],
+    'quotes': ['error', 'single', { allowTemplateLiterals: true }],
     'spaced-comment': [
       'error',
       'always',
@@ -81,5 +81,6 @@ module.exports = {
       },
     ],
     'unicorn/prefer-module': 'off',
+    'eol-last': 'error',
   },
 };

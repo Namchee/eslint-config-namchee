@@ -1,25 +1,27 @@
+/* eslint-disable no-undef */
 const { langOptions, plugins, rules } = require('./base');
 
 const parser = require('@typescript-eslint/parser');
 
 const ts = require('@typescript-eslint/eslint-plugin');
+const node = require('eslint-plugin-n');
 
 module.exports = {
-  files: ['*.ts'],
+  files: ['*.ts', '*.mts', '*.tsx'],
   languageOptions: {
     ...langOptions,
     parser,
     parserOptions: {
-      ecmaFeatures: {
-        jsx: true,
-      },
       ecmaVersion: 'latest',
       sourceType: 'module',
+      project: true,
+      tsconfigRootDir: process.cwd(),
     },
   },
   plugins: {
     ...plugins,
     '@typescript-eslint': ts,
+    node,
   },
   rules: {
     ...ts.configs['eslint-recommended'].rules,

@@ -7,7 +7,8 @@
     "index.js"
   ],
   "scripts": {
-    "lint:debug": "ESLINT_USE_FLAT_CONFIG=true eslint . --debug -c index.js"
+    "lint:debug": "eslint . --debug",
+    "lint:fix": "eslint . --debug --fix"
   },
   "repository": "git@github.com:Namchee/eslint-config-namchee.git",
   "author": {
@@ -41,8 +42,11 @@
     "@typescript-eslint/parser": "^6.7.3",
     "eslint-plugin-canonical": "^4.15.1",
     "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-jsonc": "^2.10.0",
+    "eslint-plugin-n": "^16.2.0",
     "eslint-plugin-unicorn": "^48.0.1",
-    "eslint-plugin-yaml": "^0.5.0"
+    "eslint-plugin-yaml": "^0.5.0",
+    "jsonc-eslint-parser": "^2.3.0",
+    "yaml-eslint-parser": "^1.2.2"
   }
 }

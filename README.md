@@ -1,35 +1,53 @@
 # ESLint Config Namchee
 
-Personal and opinionated ESLint shareable configuration with batteries included. This configuration use [XO ESLint config](https://github.com/xojs/eslint-config-xo) as a base.
+Personal and opinionated ESLint shareable configuration.
 
 ## Installation
 
-Install this package with your favorite package manager
+Install this config with your favorite package manager:
 
 ```bash
 # using npm
-npm install eslint-config-namchee -D
+npm install @namchee/eslint-config -D
 
 # using yarn
-yarn add eslint-config-namchee -D
+yarn add @namchee/eslint-config -D
 
 # using pnpm
-pnpm add eslint-config-namchee -D
+pnpm add @namchee/eslint-config -D
 
 # using bun
-bun add eslint-config-namchee
+bun add @namchee/eslint-config -D
 ```
+
+> Since the introduction of [ESLint flat config][flat config], this config uses flat config for the latest package `@namchee/eslint-config`. For legacy config, please install `eslint-config-namchee` instead.
 
 ## Usage
 
-### ESLint
-
-> This config is only compatible with the latest [ESLint flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new)
-
-To use the ESLint configuration, you can import the configuration and use spread operator:
+To use the ESLint configuration, you can extend your configuration by importing the config directly:
 
 ```js
-import configNamchee from 'eslint-config-namchee';
+// with "type": "module" in package.json
+import config from '@namchee/eslint-config';
 
-export default [...configNamchee];
+export default [...config];
 ```
+
+```js
+// without "type": "module" in package.json
+const config = require('@namchee/eslint-config');
+
+module.exports = [...config];
+```
+
+> For legacy config, you can extend the config by specifying it using the `extends` keyword:
+> ```js
+> module.exports = {
+>   extends: ['eslint-config-namchee'], // or 'namchee' for short 
+> }
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE)
+
+[flat config]: https://eslint.org/blog/2022/08/new-config-system-part-1/
