@@ -24,8 +24,6 @@ module.exports = {
   },
   rules: {
     ...standard.configs.recommended.rules,
-    ...importPlugin.configs.recommended.rules,
-
     'array-callback-return': 'error',
     'arrow-parens': [
       'error',
@@ -80,7 +78,14 @@ module.exports = {
     ],
     'eol-last': 'error',
 
-
+    // import plugin
+    'import/export': 'error',
+    'import/first': 'error',
+    'import/order': 'error', // based
+    'import/no-cycle': 'error',
+    'import/no-duplicates': 'error',
+    'import/no-extratenous-dependencies': 'error',
+    'import/no-unresolved': 'error',
 
     // unicorn plugin
     'unicorn/better-regex': 'error',
