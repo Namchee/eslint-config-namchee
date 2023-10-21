@@ -1,8 +1,10 @@
 const json = require('eslint-plugin-jsonc');
 const parser = require('jsonc-eslint-parser');
 
+const { JSON_FILES } = require('./const/globs');
+
 module.exports = {
-  files: ['*.json', '*.jsonc', '*.json5'],
+  files: [JSON_FILES],
   plugins: {
     jsonc: json,
   },

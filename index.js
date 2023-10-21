@@ -4,8 +4,8 @@ const yaml = require('./configs/yaml');
 const json = require('./configs/json');
 
 module.exports = {
-    js,
-    ts,
-    yaml,
-    json,
+  js,
+  ts,
+  yaml,
+  json,
 };

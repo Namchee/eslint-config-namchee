@@ -1,13 +1,16 @@
 /* eslint-disable no-undef */
 const { langOptions, plugins, rules } = require('./base');
+const { TS_FILES, GLOB_IGNORES } = require('./const/globs');
 
 const parser = require('@typescript-eslint/parser');
 
 const ts = require('@typescript-eslint/eslint-plugin');
 const node = require('eslint-plugin-n');
+const canonical = require('eslint-plugin-canonical');
 
 module.exports = {
-  files: ['*.ts', '*.mts', '*.tsx'],
+  files: [TS_FILES],
+  ignores: [GLOB_IGNORES],
   languageOptions: {
     ...langOptions,
     parser,
@@ -21,6 +24,7 @@ module.exports = {
   plugins: {
     ...plugins,
     '@typescript-eslint': ts,
+    canonical,
     node,
   },
   rules: {
@@ -37,7 +41,12 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
     '@typescript-eslint/no-var-requires': 'off',
 
-    // this is handled with `lib` when using typescript
+    // canonical plugin, because this only works in TypeScript
+    'canonical/no-barrel-import': 'error',
+    'canonical/no-unused-exports': 'error',
+    'canonical/no-use-extend-native': 'error',
+
+    // node rules
     'node/no-unsupported-features/es-builtins': 'off',
     'node/no-unsupported-features/es-syntax': 'off',
   },
