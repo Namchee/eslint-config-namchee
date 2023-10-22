@@ -23,23 +23,23 @@ module.exports = {
   },
   plugins: {
     ...plugins,
-    canonical,
-    node,
-    ts,
+    '@typescript-eslint': ts,
+    'canonical': canonical,
+    'node': node,
   },
   rules: {
     ...ts.configs['eslint-recommended'].rules,
     ...ts.configs.recommended.rules,
     ...rules,
-    'ts/indent': [
-      'error',
-      2,
-      {
-        SwitchCase: 1,
-      },
-    ],
-    'ts/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
-    'ts/no-var-requires': 'off',
+    '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+    '@typescript-eslint/no-dupe-class-members': 'error',
+    '@typescript-eslint/no-import-type-side-effects': 'error',
+    '@typescript-eslint/no-loss-of-precision': 'error',
+    '@typescript-eslint/no-redeclare': 'error',
+    '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/prefer-ts-expect-error': 'error',
 
     // canonical plugin, because this only works in TypeScript
     'canonical/no-barrel-import': 'error',

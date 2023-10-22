@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-namchee",
+  "name": "@namchee/eslint-config",
   "version": "1.0.18",
   "description": "My personal ESLint configuration. Fits for most JS / TS projects.",
   "main": "index.js",

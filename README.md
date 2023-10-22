@@ -1,6 +1,6 @@
 # ESLint Config Namchee
 
-Personal and opinionated ESLint shareable configuration.
+Personal and opinionated ESLint shareable configuration. Uses [ESLint Stylistic](https://eslint.style/), [why?](https://github.com/eslint/eslint/issues/17522).
 
 ## Installation
 
@@ -45,6 +45,13 @@ module.exports = [...config];
 > module.exports = {
 >   extends: ['eslint-config-namchee'], // or 'namchee' for short 
 > }
+
+## Supported Languages
+
+- JavaScript - `.js`, `.mjs`, `.cjs`, `.jsx`
+- TypeScript - `.ts`, `.mts`, `.tsx`
+- JSON - `.json`, `.json5`, `.jsonc`
+- YAML - `.yaml`, `.yml`
 
 ## License
 
