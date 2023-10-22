@@ -1,19 +1,19 @@
 /* eslint-disable no-undef */
-const { langOptions, plugins, rules } = require('./base');
-const { TS_FILES, GLOB_IGNORES } = require('./const/globs');
 
 const parser = require('@typescript-eslint/parser');
 
 const ts = require('@typescript-eslint/eslint-plugin');
 const node = require('eslint-plugin-n');
 const canonical = require('eslint-plugin-canonical');
+const { TS_FILES, GLOB_IGNORES } = require('./const/globs');
+const { langOptions, plugins, rules } = require('./base');
 
 module.exports = {
   files: [TS_FILES],
   ignores: [GLOB_IGNORES],
   languageOptions: {
     ...langOptions,
-    parser,
+    parser: parser,
     parserOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -23,23 +23,23 @@ module.exports = {
   },
   plugins: {
     ...plugins,
-    '@typescript-eslint': ts,
     canonical,
     node,
+    ts,
   },
   rules: {
     ...ts.configs['eslint-recommended'].rules,
     ...ts.configs.recommended.rules,
     ...rules,
-    '@typescript-eslint/indent': [
+    'ts/indent': [
       'error',
       2,
       {
         SwitchCase: 1,
       },
     ],
-    '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
-    '@typescript-eslint/no-var-requires': 'off',
+    'ts/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
+    'ts/no-var-requires': 'off',
 
     // canonical plugin, because this only works in TypeScript
     'canonical/no-barrel-import': 'error',

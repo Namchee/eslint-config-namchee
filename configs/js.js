@@ -6,6 +6,6 @@ module.exports = {
   languageOptions: langOptions,
   files: [JS_FILES],
   ignores: [GLOB_IGNORES],
-  plugins,
-  rules,
+  plugins: plugins,
+  rules: rules,
 };

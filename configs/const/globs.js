@@ -12,4 +12,4 @@ module.exports = {
   JSON_FILES,
   YAML_FILES,
   GLOB_IGNORES,
-}
+};
