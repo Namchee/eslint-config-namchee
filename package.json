@@ -1,14 +1,15 @@
 {
-  "name": "eslint-config-namchee",
+  "name": "@namchee/eslint-config",
   "version": "1.0.18",
   "description": "My personal ESLint configuration. Fits for most JS / TS projects.",
   "main": "index.js",
   "files": [
-    "index.js",
-    "prettier.config.js",
-    "stylelint.config.js",
-    "tsconfig.json"
+    "index.js"
   ],
+  "scripts": {
+    "lint:debug": "eslint configs/. --debug",
+    "lint:fix": "eslint . --debug --fix"
+  },
   "repository": "git@github.com:Namchee/eslint-config-namchee.git",
   "author": {
     "name": "Cristopher Namchee",
@@ -21,22 +22,32 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "@typescript-eslint/parser": "^5.61.0",
-    "eslint": "^8.44.0",
-    "eslint-config-xo": "^0.43.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^3.0.0",
-    "prettier-eslint": "^15.0.1",
-    "stylelint": "^15.10.1",
-    "stylelint-config-standard": "^34.0.0"
+    "eslint": "~8"
   },
   "devDependencies": {
+    "@types/eslint": "^8.44.3",
     "@types/node": "^17.0.35",
     "auto": "^10.46.0",
+    "eslint": "^8.50.0",
     "typescript": "^4.6.4"
   },
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@eslint/js": "^8.50.0",
+    "@stylistic/eslint-plugin": "^0.0.6",
+    "@stylistic/eslint-plugin-migrate": "^0.0.11",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "eslint-plugin-canonical": "^4.15.1",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsonc": "^2.10.0",
+    "eslint-plugin-markdown": "^3.0.1",
+    "eslint-plugin-n": "^16.2.0",
+    "eslint-plugin-unicorn": "^48.0.1",
+    "eslint-plugin-yaml": "^0.5.0",
+    "jsonc-eslint-parser": "^2.3.0",
+    "yaml-eslint-parser": "^1.2.2"
   }
 }
