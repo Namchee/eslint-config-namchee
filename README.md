@@ -46,6 +46,41 @@ module.exports = [...config];
 >   extends: ['eslint-config-namchee'], // or 'namchee' for short 
 > }
 
+## VSCode Settings
+
+If you're using VSCode, use the following settings for maximum DX with this configuration
+
+```json
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.experimental.useFlatConfig": true,
+    "eslint.format.enable": true,
+        "eslint.rules.customizations": [
+        { "rule": "style/*", "severity": "off" },
+        { "rule": "*-indent", "severity": "off" },
+        { "rule": "*-spacing", "severity": "off" },
+        { "rule": "*-spaces", "severity": "off" },
+        { "rule": "*-order", "severity": "off" },
+        { "rule": "*-dangle", "severity": "off" },
+        { "rule": "*-newline", "severity": "off" },
+        { "rule": "*quotes", "severity": "off" },
+        { "rule": "*semi", "severity": "off" }
+    ],
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "json",
+        "jsonc",
+        "yaml"
+    ],
+    "prettier.enable": false
+}
+```
+
 ## Supported Languages
 
 - JavaScript - `.js`, `.mjs`, `.cjs`, `.jsx`
