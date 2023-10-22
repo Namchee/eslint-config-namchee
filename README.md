@@ -1,97 +1,55 @@
 # ESLint Config Namchee
 
-Personal and opinionated ESLint shareable configuration. Uses [ESLint Stylistic](https://eslint.style/), [why?](https://github.com/eslint/eslint/issues/17522).
+Personal and opinionated ESLint + Prettier shareable configuration with batteries included. This configuration uses [XO](https://github.com/xojs/eslint-config-xo) as the base config.
 
 ## Installation
 
-Install this config with your favorite package manager:
+Install this package with your favorite package manager
 
 ```bash
 # using npm
-npm install @namchee/eslint-config -D
+npm install eslint-config-namchee -D
 
 # using yarn
-yarn add @namchee/eslint-config -D
+yarn add eslint-config-namchee -D
 
 # using pnpm
-pnpm add @namchee/eslint-config -D
+pnpm add eslint-config-namchee -D
 
 # using bun
-bun add @namchee/eslint-config -D
+bun add eslint-config-namchee -D
 ```
-
-> Since the introduction of [ESLint flat config][flat config], this config uses flat config for the latest package `@namchee/eslint-config`. For legacy config, please install `eslint-config-namchee` instead.
 
 ## Usage
 
-To use the ESLint configuration, you can extend your configuration by importing the config directly:
+### ESLint
+
+To use the ESLint configuration, extend this configuration in your ESLint configuration file.
 
 ```js
-// with "type": "module" in package.json
-import config from '@namchee/eslint-config';
-
-export default [...config];
-```
-
-```js
-// without "type": "module" in package.json
-const config = require('@namchee/eslint-config');
-
-module.exports = [...config];
-```
-
-> For legacy config, you can extend the config by specifying it using the `extends` keyword:
-> ```js
-> module.exports = {
->   extends: ['eslint-config-namchee'], // or 'namchee' for short 
-> }
-
-## VSCode Settings
-
-If you're using VSCode, use the following settings for maximum DX with this configuration
-
-```json
-{
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "eslint.experimental.useFlatConfig": true,
-    "eslint.format.enable": true,
-        "eslint.rules.customizations": [
-        { "rule": "style/*", "severity": "off" },
-        { "rule": "*-indent", "severity": "off" },
-        { "rule": "*-spacing", "severity": "off" },
-        { "rule": "*-spaces", "severity": "off" },
-        { "rule": "*-order", "severity": "off" },
-        { "rule": "*-dangle", "severity": "off" },
-        { "rule": "*-newline", "severity": "off" },
-        { "rule": "*quotes", "severity": "off" },
-        { "rule": "*semi", "severity": "off" }
-    ],
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "json",
-        "jsonc",
-        "yaml"
-    ],
-    "prettier.enable": false
+module.exports = {
+  extends: ['eslint-config-namchee'], // or 'namchee' for short 
+  // ...
 }
 ```
 
-## Supported Languages
+> Do note that this configuration is meant to be used with TypeScript in mind. Some features might not be compatible or available for vanilla JavaScript.
 
-- JavaScript - `.js`, `.mjs`, `.cjs`, `.jsx`
-- TypeScript - `.ts`, `.mts`, `.tsx`
-- JSON - `.json`, `.json5`, `.jsonc`
-- YAML - `.yaml`, `.yml`
-- Vue - *planned*
-- Markdown - *planned*
+### Prettier
+
+To use the Prettier configuration, extend this configuration in your Prettier configuration file. Refer to the [official documentation](https://prettier.io/docs/en/index.html) for [how to extend Prettier configuration file](https://prettier.io/docs/en/configuration.html#sharing-configurations).
+
+Below is the example of how to extend the configuration from your `package.json`:
+
+```json
+{
+  "name": "<your_cool_package>",
+  "version": "0.0.1",
+  "prettier": "eslint-config-namchee/prettier.config.js"
+}
+```
+
 
 ## License
 
 This project is licensed under the [MIT License](./LICENSE)
-
-[flat config]: https://eslint.org/blog/2022/08/new-config-system-part-1/

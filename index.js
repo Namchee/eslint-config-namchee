@@ -4,6 +4,9 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
+    Bun: true,
+    require: true,
+    import: true,
   },
   globals: {
     Atomics: 'readonly',
@@ -24,13 +27,6 @@ module.exports = {
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
     'indent': 'off',
-    '@typescript-eslint/indent': [
-      'error',
-      2,
-      {
-        SwitchCase: 1,
-      },
-    ],
     'max-len': [
       'error',
       {
@@ -53,9 +49,7 @@ module.exports = {
       },
     ],
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
-    '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/camelcase': 'off',
+    'quotes': ['error', 'single', { allowTemplateLiterals: true }],
     'spaced-comment': [
       'error',
       'always',
@@ -63,6 +57,18 @@ module.exports = {
         markers: ['/'],
       },
     ],
-    'quotes': ['error', 'single', { allowTemplateLiterals: true }],
+
+    // typescript
+    '@typescript-eslint/camelcase': 'off',
+    '@typescript-eslint/indent': [
+      'error',
+      2,
+      {
+        SwitchCase: 1,
+      },
+    ],
+    '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
+    '@typescript-eslint/no-var-requires': 'off',
+  
   },
 };
