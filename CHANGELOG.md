@@ -1,3 +1,15 @@
+# v1.0.20 (Sun Oct 22 2023)
+
+#### 🐛 Bug Fix
+
+- chore(deps): bump to v2 to avoid issues with legacy [#18](https://github.com/Namchee/eslint-config-namchee/pull/18) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.19 (Sun Oct 22 2023)
 
 #### 🐛 Bug Fix
