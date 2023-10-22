@@ -1,3 +1,15 @@
+# v1.0.19 (Sun Oct 22 2023)
+
+#### 🐛 Bug Fix
+
+- chore: migrate to flat config and stylistic [#16](https://github.com/Namchee/eslint-config-namchee/pull/16) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.18 (Sat Aug 26 2023)
 
 #### 🐛 Bug Fix
