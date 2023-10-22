@@ -5,6 +5,7 @@ const { JSON_FILES } = require('./const/globs');
 
 module.exports = {
   files: [JSON_FILES],
+  ignores: ['**/package.json', '**/package-lock.json'],
   plugins: {
     jsonc: json,
   },

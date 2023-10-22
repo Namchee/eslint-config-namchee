@@ -52,6 +52,8 @@ module.exports = [...config];
 - TypeScript - `.ts`, `.mts`, `.tsx`
 - JSON - `.json`, `.json5`, `.jsonc`
 - YAML - `.yaml`, `.yml`
+- Vue - *planned*
+- Markdown - *planned*
 
 ## License
 

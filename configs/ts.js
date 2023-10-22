@@ -10,7 +10,7 @@ const { langOptions, plugins, rules } = require('./base');
 
 module.exports = {
   files: [TS_FILES],
-  ignores: [GLOB_IGNORES],
+  ignores: GLOB_IGNORES,
   languageOptions: {
     ...langOptions,
     parser: parser,

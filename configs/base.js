@@ -226,5 +226,10 @@ module.exports = {
     'unicorn/prefer-type-error': 'error',
     'unicorn/template-indent': 'error',
     'unicorn/throw-new-error': 'error',
+
+    // node plugins
+    'node/no-deprecated-api': 'error',
+    'node/no-path-concat': 'error',
+    'node/process-exit-as-throw': 'error',
   },
 };

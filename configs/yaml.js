@@ -5,6 +5,7 @@ const { YAML_FILES } = require('./const/globs');
 
 module.exports = {
   files: [YAML_FILES],
+  ignores: ['**/pnpm-lock.yaml'],
   plugins: {
     yml,
   },
