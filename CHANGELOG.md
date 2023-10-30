@@ -1,3 +1,15 @@
+# v2.0.3 (Mon Oct 30 2023)
+
+#### 🐛 Bug Fix
+
+- fix: use type-aware rules for TypeScript files [#20](https://github.com/Namchee/eslint-config-namchee/pull/20) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.20 (Sun Oct 22 2023)
 
 #### 🐛 Bug Fix
