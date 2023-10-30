@@ -1,12 +1,25 @@
 /* eslint-disable no-undef */
 
+const fs = require('node:fs');
+const path = require('node:path');
+
 const parser = require('@typescript-eslint/parser');
 
 const ts = require('@typescript-eslint/eslint-plugin');
 const node = require('eslint-plugin-n');
 const canonical = require('eslint-plugin-canonical');
+
 const { TS_FILES, GLOB_IGNORES } = require('./const/globs');
 const { langOptions, plugins, rules } = require('./base');
+
+const configPath = path.resolve(process.cwd(), 'tsconfig.json');
+const isConfigDefined = fs.existsSync(configPath);
+const recommendedRules = isConfigDefined
+  ? ts.configs['recommended-type-checked'].rules
+  : ts.configs.recommended.rules;
+const unusedExports = isConfigDefined
+  ? ['error', { tsConfigPath: configPath }]
+  : 'off';
 
 module.exports = {
   files: [TS_FILES],
@@ -17,8 +30,7 @@ module.exports = {
     parserOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      project: true,
-      tsconfigRootDir: process.cwd(),
+      project: isConfigDefined,
     },
   },
   plugins: {
@@ -29,7 +41,7 @@ module.exports = {
   },
   rules: {
     ...ts.configs['eslint-recommended'].rules,
-    ...ts.configs.recommended.rules,
+    ...recommendedRules,
     ...rules,
     '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
@@ -43,7 +55,7 @@ module.exports = {
 
     // canonical plugin, because this only works in TypeScript
     'canonical/no-barrel-import': 'error',
-    'canonical/no-unused-exports': 'error',
+    'canonical/no-unused-exports': unusedExports,
     'canonical/no-use-extend-native': 'error',
 
     // node rules
