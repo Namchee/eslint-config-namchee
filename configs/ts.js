@@ -12,8 +12,14 @@ const canonical = require('eslint-plugin-canonical');
 const { TS_FILES, GLOB_IGNORES } = require('./const/globs');
 const { langOptions, plugins, rules } = require('./base');
 
-const isConfigDefined = fs.existsSync(path.resolve(process.cwd(), 'tsconfig.json'));
-const recommendedRules = isConfigDefined ? ts.configs['recommended-type-checked'].rules : ts.configs.recommended.rules;
+const configPath = path.resolve(process.cwd(), 'tsconfig.json');
+const isConfigDefined = fs.existsSync(configPath);
+const recommendedRules = isConfigDefined
+  ? ts.configs['recommended-type-checked'].rules
+  : ts.configs.recommended.rules;
+const unusedExports = isConfigDefined
+  ? ['error', { tsConfigPath: configPath }]
+  : 'off';
 
 module.exports = {
   files: [TS_FILES],
@@ -49,6 +55,7 @@ module.exports = {
 
     // canonical plugin, because this only works in TypeScript
     'canonical/no-barrel-import': 'error',
+    'canonical/no-unused-exports': unusedExports,
     'canonical/no-use-extend-native': 'error',
 
     // node rules
