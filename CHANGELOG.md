@@ -1,3 +1,15 @@
+# v2.0.4 (Tue Dec 05 2023)
+
+#### 🐛 Bug Fix
+
+- fix(package): include configs folder [#21](https://github.com/Namchee/eslint-config-namchee/pull/21) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v2.0.3 (Mon Oct 30 2023)
 
 #### 🐛 Bug Fix
