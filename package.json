@@ -4,7 +4,8 @@
   "description": "My personal ESLint configuration. Fits for most JS / TS projects.",
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "configs"
   ],
   "scripts": {
     "lint:debug": "eslint configs/. --debug",
