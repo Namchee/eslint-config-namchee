@@ -183,7 +183,6 @@ module.exports = {
     'import/no-cycle': 'error',
     'import/no-duplicates': 'error',
     'import/no-extraneous-dependencies': 'error',
-    'import/no-unresolved': 'error',
 
     // unicorn plugin
     'unicorn/better-regex': 'error',
