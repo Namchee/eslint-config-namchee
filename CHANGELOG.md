@@ -1,3 +1,15 @@
+# v2.0.5 (Tue Dec 05 2023)
+
+#### 🐛 Bug Fix
+
+- fix(rules): temporarily disable import/no-unresolved [#22](https://github.com/Namchee/eslint-config-namchee/pull/22) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v2.0.4 (Tue Dec 05 2023)
 
 #### 🐛 Bug Fix
