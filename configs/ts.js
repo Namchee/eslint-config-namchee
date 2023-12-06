@@ -10,7 +10,7 @@ const node = require('eslint-plugin-n');
 const canonical = require('eslint-plugin-canonical');
 
 const { TS_FILES, GLOB_IGNORES } = require('./const/globs');
-const { langOptions, plugins, rules } = require('./base');
+const { languageOptions, plugins, rules } = require('./base');
 
 const configPath = path.resolve(process.cwd(), 'tsconfig.json');
 const isConfigDefined = fs.existsSync(configPath);
@@ -26,7 +26,7 @@ module.exports = {
   files: [TS_FILES],
   ignores: GLOB_IGNORES,
   languageOptions: {
-    ...langOptions,
+    ...languageOptions,
     parser: parser,
     parserOptions: {
       ecmaVersion: 'latest',
