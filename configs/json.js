@@ -3,6 +3,7 @@ const parser = require('jsonc-eslint-parser');
 
 const { JSON_FILES } = require('./const/globs');
 
+/** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
   files: [JSON_FILES],
   ignores: ['**/package.json', '**/package-lock.json'],

@@ -3,8 +3,9 @@ const unicorn = require('eslint-plugin-unicorn');
 const stylistic = require('@stylistic/eslint-plugin');
 const node = require('eslint-plugin-n');
 
+/** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
-  langOptions: {
+  languageOptions: {
     ecmaVersion: 'latest',
     globals: {
       Bun: 'readonly',
