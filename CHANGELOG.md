@@ -1,3 +1,15 @@
+# v2.0.6 (Wed Dec 06 2023)
+
+#### 🐛 Bug Fix
+
+- chore: add type-hinting when defining rules [#23](https://github.com/Namchee/eslint-config-namchee/pull/23) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v2.0.5 (Tue Dec 05 2023)
 
 #### 🐛 Bug Fix
