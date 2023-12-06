@@ -21,6 +21,7 @@ const unusedExports = isConfigDefined
   ? ['error', { tsConfigPath: configPath }]
   : 'off';
 
+/** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
   files: [TS_FILES],
   ignores: GLOB_IGNORES,
