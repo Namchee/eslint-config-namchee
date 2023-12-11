@@ -1,3 +1,5 @@
+const globals = require('globals');
+
 const importPlugin = require('eslint-plugin-import');
 const unicorn = require('eslint-plugin-unicorn');
 const stylistic = require('@stylistic/eslint-plugin');
@@ -8,6 +10,7 @@ module.exports = {
   languageOptions: {
     ecmaVersion: 'latest',
     globals: {
+      ...globals.browser,
       Bun: 'readonly',
       module: 'readonly',
       require: 'readonly',

@@ -44,6 +44,7 @@ module.exports = {
     ...ts.configs['eslint-recommended'].rules,
     ...recommendedRules,
     ...rules,
+    'no-unused-vars': 'off',
     '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
     '@typescript-eslint/no-dupe-class-members': 'error',
