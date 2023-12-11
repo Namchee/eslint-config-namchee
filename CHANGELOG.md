@@ -1,3 +1,15 @@
+# v2.0.7 (Mon Dec 11 2023)
+
+#### 🐛 Bug Fix
+
+- fix(base): enable browser env [#24](https://github.com/Namchee/eslint-config-namchee/pull/24) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v2.0.6 (Wed Dec 06 2023)
 
 #### 🐛 Bug Fix
