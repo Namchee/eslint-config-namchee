@@ -17,9 +17,6 @@ const isConfigDefined = fs.existsSync(configPath);
 const recommendedRules = isConfigDefined
   ? ts.configs['recommended-type-checked'].rules
   : ts.configs.recommended.rules;
-const unusedExports = isConfigDefined
-  ? ['error', { tsConfigPath: configPath }]
-  : 'off';
 
 /** @type {import('eslint').Linter.FlatConfig} */
 module.exports = {
@@ -57,7 +54,6 @@ module.exports = {
 
     // canonical plugin, because this only works in TypeScript
     'canonical/no-barrel-import': 'error',
-    'canonical/no-unused-exports': unusedExports,
     'canonical/no-use-extend-native': 'error',
 
     // node rules
