@@ -1,3 +1,15 @@
+# v2.0.8 (Tue Dec 12 2023)
+
+#### 🐛 Bug Fix
+
+- fix(canonical): disable no-unused-export [#25](https://github.com/Namchee/eslint-config-namchee/pull/25) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v2.0.7 (Mon Dec 11 2023)
 
 #### 🐛 Bug Fix
