@@ -1,3 +1,15 @@
+# v2.0.9 (Mon Jan 01 2024)
+
+#### 🐛 Bug Fix
+
+- feat: add node globals to base script [#26](https://github.com/Namchee/eslint-config-namchee/pull/26) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v2.0.8 (Tue Dec 12 2023)
 
 #### 🐛 Bug Fix
