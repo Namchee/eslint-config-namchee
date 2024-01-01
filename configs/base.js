@@ -11,9 +11,7 @@ module.exports = {
     ecmaVersion: 'latest',
     globals: {
       ...globals.browser,
-      Bun: 'readonly',
-      module: 'readonly',
-      require: 'readonly',
+      ...globals.node,
     },
   },
   plugins: {
