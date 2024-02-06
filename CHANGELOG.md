@@ -1,3 +1,15 @@
+# v2.0.10 (Tue Feb 06 2024)
+
+#### 🐛 Bug Fix
+
+- feat: enable method-signature-style rule [#27](https://github.com/Namchee/eslint-config-namchee/pull/27) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v2.0.9 (Mon Jan 01 2024)
 
 #### 🐛 Bug Fix
