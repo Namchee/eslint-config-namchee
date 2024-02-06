@@ -52,6 +52,12 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/prefer-ts-expect-error': 'error',
 
+    // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
+    '@typescript-eslint/method-signature-style': [
+      'error',
+      'property',
+    ],
+
     // canonical plugin, because this only works in TypeScript
     'canonical/no-barrel-import': 'error',
     'canonical/no-use-extend-native': 'error',
