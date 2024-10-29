@@ -3,6 +3,7 @@
   "version": "2.0.10",
   "description": "My personal ESLint configuration. Fits for most JS / TS projects.",
   "main": "index.js",
+  "type": "module",
   "files": [
     "index.js",
     "configs"
@@ -23,33 +24,33 @@
     "access": "public"
   },
   "peerDependencies": {
-    "eslint": "~8"
+    "eslint": "~9"
   },
   "devDependencies": {
-    "@types/eslint": "^8.44.3",
-    "@types/node": "^17.0.35",
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^20.14.8",
     "auto": "^10.46.0",
-    "eslint": "^8.50.0",
-    "typescript": "^4.6.4"
+    "eslint": "^9.13.0",
+    "typescript": "^5.6.3"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "dependencies": {
-    "@eslint/js": "^8.50.0",
-    "@stylistic/eslint-plugin": "^0.0.6",
-    "@stylistic/eslint-plugin-migrate": "^0.0.11",
-    "@typescript-eslint/eslint-plugin": "^6.7.3",
-    "@typescript-eslint/parser": "^6.7.3",
-    "eslint-plugin-canonical": "^4.15.1",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-jsonc": "^2.10.0",
-    "eslint-plugin-markdown": "^3.0.1",
-    "eslint-plugin-n": "^16.2.0",
-    "eslint-plugin-unicorn": "^48.0.1",
-    "eslint-plugin-yaml": "^0.5.0",
-    "globals": "^13.24.0",
-    "jsonc-eslint-parser": "^2.3.0",
-    "yaml-eslint-parser": "^1.2.2"
+    "@eslint/js": "^9.13.0",
+    "@stylistic/eslint-plugin": "^2.9.0",
+    "@stylistic/eslint-plugin-migrate": "^2.9.0",
+    "@typescript-eslint/eslint-plugin": "^8.12.0",
+    "@typescript-eslint/parser": "^8.12.1",
+    "eslint-plugin-canonical": "^5.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsonc": "^2.16.0",
+    "eslint-plugin-markdown": "^5.1.0",
+    "eslint-plugin-n": "^17.11.1",
+    "eslint-plugin-unicorn": "^56.0.0",
+    "eslint-plugin-yaml": "^1.0.3",
+    "globals": "^15.1.0",
+    "jsonc-eslint-parser": "^2.4.0",
+    "yaml-eslint-parser": "^1.2.3"
   }
 }

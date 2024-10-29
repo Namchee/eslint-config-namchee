@@ -1,7 +1,6 @@
-const js = require('./configs/js');
-const ts = require('./configs/ts');
-const yaml = require('./configs/yaml');
-const json = require('./configs/json');
+import js from './configs/js.js';
+import ts from './configs/ts.js';
+import yaml from './configs/yaml.js';
+import json from './configs/json.js';
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
-module.exports = [js, ts, yaml, json];
+export default [js, ts, yaml, json];

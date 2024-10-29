@@ -1,9 +1,8 @@
-const markdown = require('eslint-plugin-markdown');
+import markdown from 'eslint-plugin-markdown';
 
-const { MARKDOWN_FILES } = require('./const/globs');
+import { MARKDOWN_FILES } from './const/globs.js';
 
-/** @type {import('eslint').Linter.FlatConfig} */
-module.exports = {
+export default {
   files: [MARKDOWN_FILES],
   plugins: {
     markdown,

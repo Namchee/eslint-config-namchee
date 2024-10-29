@@ -1,10 +1,9 @@
-const yml = require('eslint-plugin-yaml');
-const parser = require('yaml-eslint-parser');
+import yml from 'eslint-plugin-yaml';
+import parser from 'yaml-eslint-parser';
 
-const { YAML_FILES } = require('./const/globs');
+import { YAML_FILES } from './const/globs.js';
 
-/** @type {import('eslint').Linter.FlatConfig} */
-module.exports = {
+export default {
   files: [YAML_FILES],
   ignores: ['**/pnpm-lock.yaml'],
   plugins: {

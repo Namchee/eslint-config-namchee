@@ -1,12 +1,11 @@
-const { languageOptions, plugins, rules } = require('./base');
+import base from './base.js';
 
-const { GLOB_IGNORES, JS_FILES } = require('./const/globs');
+import { GLOB_IGNORES, JS_FILES } from './const/globs.js';
 
-/** @type {import('eslint').Linter.FlatConfig} */
-module.exports = {
-  languageOptions,
+export default {
+  languageOptions: base.languageOptions,
   files: [JS_FILES],
   ignores: GLOB_IGNORES,
-  plugins: plugins,
-  rules: rules,
+  plugins: base.plugins,
+  rules: base.rules,
 };

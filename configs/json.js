@@ -1,10 +1,9 @@
-const json = require('eslint-plugin-jsonc');
-const parser = require('jsonc-eslint-parser');
+import json from 'eslint-plugin-jsonc';
+import parser from 'jsonc-eslint-parser';
 
-const { JSON_FILES } = require('./const/globs');
+import { JSON_FILES } from './const/globs.js';
 
-/** @type {import('eslint').Linter.FlatConfig} */
-module.exports = {
+export default {
   files: [JSON_FILES],
   ignores: ['**/package.json', '**/package-lock.json'],
   plugins: {

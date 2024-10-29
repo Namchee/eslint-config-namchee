@@ -20,7 +20,7 @@ const GLOB_IGNORES = [
   '**/index.d.ts',
 ];
 
-module.exports = {
+export {
   JS_FILES,
   TS_FILES,
   JSON_FILES,

@@ -1,12 +1,10 @@
-const globals = require('globals');
+import globals from 'globals';
+import importPlugin from 'eslint-plugin-import';
+import unicorn from 'eslint-plugin-unicorn';
+import stylistic from '@stylistic/eslint-plugin';
+import node from 'eslint-plugin-n';
 
-const importPlugin = require('eslint-plugin-import');
-const unicorn = require('eslint-plugin-unicorn');
-const stylistic = require('@stylistic/eslint-plugin');
-const node = require('eslint-plugin-n');
-
-/** @type {import('eslint').Linter.FlatConfig} */
-module.exports = {
+export default {
   languageOptions: {
     ecmaVersion: 'latest',
     globals: {
@@ -105,6 +103,7 @@ module.exports = {
     'no-unsafe-negation': 'error',
     'no-unused-vars': 'error',
     'no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
+    'no-useless-assignment': 'error',
     'no-useless-call': 'error',
     'no-useless-catch': 'error',
     'no-var': 'error',
