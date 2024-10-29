@@ -20,8 +20,6 @@ pnpm add @namchee/eslint-config -D
 bun add @namchee/eslint-config -D
 ```
 
-> Since the introduction of [ESLint flat config][flat config], this config uses flat config for the latest package `@namchee/eslint-config`. For legacy config, please install `eslint-config-namchee` instead.
-
 ## Usage
 
 To use the ESLint configuration, you can extend your configuration by importing the config directly:
@@ -39,12 +37,6 @@ const config = require('@namchee/eslint-config');
 
 module.exports = [...config];
 ```
-
-> For legacy config, you can extend the config by specifying it using the `extends` keyword:
-> ```js
-> module.exports = {
->   extends: ['eslint-config-namchee'], // or 'namchee' for short 
-> }
 
 ## VSCode Settings
 
@@ -93,5 +85,3 @@ If you're using VSCode, use the following settings for maximum DX with this conf
 ## License
 
 This project is licensed under the [MIT License](./LICENSE)
-
-[flat config]: https://eslint.org/blog/2022/08/new-config-system-part-1/
