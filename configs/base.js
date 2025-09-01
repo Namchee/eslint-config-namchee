@@ -83,7 +83,7 @@ module.exports = {
     'no-regex-spaces': 'error',
     'no-tabs': 'error',
     'no-trailing-spaces': 'error',
-    'no-restricted-properties': [ // taken from
+    'no-restricted-properties': [
       'error',
       { message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.', property: '__proto__' },
       { message: 'Use `Object.defineProperty` instead.', property: '__defineGetter__' },

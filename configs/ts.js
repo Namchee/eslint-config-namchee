@@ -18,7 +18,7 @@ const recommendedRules = isConfigDefined
   ? ts.configs['recommended-type-checked'].rules
   : ts.configs.recommended.rules;
 
-/** @type {import('eslint').Linter.FlatConfig} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   files: [TS_FILES],
   ignores: GLOB_IGNORES,
@@ -29,6 +29,7 @@ module.exports = {
       ecmaVersion: 'latest',
       sourceType: 'module',
       project: isConfigDefined,
+      
     },
   },
   plugins: {
