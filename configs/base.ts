@@ -1,12 +1,12 @@
-const globals = require('globals');
+import globals from 'globals';
 
-const importPlugin = require('eslint-plugin-import');
-const unicorn = require('eslint-plugin-unicorn');
-const stylistic = require('@stylistic/eslint-plugin');
-const node = require('eslint-plugin-n');
+import importPlugin from 'eslint-plugin-import';
+import unicorn from 'eslint-plugin-unicorn';
+import stylistic from '@stylistic/eslint-plugin';
+import perfectionist from 'eslint-plugin-perfectionist';
+import node from 'eslint-plugin-n';
 
-/** @type {import('eslint').Linter.FlatConfig} */
-module.exports = {
+export const BASE_RULES =  {
   languageOptions: {
     ecmaVersion: 'latest',
     globals: {
@@ -19,6 +19,7 @@ module.exports = {
     style: stylistic,
     unicorn: unicorn,
     node: node,
+    perfect: perfectionist,
   },
   rules: {
     'accessor-pairs': ['error', { enforceForClassMembers: true, setWithoutGet: true }],

@@ -1,11 +1,11 @@
-import { languageOptions, plugins, rules } from './base';
+import { BASE_RULES } from './base';
 
 import { GLOB_IGNORES, JS_FILES } from './const/globs';
 
 export const JS_CONFIG = {
-  languageOptions,
+  languageOptions: BASE_RULES.languageOptions,
   files: [JS_FILES],
   ignores: GLOB_IGNORES,
-  plugins: plugins,
-  rules: rules,
+  plugins: BASE_RULES.plugins,
+  rules: BASE_RULES.rules,
 };
