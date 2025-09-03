@@ -2,8 +2,9 @@ import yml from 'eslint-plugin-yaml';
 import parser from 'yaml-eslint-parser';
 
 import { YAML_FILES } from './const/globs';
+import { Linter } from 'eslint';
 
-module.exports = {
+export default {
   files: [YAML_FILES],
   ignores: ['**/pnpm-lock.yaml'],
   plugins: {
@@ -15,4 +16,4 @@ module.exports = {
   rules: {
     ...yml.configs.recommended,
   },
-};
+} satisfies Linter.Config;

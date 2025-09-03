@@ -2,8 +2,9 @@ import json from 'eslint-plugin-jsonc';
 import parser from 'jsonc-eslint-parser';
 
 import { JSON_FILES } from './const/globs';
+import { Linter } from 'eslint';
 
-export const JSON_CONFIG = {
+export default {
   files: [JSON_FILES],
   ignores: ['**/package.json', '**/package-lock.json'],
   plugins: {
@@ -13,6 +14,6 @@ export const JSON_CONFIG = {
     parser,
   },
   rules: {
-    ...json.configs['recommended-with-json'].rules,
+    ...json.configs['flat/recommended-with-json'],
   },
-};
+} satisfies Linter.Config;

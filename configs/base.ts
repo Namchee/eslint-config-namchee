@@ -119,70 +119,10 @@ export const BASE_RULES =  {
     'prefer-template': 'error',
     'yoda': ['error', 'never'],
 
-    // stylistic plugin
-    'style/array-bracket-spacing': 'error',
-    'style/arrow-spacing': 'error',
-    'style/block-spacing': 'error',
-    'style/comma-dangle': ['error', 'always-multiline'],
-    'style/comma-spacing': 'error',
-    'style/comma-style': 'error',
-    'style/computed-property-spacing': 'error',
-    'style/dot-location': 'error',
-    'style/eol-last': 'error',
-    'style/func-call-spacing': 'error',
-    'style/function-paren-newline': 'error',
-    'style/indent': [
-      'error',
-      2,
-      {
-        SwitchCase: 1,
-      },
-    ],
-    'style/key-spacing': 'error',
-    'style/keyword-spacing': 'error',
-    'style/linebreak-style': 'error',
-    'style/lines-between-class-members': 'error',
-    'style/max-len': [
-      'error',
-      {
-        code: 80,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-        ignoreUrls: true,
-        tabWidth: 2,
-      },
-    ],
-    'style/max-statements-per-line': ['error', { max: 1 }],
-    'style/multiline-ternary': ['error', 'always-multiline'],
-    'style/new-parens': 'error',
-    'style/no-confusing-arrow': 'error',
-    'style/no-floating-decimal': 'error',
-    'style/no-extra-semi': 'error',
-    'style/no-mixed-operators': 'error',
-    'style/no-mixed-spaces-and-tabs': 'error',
-    'style/no-multi-spaces': 'error',
-    'style/no-tabs': 'error',
-    'style/no-trailing-spaces': 'error',
-    'style/no-whitespace-before-property': 'error',
-    'style/object-curly-spacing': ['error', 'always'],
-    'style/operator-linebreak': ['error', 'before'],
-    'style/quote-props': ['error', 'consistent-as-needed'],
-    'style/quotes': ['error', 'single', { allowTemplateLiterals: true }],
-    'style/semi': ['error', 'always'],
-    'style/space-before-blocks': ['error', 'always'],
-    'style/spaced-comment': [
-      'error',
-      'always',
-      {
-        markers: ['/'],
-      },
-    ],
-    'style/template-curly-spacing': 'error',
-
     // import plugin
     'import/export': 'error',
     'import/first': 'error',
-    'import/order': 'error', // based
+    'import/order': 'error',
     'import/no-cycle': 'error',
     'import/no-duplicates': 'error',
     'import/no-extraneous-dependencies': 'error',
@@ -228,10 +168,5 @@ export const BASE_RULES =  {
     'unicorn/prefer-type-error': 'error',
     'unicorn/template-indent': 'error',
     'unicorn/throw-new-error': 'error',
-
-    // node plugins
-    'node/no-deprecated-api': 'error',
-    'node/no-path-concat': 'error',
-    'node/process-exit-as-throw': 'error',
   },
 };
