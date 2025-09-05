@@ -14,6 +14,6 @@ export default {
     parser,
   },
   rules: {
-    ...yml.configs.recommended,
+    ...yml.configs.recommended.rules,
   },
 } satisfies Linter.Config;

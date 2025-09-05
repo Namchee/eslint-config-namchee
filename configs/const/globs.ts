@@ -4,9 +4,10 @@ export const TS_FILES = '**/*.?([cm])ts?(x)';
 export const JSON_FILES = '**/*.json?([c5])';
 export const YAML_FILES = '**/*.y?(a)ml';
 export const MARKDOWN_FILES = '**/*.([Mm])d';
+export const ASTRO_FILES = '**/*.astro';
 
+// generated files, node_modules
 export const GLOB_IGNORES = [
-  '**/*.?(spec|test|bench|bencmark).?([cm])[jt]s?(x)',
   '**/dist',
   '**/out',
   '**/output',
@@ -16,6 +17,9 @@ export const GLOB_IGNORES = [
   '**/.next',
   '**/.vercel',
   '**/.cache',
+  '**/.astro',
+  '**/.vscode',
   '**/*.min.*',
   '**/index.d.ts',
+  'node_modules',
 ];

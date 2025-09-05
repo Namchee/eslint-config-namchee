@@ -6,14 +6,14 @@ import { Linter } from 'eslint';
 
 export default {
   files: [JSON_FILES],
-  ignores: ['**/package.json', '**/package-lock.json'],
+  ignores: ['**/package.json', '**/package-lock.json', '.astro'],
   plugins: {
-    jsonc: json,
+    jsonc: json as any,
   },
   languageOptions: {
     parser,
   },
   rules: {
-    ...json.configs['flat/recommended-with-json'],
+    ...json.configs['recommended-with-json'].rules as any,
   },
 } satisfies Linter.Config;

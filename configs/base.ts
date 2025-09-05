@@ -11,7 +11,6 @@ export const BASE_RULES =  {
     ecmaVersion: 'latest',
     globals: {
       ...globals.browser,
-      ...globals.node,
     },
   },
   plugins: {

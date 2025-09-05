@@ -1,16 +1,17 @@
 /* eslint-disable no-undef */
 
-const fs = require('node:fs');
-const path = require('node:path');
+import fs from 'node:fs';
+import path from 'node:path';
 
-const parser = require('@typescript-eslint/parser');
+import parser from '@typescript-eslint/parser';
 
-const ts = require('@typescript-eslint/eslint-plugin');
-const node = require('eslint-plugin-n');
-const canonical = require('eslint-plugin-canonical');
+import ts from '@typescript-eslint/eslint-plugin';
+import node from 'eslint-plugin-n';
+import canonical from 'eslint-plugin-canonical';
 
-const { TS_FILES, GLOB_IGNORES } = require('./const/globs');
-const { languageOptions, plugins, rules } = require('./base');
+import { TS_FILES } from './const/globs';
+import { languageOptions, plugins, rules } from './base';
+import { Linter } from 'eslint';
 
 const configPath = path.resolve(process.cwd(), 'tsconfig.json');
 const isConfigDefined = fs.existsSync(configPath);
@@ -18,17 +19,17 @@ const recommendedRules = isConfigDefined
   ? ts.configs['recommended-type-checked'].rules
   : ts.configs.recommended.rules;
 
-/** @type {import('eslint').Linter.Config} */
-module.exports = {
+export default tsesli
+
+export default {
   files: [TS_FILES],
-  ignores: GLOB_IGNORES,
   languageOptions: {
     ...languageOptions,
     parser: parser,
     parserOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      project: isConfigDefined,
+      projectService: true,
       
     },
   },
@@ -67,4 +68,4 @@ module.exports = {
     'node/no-unsupported-features/es-builtins': 'off',
     'node/no-unsupported-features/es-syntax': 'off',
   },
-};
+} satisfies Linter.Config;

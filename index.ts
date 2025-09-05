@@ -8,6 +8,7 @@ import json from './configs/json';
 import yaml from './configs/yaml';
 import stylistic from './configs/stylistic';
 import node from './configs/node';
+import { GLOB_IGNORES } from './configs/const/globs';
 
 const CONFIG_MAP: Record<string, Linter.Config> = {
   json,
@@ -45,6 +46,11 @@ export function createESLintConfig(config: Partial<Options>) {
     }
   }
 
-  return defineConfig(eslintConfig);
+  return defineConfig([
+    {
+      ignores: GLOB_IGNORES,
+    },
+    ...eslintConfig,
+  ]);
 }
 
