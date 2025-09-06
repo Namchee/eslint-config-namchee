@@ -1,8 +1,9 @@
+import type { Linter } from 'eslint';
+
 import yml from 'eslint-plugin-yaml';
 import parser from 'yaml-eslint-parser';
 
 import { YAML_FILES } from './const/globs';
-import { Linter } from 'eslint';
 
 export default {
   name: 'namchee/eslint/yaml',

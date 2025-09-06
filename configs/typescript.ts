@@ -1,16 +1,15 @@
+import type { Linter } from 'eslint';
+
+import ts from '@typescript-eslint/eslint-plugin';
+import parser from '@typescript-eslint/parser';
+import canonical from 'eslint-plugin-canonical';
+import importPlugin from 'eslint-plugin-import-lite';
+import node from 'eslint-plugin-n';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import parser from '@typescript-eslint/parser';
-import importPlugin from 'eslint-plugin-import-lite';
-
-import ts from '@typescript-eslint/eslint-plugin';
-import node from 'eslint-plugin-n';
-import canonical from 'eslint-plugin-canonical';
-
-import { TS_FILES } from './const/globs';
 import { BASE_CONFIG } from './base';
-import { Linter } from 'eslint';
+import { TS_FILES } from './const/globs';
 
 const { plugins, rules, languageOptions } = BASE_CONFIG;
 
@@ -54,15 +53,15 @@ export default {
     'typescript/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
     'typescript/no-var-requires': 'off',
     'typescript/prefer-ts-expect-error': 'error',
-    '@typescript-eslint/prefer-literal-enum-member': [
+    'typescript/prefer-literal-enum-member': [
       'error',
       { allowBitwiseExpressions: true },
     ],
-    '@typescript-eslint/consistent-type-imports': [
+    'typescript/consistent-type-imports': [
       'error',
       { disallowTypeAnnotations: false, fixStyle: 'inline-type-imports' },
     ],
-    '@typescript-eslint/consistent-type-assertions': [
+    'typescript/consistent-type-assertions': [
       'error',
       {
         assertionStyle: 'as',

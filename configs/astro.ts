@@ -1,8 +1,7 @@
 import type { Linter } from 'eslint';
 
-import parser from 'astro-eslint-parser';
 import tsParser from '@typescript-eslint/parser';
-
+import parser from 'astro-eslint-parser';
 import astro from 'eslint-plugin-astro';
 
 import { ASTRO_FILES } from './const/globs';
@@ -12,9 +11,9 @@ export default {
   files: [ASTRO_FILES],
   languageOptions: {
     globals: astro.environments.astro.globals,
-    parser,
+    parser: parser,
     parserOptions: {
-      extraFileExtensions: ['.astro'], 
+      extraFileExtensions: ['.astro'],
       parser: tsParser,
     },
   },

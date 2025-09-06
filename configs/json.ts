@@ -1,8 +1,9 @@
+import type { Linter } from 'eslint';
+
 import json from 'eslint-plugin-jsonc';
 import parser from 'jsonc-eslint-parser';
 
 import { JSON_FILES } from './const/globs';
-import { Linter } from 'eslint';
 
 export default {
   name: 'namchee/eslint/json',

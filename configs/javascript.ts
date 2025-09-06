@@ -1,6 +1,6 @@
-import { Linter } from 'eslint';
-import { BASE_CONFIG } from './base';
+import type { Linter } from 'eslint';
 
+import { BASE_CONFIG } from './base';
 import { JS_FILES } from './const/globs';
 
 export default {

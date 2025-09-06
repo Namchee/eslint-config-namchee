@@ -1,10 +1,9 @@
-import globals from 'globals';
-
-import { Linter } from 'eslint';
+import type { Linter } from 'eslint';
 
 import importPlugin from 'eslint-plugin-import-lite';
-import unicorn from 'eslint-plugin-unicorn';
 import perfectionist from 'eslint-plugin-perfectionist';
+import unicorn from 'eslint-plugin-unicorn';
+import globals from 'globals';
 
 export const BASE_CONFIG = {
   languageOptions: {
@@ -130,7 +129,6 @@ export const BASE_CONFIG = {
     // import plugin
     'import/first': 'error',
     'import/no-duplicates': 'error',
-    'import/no-extraneous-dependencies': 'error',
     'import/no-mutable-exports': 'error',
     'import/no-named-default': 'error',
 

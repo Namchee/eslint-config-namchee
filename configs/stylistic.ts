@@ -1,14 +1,13 @@
+import type { Linter } from 'eslint';
+
 import style from '@stylistic/eslint-plugin';
-
 import importPlugin from 'eslint-plugin-import-lite';
-
-import { Linter } from 'eslint';
 
 export default {
   name: 'namchee/eslint/stylistic',
   files: ['*.js', '*.jsx', '*.ts', '*.tsx', '*.vue', '*.astro'],
   plugins: {
-    style,
+    style: style,
     import: importPlugin,
   },
   rules: {
@@ -22,7 +21,7 @@ export default {
     'style/computed-property-spacing': 'error',
     'style/dot-location': 'error',
     'style/eol-last': 'error',
-    'style/func-call-spacing': 'error',
+    'style/function-call-spacing': 'error',
     'style/function-paren-newline': 'error',
     'style/indent': [
       'error',

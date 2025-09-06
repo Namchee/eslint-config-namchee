@@ -1,7 +1,7 @@
-import { Linter } from "eslint";
-import globals from 'globals';
+import type { Linter } from "eslint";
 
 import vue from 'eslint-plugin-vue';
+import globals from 'globals';
 
 export default {
   name: 'namchee/eslint/vue',
@@ -14,6 +14,13 @@ export default {
       document: 'readonly',
       navigator: 'readonly',
       window: 'readonly',
+      $: 'readonly',
+      $$: 'readonly',
+      $computed: 'readonly',
+      $customRef: 'readonly',
+      $ref: 'readonly',
+      $shallowRef: 'readonly',
+      $toRef: 'readonly',
     },
   },
   plugins: {
@@ -29,7 +36,11 @@ export default {
     'vue/component-tags-order': 'off',
     'vue/custom-event-name-casing': ['error', 'camelCase'],
 
+    'vue/eqeqeq': ['error', 'smart'],
+    'vue/no-useless-v-bind': 'error',
+
     // stylistic rules
+    'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
     'vue/array-bracket-spacing': ['error', 'never'],
     'vue/arrow-spacing': ['error', { after: true, before: true }],
     'vue/block-spacing': ['error', 'always'],

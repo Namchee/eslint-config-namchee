@@ -1,6 +1,6 @@
-import node from 'eslint-plugin-n';
-
 import type { Linter } from 'eslint';
+
+import node from 'eslint-plugin-n';
 import globals from 'globals';
 
 export default {
