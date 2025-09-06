@@ -2,19 +2,26 @@ import { defineConfig } from 'eslint/config';
 
 import { Linter } from 'eslint';
 
-import js from './configs/js';
-import ts from './configs/ts';
+import { GLOB_IGNORES } from './configs/const/globs';
+
+import js from './configs/javascript';
+import ts from './configs/typescript';
 import json from './configs/json';
 import yaml from './configs/yaml';
 import stylistic from './configs/stylistic';
 import node from './configs/node';
-import { GLOB_IGNORES } from './configs/const/globs';
+import markdown from './configs/markdown';
+import astro from './configs/astro';
+import vue from './configs/vue';
 
 const CONFIG_MAP: Record<string, Linter.Config> = {
   json,
   yaml,
   stylistic,
   node,
+  markdown,
+  astro,
+  vue,
 }
 
 interface Options {
@@ -28,7 +35,7 @@ interface Options {
 }
 
 export function createESLintConfig(config: Partial<Options>) {
-  const eslintConfig = [js, ts];
+  const eslintConfig: Linter.Config[] = [js, ts];
   const userConfig = {
     json: false,
     yaml: false,

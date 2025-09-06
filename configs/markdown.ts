@@ -4,6 +4,7 @@ import { MARKDOWN_FILES } from './const/globs';
 import type { Linter } from 'eslint';
 
 export default {
+  name: 'namchee/eslint/markdown',
   files: [MARKDOWN_FILES],
   plugins: {
     markdown,

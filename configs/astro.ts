@@ -4,13 +4,11 @@ import parser from 'astro-eslint-parser';
 import tsParser from '@typescript-eslint/parser';
 
 import astro from 'eslint-plugin-astro';
-import { BASE_RULES } from './base';
 
 import { ASTRO_FILES } from './const/globs';
 
-const { plugins, rules } = BASE_RULES;
-
 export default {
+  name: 'namchee/eslint/astro',
   files: [ASTRO_FILES],
   languageOptions: {
     globals: astro.environments.astro.globals,
@@ -20,10 +18,7 @@ export default {
       parser: tsParser,
     },
   },
-  plugins,
   rules: {
-    ...rules,
-    
     // recommended rules, since Astro plugin doesn't expose them
     "astro/missing-client-only-directive-value": "error",
     "astro/no-conflict-set-directives": "error",

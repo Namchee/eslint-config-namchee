@@ -5,6 +5,7 @@ export const JSON_FILES = '**/*.json?([c5])';
 export const YAML_FILES = '**/*.y?(a)ml';
 export const MARKDOWN_FILES = '**/*.([Mm])d';
 export const ASTRO_FILES = '**/*.astro';
+export const VUE_FILES = '**/*.vue';
 
 // generated files, node_modules
 export const GLOB_IGNORES = [

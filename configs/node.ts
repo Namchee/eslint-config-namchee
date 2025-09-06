@@ -4,6 +4,7 @@ import type { Linter } from 'eslint';
 import globals from 'globals';
 
 export default {
+  name: 'namchee/eslint/node',
   languageOptions: {
     ecmaVersion: 'latest',
     globals: {

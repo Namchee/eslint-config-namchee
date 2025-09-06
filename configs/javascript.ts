@@ -1,14 +1,15 @@
 import { Linter } from 'eslint';
-import { BASE_RULES } from './base';
+import { BASE_CONFIG } from './base';
 
 import { JS_FILES } from './const/globs';
 
 export default {
-  languageOptions: BASE_RULES.languageOptions,
+  name: 'namchee/eslint/javascript',
+  languageOptions: BASE_CONFIG.languageOptions,
   linterOptions: {
     reportUnusedDisableDirectives: 'error',
   },
   files: [JS_FILES],
-  plugins: BASE_RULES.plugins,
-  rules: BASE_RULES.rules,
+  plugins: BASE_CONFIG.plugins,
+  rules: BASE_CONFIG.rules,
 } satisfies Linter.Config;

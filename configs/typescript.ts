@@ -9,16 +9,18 @@ import node from 'eslint-plugin-n';
 import canonical from 'eslint-plugin-canonical';
 
 import { TS_FILES } from './const/globs';
-import { BASE_RULES } from './base';
+import { BASE_CONFIG } from './base';
 import { Linter } from 'eslint';
 
-const { plugins, rules, languageOptions } = BASE_RULES;
+const { plugins, rules, languageOptions } = BASE_CONFIG;
 
 const configPath = path.resolve(process.cwd(), 'tsconfig.json');
 const isConfigDefined = fs.existsSync(configPath);
 
 export default {
+  name: 'namchee/eslint/typescript',
   files: [TS_FILES],
+  ignores: ['*.d.ts'],
   languageOptions: {
     ...languageOptions,
     parser: parser,

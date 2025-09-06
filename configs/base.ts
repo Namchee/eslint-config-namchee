@@ -6,7 +6,7 @@ import importPlugin from 'eslint-plugin-import-lite';
 import unicorn from 'eslint-plugin-unicorn';
 import perfectionist from 'eslint-plugin-perfectionist';
 
-export const BASE_RULES = {
+export const BASE_CONFIG = {
   languageOptions: {
     ecmaVersion: 'latest',
     globals: {

@@ -5,6 +5,7 @@ import importPlugin from 'eslint-plugin-import-lite';
 import { Linter } from 'eslint';
 
 export default {
+  name: 'namchee/eslint/stylistic',
   files: ['*.js', '*.jsx', '*.ts', '*.tsx', '*.vue', '*.astro'],
   plugins: {
     style,

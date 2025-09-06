@@ -5,6 +5,7 @@ import { YAML_FILES } from './const/globs';
 import { Linter } from 'eslint';
 
 export default {
+  name: 'namchee/eslint/yaml',
   files: [YAML_FILES],
   ignores: ['**/pnpm-lock.yaml'],
   plugins: {
@@ -15,5 +16,6 @@ export default {
   },
   rules: {
     ...yml.configs.recommended.rules,
+    'yml/indent': ['error', 2],
   },
 } satisfies Linter.Config;
