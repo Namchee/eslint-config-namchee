@@ -28,6 +28,7 @@
   "devDependencies": {
     "@types/node": "^24.3.1",
     "auto": "^10.46.0",
+    "eslint-plugin-vue": "^10.4.0",
     "jiti": "^2.5.1",
     "tsdown": "^0.14.2",
     "typescript": "^5.9.2"

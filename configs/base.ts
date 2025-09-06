@@ -4,7 +4,6 @@ import { Linter } from 'eslint';
 
 import importPlugin from 'eslint-plugin-import-lite';
 import unicorn from 'eslint-plugin-unicorn';
-import stylistic from '@stylistic/eslint-plugin';
 import perfectionist from 'eslint-plugin-perfectionist';
 
 export const BASE_RULES = {
@@ -27,7 +26,6 @@ export const BASE_RULES = {
   },
   plugins: {
     import: importPlugin,
-    style: stylistic,
     unicorn: unicorn,
     perfect: perfectionist,
   },
