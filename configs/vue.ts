@@ -1,7 +1,9 @@
 import type { Linter } from 'eslint';
 
+import tsParser from '@typescript-eslint/parser';
 import vue from 'eslint-plugin-vue';
 import globals from 'globals';
+import vueParser from 'vue-eslint-parser';
 
 import { VUE_FILES } from './const/globs';
 
@@ -24,6 +26,11 @@ export default {
       $ref: 'readonly',
       $shallowRef: 'readonly',
       $toRef: 'readonly',
+    },
+    parser: vueParser,
+    parserOptions: {
+      extraFileExtensions: ['.vue'],
+      parser: tsParser,
     },
   },
   plugins: {

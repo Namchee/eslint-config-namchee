@@ -4,12 +4,11 @@ import ts from '@typescript-eslint/eslint-plugin';
 import parser from '@typescript-eslint/parser';
 import canonical from 'eslint-plugin-canonical';
 import importPlugin from 'eslint-plugin-import-lite';
-import node from 'eslint-plugin-n';
 import fs from 'node:fs';
 import path from 'node:path';
 
 import { BASE_CONFIG } from './base';
-import { TS_FILES } from './const/globs';
+import { ASTRO_FILES, TS_FILES, VUE_FILES } from './const/globs';
 
 const { plugins, rules, languageOptions } = BASE_CONFIG;
 
@@ -39,7 +38,6 @@ export default {
     // broken typings
     typescript: ts as any,
     canonical: canonical,
-    node: node,
     import: importPlugin,
   },
   rules: {

@@ -1,7 +1,7 @@
 import type { Linter } from 'eslint';
 
 import { BASE_CONFIG } from './base';
-import { JS_FILES } from './const/globs';
+import { ASTRO_FILES, JS_FILES, VUE_FILES } from './const/globs';
 
 export default {
   name: 'namchee/eslint/javascript',
@@ -9,7 +9,7 @@ export default {
   linterOptions: {
     reportUnusedDisableDirectives: 'error',
   },
-  files: [JS_FILES],
+  files: [JS_FILES, VUE_FILES, ASTRO_FILES],
   plugins: BASE_CONFIG.plugins,
   rules: BASE_CONFIG.rules,
 } satisfies Linter.Config;
