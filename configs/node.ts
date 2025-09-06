@@ -17,5 +17,7 @@ export default {
     'node/no-deprecated-api': 'error',
     'node/no-path-concat': 'error',
     'node/process-exit-as-throw': 'error',
+    'node/no-unsupported-features/es-builtins': 'off',
+    'node/no-unsupported-features/es-syntax': 'off',
   }
 } satisfies Linter.Config;

@@ -1,23 +1,34 @@
 import globals from 'globals';
 
-import importPlugin from 'eslint-plugin-import';
+import { Linter } from 'eslint';
+
+import importPlugin from 'eslint-plugin-import-lite';
 import unicorn from 'eslint-plugin-unicorn';
 import stylistic from '@stylistic/eslint-plugin';
 import perfectionist from 'eslint-plugin-perfectionist';
-import node from 'eslint-plugin-n';
 
-export const BASE_RULES =  {
+export const BASE_RULES = {
   languageOptions: {
     ecmaVersion: 'latest',
     globals: {
       ...globals.browser,
+      document: 'readonly',
+      navigator: 'readonly',
+      window: 'readonly',
     },
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
+    sourceType: 'module',
   },
   plugins: {
     import: importPlugin,
     style: stylistic,
     unicorn: unicorn,
-    node: node,
     perfect: perfectionist,
   },
   rules: {
@@ -119,12 +130,11 @@ export const BASE_RULES =  {
     'yoda': ['error', 'never'],
 
     // import plugin
-    'import/export': 'error',
     'import/first': 'error',
-    'import/order': 'error',
-    'import/no-cycle': 'error',
     'import/no-duplicates': 'error',
     'import/no-extraneous-dependencies': 'error',
+    'import/no-mutable-exports': 'error',
+    'import/no-named-default': 'error',
 
     // unicorn plugin
     'unicorn/better-regex': 'error',
@@ -167,5 +177,11 @@ export const BASE_RULES =  {
     'unicorn/prefer-type-error': 'error',
     'unicorn/template-indent': 'error',
     'unicorn/throw-new-error': 'error',
+
+    // perfectionist, import and key sorting
+    'perfect/sort-exports': ['error', { order: 'asc', type: 'natural' }],
+    'perfect/sort-imports': ['error', { order: 'asc', type: 'natural' }],
+    'perfect/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
+    'perfect/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
   },
-};
+} satisfies Linter.Config;

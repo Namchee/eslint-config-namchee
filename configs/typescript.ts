@@ -1,25 +1,21 @@
-/* eslint-disable no-undef */
-
 import fs from 'node:fs';
 import path from 'node:path';
 
 import parser from '@typescript-eslint/parser';
+import importPlugin from 'eslint-plugin-import-lite';
 
 import ts from '@typescript-eslint/eslint-plugin';
 import node from 'eslint-plugin-n';
 import canonical from 'eslint-plugin-canonical';
 
 import { TS_FILES } from './const/globs';
-import { languageOptions, plugins, rules } from './base';
+import { BASE_RULES } from './base';
 import { Linter } from 'eslint';
+
+const { plugins, rules, languageOptions } = BASE_RULES;
 
 const configPath = path.resolve(process.cwd(), 'tsconfig.json');
 const isConfigDefined = fs.existsSync(configPath);
-const recommendedRules = isConfigDefined
-  ? ts.configs['recommended-type-checked'].rules
-  : ts.configs.recommended.rules;
-
-export default tsesli
 
 export default {
   files: [TS_FILES],
@@ -29,33 +25,52 @@ export default {
     parserOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      projectService: true,
-      
+      ...(isConfigDefined ? { projectService: true, tsconfigRootDir: path.dirname(configPath) } : {}),
     },
+  },
+  linterOptions: {
+    reportUnusedDisableDirectives: 'error',
   },
   plugins: {
     ...plugins,
-    '@typescript-eslint': ts,
-    'canonical': canonical,
-    'node': node,
+    // broken typings
+    typescript: ts as any,
+    canonical: canonical,
+    node: node,
+    import: importPlugin,
   },
   rules: {
     ...ts.configs['eslint-recommended'].rules,
-    ...recommendedRules,
     ...rules,
     'no-unused-vars': 'off',
-    '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
-    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-    '@typescript-eslint/no-dupe-class-members': 'error',
-    '@typescript-eslint/no-import-type-side-effects': 'error',
-    '@typescript-eslint/no-loss-of-precision': 'error',
-    '@typescript-eslint/no-redeclare': 'error',
-    '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
-    '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/prefer-ts-expect-error': 'error',
+    'typescript/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
+    'typescript/consistent-type-definitions': ['error', 'interface'],
+    'typescript/no-dupe-class-members': 'error',
+    'typescript/no-import-type-side-effects': 'error',
+    'typescript/no-loss-of-precision': 'error',
+    'typescript/no-redeclare': 'error',
+    'typescript/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
+    'typescript/no-var-requires': 'off',
+    'typescript/prefer-ts-expect-error': 'error',
+    '@typescript-eslint/prefer-literal-enum-member': [
+      'error',
+      { allowBitwiseExpressions: true },
+    ],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { disallowTypeAnnotations: false, fixStyle: 'inline-type-imports' },
+    ],
+    '@typescript-eslint/consistent-type-assertions': [
+      'error',
+      {
+        assertionStyle: 'as',
+        objectLiteralTypeAssertions: 'allow-as-parameter',
+      },
+    ],
+
 
     // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
-    '@typescript-eslint/method-signature-style': [
+    'typescript/method-signature-style': [
       'error',
       'property',
     ],
@@ -64,8 +79,7 @@ export default {
     'canonical/no-barrel-import': 'error',
     'canonical/no-use-extend-native': 'error',
 
-    // node rules
-    'node/no-unsupported-features/es-builtins': 'off',
-    'node/no-unsupported-features/es-syntax': 'off',
+    // imports
+    'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
   },
 } satisfies Linter.Config;

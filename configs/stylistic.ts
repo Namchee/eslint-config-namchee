@@ -1,11 +1,14 @@
 import style from '@stylistic/eslint-plugin';
 
+import importPlugin from 'eslint-plugin-import-lite';
+
 import { Linter } from 'eslint';
 
 export default {
   files: ['*.js', '*.jsx', '*.ts', '*.tsx', '*.vue', '*.astro'],
   plugins: {
     style,
+    import: importPlugin,
   },
   rules: {
     // stylistic plugin
@@ -67,5 +70,7 @@ export default {
       },
     ],
     'style/template-curly-spacing': 'error',
+
+    'import/newline-after-import': 'error',
   }
 } satisfies Linter.Config;
