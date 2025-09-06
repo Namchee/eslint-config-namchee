@@ -1,11 +1,14 @@
-import type { Linter } from "eslint";
+import type { Linter } from 'eslint';
 
 import vue from 'eslint-plugin-vue';
 import globals from 'globals';
 
+import { VUE_FILES } from './const/globs';
+
 export default {
   name: 'namchee/eslint/vue',
-  files: ['*.vue'],
+  files: [VUE_FILES],
+  // I don't use jsx in Vue atm
   languageOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -29,7 +32,7 @@ export default {
   rules: {
     ...vue.configs.essential.rules,
     ...vue.configs.recommended.rules,
-    ...vue.configs["strongly-recommended"].rules,
+    ...vue.configs['strongly-recommended'].rules,
 
     'vue/component-name-in-template-casing': ['error', 'PascalCase'],
     'vue/component-options-name-casing': ['error', 'PascalCase'],
@@ -60,5 +63,5 @@ export default {
     'vue/quote-props': ['error', 'consistent-as-needed'],
     'vue/space-in-parens': ['error', 'never'],
     'vue/template-curly-spacing': 'error',
-  }
+  },
 } satisfies Linter.Config;

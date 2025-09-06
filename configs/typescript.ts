@@ -26,7 +26,9 @@ export default {
     parserOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      ...(isConfigDefined ? { projectService: true, tsconfigRootDir: path.dirname(configPath) } : {}),
+      ...(isConfigDefined
+        ? { projectService: true, tsconfigRootDir: path.dirname(configPath) }
+        : {}),
     },
   },
   linterOptions: {

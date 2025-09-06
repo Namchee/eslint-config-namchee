@@ -10,6 +10,7 @@ import markdown from './configs/markdown';
 import node from './configs/node';
 import packageCfg from './configs/package';
 import stylistic from './configs/stylistic';
+import tsconfig from './configs/tsconfig';
 import ts from './configs/typescript';
 import vue from './configs/vue';
 import yaml from './configs/yaml';
@@ -78,13 +79,15 @@ interface Options {
  * @param {Options} config Configuration object
  * @returns {Linter.Config[]} Ready-to-use ESLint configuration object.
  */
-export function createESLintConfig(config: Partial<Options> = {}) {
-  const eslintConfig: Linter.Config[] = [js, ts, packageCfg];
+export function createESLintConfig(
+  config: Partial<Options> = {},
+): Linter.Config[] {
+  const eslintConfig: Linter.Config[] = [js, ts, packageCfg, tsconfig];
   const userConfig = {
     json: false,
     yaml: false,
     stylistic: true,
-    node: true,
+    node: false,
     markdown: false,
     astro: false,
     vue: false,

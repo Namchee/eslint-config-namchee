@@ -22,5 +22,5 @@ export const GLOB_IGNORES = [
   '**/.vscode',
   '**/*.min.*',
   '**/index.d.ts',
-  'node_modules',
+  '**/node_modules',
 ];

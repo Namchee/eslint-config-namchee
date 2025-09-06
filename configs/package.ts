@@ -1,6 +1,6 @@
-import type { Linter } from "eslint";
+import type { Linter } from 'eslint';
 
-import packagePlugin from "eslint-plugin-package-json";
+import packagePlugin from 'eslint-plugin-package-json';
 
 export default {
   ...packagePlugin.configs.recommended,

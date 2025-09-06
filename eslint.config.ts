@@ -1,3 +1,3 @@
 import { createESLintConfig } from './index';
 
-export default createESLintConfig();
+export default createESLintConfig({ node: true, astro: true });

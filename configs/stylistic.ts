@@ -3,9 +3,11 @@ import type { Linter } from 'eslint';
 import style from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import-lite';
 
+import { ASTRO_FILES, JS_FILES, TS_FILES, VUE_FILES } from './const/globs';
+
 export default {
   name: 'namchee/eslint/stylistic',
-  files: ['*.js', '*.jsx', '*.ts', '*.tsx', '*.vue', '*.astro'],
+  files: [JS_FILES, TS_FILES, VUE_FILES, ASTRO_FILES],
   plugins: {
     style: style,
     import: importPlugin,
@@ -22,7 +24,7 @@ export default {
     'style/dot-location': 'error',
     'style/eol-last': 'error',
     'style/function-call-spacing': 'error',
-    'style/function-paren-newline': 'error',
+    'style/function-paren-newline': ['error', 'consistent'],
     'style/indent': [
       'error',
       2,
@@ -72,5 +74,5 @@ export default {
     'style/template-curly-spacing': 'error',
 
     'import/newline-after-import': 'error',
-  }
+  },
 } satisfies Linter.Config;
