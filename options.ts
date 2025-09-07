@@ -3,7 +3,8 @@
  */
 export interface Options {
   /**
-   * Enables TypeScript rules
+   * Enables TypeScript rules, including rules for linting tsconfig.json and
+   * its derivatives.
    *
    * Defaults to `true`
    */
