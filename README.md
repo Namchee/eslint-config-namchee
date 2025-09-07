@@ -4,9 +4,10 @@ Personal and opinionated ESLint shareable configuration with the following goodn
 
 1. One liner factory function for clean setup, powered by ESLint flat configuration
 2. Work out of the box with JavaScript and TypeScript projects
-3. Includes `package.json` and `tsconfig.json` linting too
-4. Supports Astro, Vue, Markdown, YAML, and TOML
-5. Includes Stylistic rules by default. Powered by [ESLint Stylistic](https://eslint.style/) instead of [Prettier](https://prettier.io/), [why?](https://github.com/eslint/eslint/issues/17522).
+3. Automatically organizes pesky imports with reasonable defaults, powered by [Perfectionist](https://perfectionist.dev/).
+4. Includes `package.json` and `tsconfig.json` linting too
+5. Supports Astro, Vue, Markdown, YAML, and TOML
+6. Includes Stylistic rules by default. Powered by [ESLint Stylistic](https://eslint.style/) instead of [Prettier](https://prettier.io/), [why?](https://github.com/eslint/eslint/issues/17522)
 
 ## Installation
 
@@ -32,23 +33,24 @@ To use the ESLint configuration, you can extend your configuration by importing 
 
 ```js
 // with "type": "module" in package.json
-import config from '@namchee/eslint-config';
+import { createESLintConfig } from '@namchee/eslint-config';
 
-export default [...config];
+export default createESLintConfig();
 ```
 
 ```js
 // without "type": "module" in package.json
-const config = require('@namchee/eslint-config');
+const { createESLintConfig } = require('@namchee/eslint-config');
 
-module.exports = [...config];
+module.exports = createESLintConfig();
 ```
 
-> For legacy config, you can extend the config by specifying it using the `extends` keyword:
-> ```js
-> module.exports = {
->   extends: ['eslint-config-namchee'], // or 'namchee' for short 
-> }
+The factory function accepts additional parameter in form of key-value objects, with the following boolean idenfitiers:
+
+| Name | Description | Default |
+| --- | --- | --- |
+| 
+
 
 ## VSCode Settings
 
@@ -85,17 +87,13 @@ If you're using VSCode, use the following settings for maximum DX with this conf
 }
 ```
 
-## Supported Languages
+## Acknowledgements
 
-- JavaScript - `.js`, `.mjs`, `.cjs`, `.jsx`
-- TypeScript - `.ts`, `.mts`, `.tsx`
-- JSON - `.json`, `.json5`, `.jsonc`
-- YAML - `.yaml`, `.yml`
-- Vue - *planned*
-- Markdown - *planned*
+This project is inspired by:
+
+- [antfu's ESLint Configuration](https://github.com/antfu/eslint-config). Import sorting configuration are extracted from this configuration!
+- [sxzz's ESLint Configuration](https://github.com/sxzz/eslint-config)
 
 ## License
 
 This project is licensed under the [MIT License](./LICENSE)
-
-[flat config]: https://eslint.org/blog/2022/08/new-config-system-part-1/
