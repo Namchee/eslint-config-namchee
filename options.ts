@@ -50,4 +50,10 @@ export interface Options {
    * Defaults to `false`
    */
   vue: boolean;
+  /**
+   * Enables TOML rules.
+   *
+   * Defaults to `false`
+   */
+  toml: boolean;
 }

@@ -11,6 +11,7 @@ import json from './configs/json';
 import markdown from './configs/markdown';
 import node from './configs/node';
 import packageCfg from './configs/package';
+import toml from './configs/toml';
 import tsconfig from './configs/tsconfig';
 import typescript from './configs/typescript';
 import vue from './configs/vue';
@@ -27,6 +28,7 @@ const CONFIG_MAP: Record<
   markdown,
   astro,
   vue,
+  toml,
 };
 
 /**
@@ -47,6 +49,7 @@ export function createESLintConfig(
     markdown: false,
     astro: false,
     vue: false,
+    toml: false,
     ...userConfig,
   };
 
