@@ -24,7 +24,15 @@ export const TYPESCRIPT_RULES: Linter.RulesRecord = {
   'typescript/no-import-type-side-effects': 'error',
   'typescript/no-loss-of-precision': 'error',
   'typescript/no-redeclare': 'error',
-  'typescript/no-unused-vars': ['error', { varsIgnorePattern: '_' }],
+  'typescript/no-unused-vars': ['error', {
+    args: 'all',
+    argsIgnorePattern: '^_',
+    caughtErrors: 'all',
+    caughtErrorsIgnorePattern: '^_',
+    destructuredArrayIgnorePattern: '^_',
+    varsIgnorePattern: '^_',
+    ignoreRestSiblings: true,
+  }],
   'typescript/no-var-requires': 'off',
   'typescript/prefer-ts-expect-error': 'error',
   'typescript/prefer-literal-enum-member': [

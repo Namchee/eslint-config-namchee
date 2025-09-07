@@ -19,6 +19,6 @@ export default function (): Linter.Config {
     rules: {
       ...yml.configs.recommended.rules,
       'yml/indent': ['error', 2],
-    }
+    },
   };
 }

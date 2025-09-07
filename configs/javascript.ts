@@ -17,6 +17,6 @@ export default function(config: Partial<Options>): Linter.Config {
     rules: {
       ...BASE_CONFIG.rules,
       ...(config.stylistic ? STYLISTIC_CONFIG.rules : {}),
-    }
+    },
   };
 }
