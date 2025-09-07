@@ -1,12 +1,13 @@
 import type { Linter } from 'eslint';
 import type { Options } from 'options';
 
+import fs from 'node:fs';
+import path from 'node:path';
+
 import ts from '@typescript-eslint/eslint-plugin';
 import parser from '@typescript-eslint/parser';
 import canonical from 'eslint-plugin-canonical';
 import importPlugin from 'eslint-plugin-import-lite';
-import fs from 'node:fs';
-import path from 'node:path';
 
 import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
 import { TS_FILES } from './const/globs';

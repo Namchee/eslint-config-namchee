@@ -53,6 +53,7 @@
     "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.6",
     "@types/node": "^24.3.1",
     "auto": "^10.46.0",
     "jiti": "^2.5.1",

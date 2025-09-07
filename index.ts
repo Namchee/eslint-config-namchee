@@ -1,8 +1,8 @@
 import type { Linter } from 'eslint';
 
-import { defineConfig } from 'eslint/config';
-
 import type { Options } from './options';
+
+import { defineConfig } from 'eslint/config';
 
 import astro from './configs/astro';
 import { GLOB_IGNORES } from './configs/const/globs';

@@ -189,7 +189,23 @@ export const BASE_CONFIG: Linter.Config = {
 
     // perfectionist, import and key sorting
     'perfect/sort-exports': ['error', { order: 'asc', type: 'natural' }],
-    'perfect/sort-imports': ['error', { order: 'asc', type: 'natural' }],
+    'perfect/sort-imports': ['error', {
+      order: 'asc',
+      type: 'natural',
+      groups: [
+        'type',
+        ['parent-type', 'sibling-type', 'index-type', 'internal-type'],
+
+        'builtin',
+        'external',
+        'internal',
+        ['parent', 'sibling', 'index'],
+        'side-effect',
+        'object',
+        'unknown',
+      ],
+      newlinesBetween: 'always',
+    }],
     'perfect/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
     'perfect/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
   },
@@ -227,7 +243,7 @@ export const STYLISTIC_CONFIG: Linter.Config = {
     'style/max-len': [
       'error',
       {
-        code: 80,
+        code: 120,
         ignoreStrings: true,
         ignoreTemplateLiterals: true,
         ignoreUrls: true,

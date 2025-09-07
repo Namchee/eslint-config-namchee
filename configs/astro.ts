@@ -1,13 +1,13 @@
 import type { Linter } from 'eslint';
 
+import type { Options } from '../options';
+
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import parser from 'astro-eslint-parser';
 import astro from 'eslint-plugin-astro';
 import canonical from 'eslint-plugin-canonical';
 import importPlugin from 'eslint-plugin-import-lite';
-
-import type { Options } from '../options';
 
 import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
 import { ASTRO_FILES } from './const/globs';
