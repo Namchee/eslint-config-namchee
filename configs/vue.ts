@@ -79,6 +79,8 @@ export default function (config: Partial<Options>): Linter.Config {
       'vue/quote-props': ['error', 'consistent-as-needed'],
       'vue/space-in-parens': ['error', 'never'],
       'vue/template-curly-spacing': 'error',
+
+      ...(config.stylistic ? STYLISTIC_CONFIG.rules : {}),
     },
   };
 }

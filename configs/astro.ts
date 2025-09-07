@@ -30,7 +30,7 @@ export default function (config: Partial<Options> = {}): Linter.Config {
     },
     linterOptions: BASE_CONFIG.linterOptions,
     plugins: {
-      ...BASE_CONFIG.rules,
+      ...BASE_CONFIG.plugins,
       astro: astro,
       typescript: tsPlugin as any,
       canonical: canonical,
