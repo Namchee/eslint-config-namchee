@@ -23,7 +23,9 @@
   "scripts": {
     "build": "tsdown",
     "lint:debug": "eslint configs/. --debug",
-    "lint:fix": "eslint . --debug --fix"
+    "lint:fix": "eslint . --debug --fix",
+    "release": "changeset publish",
+    "version": "changeset version"
   },
   "dependencies": {
     "@eslint/js": "^9.34.0",
@@ -53,13 +55,12 @@
     "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.6",
     "@types/node": "^24.3.1",
-    "auto": "^10.46.0",
     "jiti": "^2.5.1",
     "tsdown": "^0.14.2",
-    "typescript": "^5.9.2",
-    "vue": "^3.5.21"
+    "typescript": "^5.9.2"
   },
   "peerDependencies": {
     "eslint": "~9"
