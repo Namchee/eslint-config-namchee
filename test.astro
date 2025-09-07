@@ -1,0 +1,18 @@
+---
+/* Welcome to eslint-plugin-astro */
+let a = 1;
+let b: number = 1;
+
+const d = "foo";
+// let c = 1;
+---
+
+<p>{a} + {b} + {c} = {a + b + c}</p>
+
+<span class={
+  'hello goodbye ' + (a ? 'hello' : '') + ` ${b ? 'world' : ''}`
+} />
+
+<script define:vars={{a, b}}>
+  console.log(a);
+</script>

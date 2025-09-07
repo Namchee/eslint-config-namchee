@@ -1,15 +1,22 @@
 import type { Linter } from 'eslint';
+import type { Options } from 'options';
 
-import { BASE_CONFIG } from './base';
-import { ASTRO_FILES, JS_FILES, VUE_FILES } from './const/globs';
+import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
+import { JS_FILES } from './const/globs';
 
-export default {
-  name: 'namchee/eslint/javascript',
-  languageOptions: BASE_CONFIG.languageOptions,
-  linterOptions: {
-    reportUnusedDisableDirectives: 'error',
-  },
-  files: [JS_FILES, VUE_FILES, ASTRO_FILES],
-  plugins: BASE_CONFIG.plugins,
-  rules: BASE_CONFIG.rules,
-} satisfies Linter.Config;
+export default function(config: Partial<Options>): Linter.Config {
+  return {
+    name: 'namchee/eslint/javascript',
+    files: [JS_FILES],
+    languageOptions: BASE_CONFIG.languageOptions,
+    linterOptions: BASE_CONFIG.linterOptions,
+    plugins: {
+      ...BASE_CONFIG.plugins,
+      ...(config.stylistic ? STYLISTIC_CONFIG.plugins : {}),
+    },
+    rules: {
+      ...BASE_CONFIG.rules,
+      ...(config.stylistic ? STYLISTIC_CONFIG.rules : {}),
+    }
+  };
+}

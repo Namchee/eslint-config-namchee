@@ -2,23 +2,27 @@ import type { Linter } from 'eslint';
 
 import { defineConfig } from 'eslint/config';
 
+import type { Options } from './options';
+
 import astro from './configs/astro';
 import { GLOB_IGNORES } from './configs/const/globs';
-import js from './configs/javascript';
+import javascript from './configs/javascript';
 import json from './configs/json';
 import markdown from './configs/markdown';
 import node from './configs/node';
 import packageCfg from './configs/package';
-import stylistic from './configs/stylistic';
 import tsconfig from './configs/tsconfig';
-import ts from './configs/typescript';
+import typescript from './configs/typescript';
 import vue from './configs/vue';
 import yaml from './configs/yaml';
 
-const CONFIG_MAP: Record<string, Linter.Config> = {
+const CONFIG_MAP: Record<
+  string,
+  (config: Partial<Options>) => Linter.Config
+> = {
+  typescript,
   json,
   yaml,
-  stylistic,
   node,
   markdown,
   astro,
@@ -26,64 +30,16 @@ const CONFIG_MAP: Record<string, Linter.Config> = {
 };
 
 /**
- * Configuration objects to toggle features that you want to enable
- */
-interface Options {
-  /**
-   * Enables JSON rules, including JSONC and JSON5
-   *
-   * Defaults to `false`
-   */
-  json: boolean;
-  /**
-   * Enables YAML rules
-   *
-   * Defaults to `false`
-   */
-  yaml: boolean;
-  /**
-   * Enable Stylistic rules used to format code, replacing prettier
-   *
-   * Defaults to `true`
-   */
-  stylistic: boolean;
-  /**
-   * Enables Markdown rules used to lint markdown files, including MDX
-   *
-   * Defaults to `false`
-   */
-  markdown: boolean;
-  /**
-   * Enables JS and TS rules exclusively for NodeJS API
-   *
-   * Defaults to `false`
-   */
-  node: boolean;
-  /**
-   * Enables Astro rules. Does not include linting markdown files!
-   *
-   * Defaults to `false`
-   */
-  astro: boolean;
-  /**
-   * Enables Vue rules.
-   *
-   * Defaults to `false`
-   */
-  vue: boolean;
-}
-
-/**
  * Create a new opinionated ESLint configuration object based on options.
  *
- * @param {Options} config Configuration object
+ * @param {Options} userConfig Configuration object
  * @returns {Linter.Config[]} Ready-to-use ESLint configuration object.
  */
 export function createESLintConfig(
-  config: Partial<Options> = {},
+  userConfig: Partial<Options> = {},
 ): Linter.Config[] {
-  const eslintConfig: Linter.Config[] = [js, ts, packageCfg, tsconfig];
-  const userConfig = {
+  const config = {
+    typescript: true,
     json: false,
     yaml: false,
     stylistic: true,
@@ -91,12 +47,18 @@ export function createESLintConfig(
     markdown: false,
     astro: false,
     vue: false,
+    ...userConfig,
   };
 
-  Object.assign(userConfig, config);
-  for (const [key, value] of Object.entries(userConfig)) {
+  const linters: Linter.Config[] = [javascript(config), packageCfg(config)];
+
+  if (config.typescript) {
+    linters.push(typescript(config), tsconfig(config));
+  }
+
+  for (const [key, value] of Object.entries(config)) {
     if (value && CONFIG_MAP[key]) {
-      eslintConfig.push(CONFIG_MAP[key]);
+      linters.push(CONFIG_MAP[key](config));
     }
   }
 
@@ -104,7 +66,7 @@ export function createESLintConfig(
     {
       ignores: GLOB_IGNORES,
     },
-    ...eslintConfig,
+    ...linters,
   ]);
 }
 

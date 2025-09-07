@@ -1,11 +1,12 @@
 import type { Linter } from 'eslint';
 
+import style from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import-lite';
 import perfectionist from 'eslint-plugin-perfectionist';
 import unicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 
-export const BASE_CONFIG = {
+export const BASE_CONFIG: Linter.Config = {
   languageOptions: {
     ecmaVersion: 'latest',
     globals: {
@@ -27,6 +28,9 @@ export const BASE_CONFIG = {
     import: importPlugin,
     unicorn: unicorn,
     perfect: perfectionist,
+  },
+  linterOptions: {
+    reportUnusedDisableDirectives: 'error',
   },
   rules: {
     'accessor-pairs': ['error', { enforceForClassMembers: true, setWithoutGet: true }],
@@ -180,4 +184,74 @@ export const BASE_CONFIG = {
     'perfect/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
     'perfect/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
   },
-} satisfies Linter.Config;
+};
+
+export const STYLISTIC_CONFIG: Linter.Config = {
+  plugins: {
+    style: style,
+    import: importPlugin,
+  },
+  rules: {
+    // stylistic plugin
+    'style/array-bracket-spacing': 'error',
+    'style/arrow-spacing': 'error',
+    'style/block-spacing': 'error',
+    'style/comma-dangle': ['error', 'always-multiline'],
+    'style/comma-spacing': 'error',
+    'style/comma-style': 'error',
+    'style/computed-property-spacing': 'error',
+    'style/dot-location': 'error',
+    'style/eol-last': 'error',
+    'style/function-call-spacing': 'error',
+    'style/function-paren-newline': ['error', 'consistent'],
+    'style/indent': [
+      'error',
+      2,
+      {
+        SwitchCase: 1,
+      },
+    ],
+    'style/key-spacing': 'error',
+    'style/keyword-spacing': 'error',
+    'style/linebreak-style': 'error',
+    'style/lines-between-class-members': 'error',
+    'style/max-len': [
+      'error',
+      {
+        code: 80,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreUrls: true,
+        tabWidth: 2,
+      },
+    ],
+    'style/max-statements-per-line': ['error', { max: 1 }],
+    'style/multiline-ternary': ['error', 'always-multiline'],
+    'style/new-parens': 'error',
+    'style/no-confusing-arrow': 'error',
+    'style/no-floating-decimal': 'error',
+    'style/no-extra-semi': 'error',
+    'style/no-mixed-operators': 'error',
+    'style/no-mixed-spaces-and-tabs': 'error',
+    'style/no-multi-spaces': 'error',
+    'style/no-tabs': 'error',
+    'style/no-trailing-spaces': 'error',
+    'style/no-whitespace-before-property': 'error',
+    'style/object-curly-spacing': ['error', 'always'],
+    'style/operator-linebreak': ['error', 'before'],
+    'style/quote-props': ['error', 'consistent-as-needed'],
+    'style/quotes': ['error', 'single', { allowTemplateLiterals: true }],
+    'style/semi': ['error', 'always'],
+    'style/space-before-blocks': ['error', 'always'],
+    'style/spaced-comment': [
+      'error',
+      'always',
+      {
+        markers: ['/'],
+      },
+    ],
+    'style/template-curly-spacing': 'error',
+
+    'import/newline-after-import': 'error',
+  },
+};
