@@ -1,6 +1,12 @@
 # ESLint Config Namchee
 
-Personal and opinionated ESLint shareable configuration. Uses [ESLint Stylistic](https://eslint.style/), [why?](https://github.com/eslint/eslint/issues/17522).
+Personal and opinionated ESLint shareable configuration with the following goodness:
+
+1. One liner factory function for clean setup, powered by ESLint flat configuration
+2. Work out of the box with JavaScript and TypeScript projects
+3. Includes `package.json` and `tsconfig.json` linting too
+4. Supports Astro, Vue, Markdown, YAML, and TOML
+5. Includes Stylistic rules by default. Powered by [ESLint Stylistic](https://eslint.style/) instead of [Prettier](https://prettier.io/), [why?](https://github.com/eslint/eslint/issues/17522).
 
 ## Installation
 
@@ -19,8 +25,6 @@ pnpm add @namchee/eslint-config -D
 # using bun
 bun add @namchee/eslint-config -D
 ```
-
-> Since the introduction of [ESLint flat config][flat config], this config uses flat config for the latest package `@namchee/eslint-config`. For legacy config, please install `eslint-config-namchee` instead.
 
 ## Usage
 
