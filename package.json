@@ -1,6 +1,6 @@
 {
   "name": "@namchee/eslint-config",
-  "version": "2.0.10",
+  "version": "3.0.0",
   "private": false,
   "description": "Namchee's opinionated ESLint configuration.",
   "repository": {
