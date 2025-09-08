@@ -1,3 +1,3 @@
 import { createESLintConfig } from './index';
 
-export default createESLintConfig({ markdown: true, node: true });
+export default createESLintConfig({ node: true });
