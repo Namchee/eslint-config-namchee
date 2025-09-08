@@ -1,24 +1,36 @@
-const globals = require('globals');
+import type { Linter } from 'eslint';
 
-const importPlugin = require('eslint-plugin-import');
-const unicorn = require('eslint-plugin-unicorn');
-const stylistic = require('@stylistic/eslint-plugin');
-const node = require('eslint-plugin-n');
+import style from '@stylistic/eslint-plugin';
+import importPlugin from 'eslint-plugin-import-lite';
+import perfectionist from 'eslint-plugin-perfectionist';
+import unicorn from 'eslint-plugin-unicorn';
+import globals from 'globals';
 
-/** @type {import('eslint').Linter.FlatConfig} */
-module.exports = {
+export const BASE_CONFIG: Linter.Config = {
   languageOptions: {
     ecmaVersion: 'latest',
     globals: {
       ...globals.browser,
-      ...globals.node,
+      document: 'readonly',
+      navigator: 'readonly',
+      window: 'readonly',
     },
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
+    sourceType: 'module',
   },
   plugins: {
     import: importPlugin,
-    style: stylistic,
     unicorn: unicorn,
-    node: node,
+    perfect: perfectionist,
+  },
+  linterOptions: {
+    reportUnusedDisableDirectives: 'error',
   },
   rules: {
     'accessor-pairs': ['error', { enforceForClassMembers: true, setWithoutGet: true }],
@@ -83,7 +95,7 @@ module.exports = {
     'no-regex-spaces': 'error',
     'no-tabs': 'error',
     'no-trailing-spaces': 'error',
-    'no-restricted-properties': [ // taken from
+    'no-restricted-properties': [
       'error',
       { message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.', property: '__proto__' },
       { message: 'Use `Object.defineProperty` instead.', property: '__defineGetter__' },
@@ -103,7 +115,16 @@ module.exports = {
     'no-unreachable-loop': 'error',
     'no-unsafe-finally': 'error',
     'no-unsafe-negation': 'error',
-    'no-unused-vars': 'error',
+    'no-unused-vars': ['error', {
+      args: 'all',
+      argsIgnorePattern: '^_',
+      caughtErrors: 'all',
+      caughtErrorsIgnorePattern: '^_',
+      destructuredArrayIgnorePattern: '^_',
+      varsIgnorePattern: '^_',
+      ignoreRestSiblings: true,
+    }],
+    'no-unassigned-vars': 'error',
     'no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
     'no-useless-call': 'error',
     'no-useless-catch': 'error',
@@ -118,73 +139,11 @@ module.exports = {
     'prefer-template': 'error',
     'yoda': ['error', 'never'],
 
-    // stylistic plugin
-    'style/array-bracket-spacing': 'error',
-    'style/arrow-spacing': 'error',
-    'style/block-spacing': 'error',
-    'style/comma-dangle': ['error', 'always-multiline'],
-    'style/comma-spacing': 'error',
-    'style/comma-style': 'error',
-    'style/computed-property-spacing': 'error',
-    'style/dot-location': 'error',
-    'style/eol-last': 'error',
-    'style/func-call-spacing': 'error',
-    'style/function-paren-newline': 'error',
-    'style/indent': [
-      'error',
-      2,
-      {
-        SwitchCase: 1,
-      },
-    ],
-    'style/key-spacing': 'error',
-    'style/keyword-spacing': 'error',
-    'style/linebreak-style': 'error',
-    'style/lines-between-class-members': 'error',
-    'style/max-len': [
-      'error',
-      {
-        code: 80,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-        ignoreUrls: true,
-        tabWidth: 2,
-      },
-    ],
-    'style/max-statements-per-line': ['error', { max: 1 }],
-    'style/multiline-ternary': ['error', 'always-multiline'],
-    'style/new-parens': 'error',
-    'style/no-confusing-arrow': 'error',
-    'style/no-floating-decimal': 'error',
-    'style/no-extra-semi': 'error',
-    'style/no-mixed-operators': 'error',
-    'style/no-mixed-spaces-and-tabs': 'error',
-    'style/no-multi-spaces': 'error',
-    'style/no-tabs': 'error',
-    'style/no-trailing-spaces': 'error',
-    'style/no-whitespace-before-property': 'error',
-    'style/object-curly-spacing': ['error', 'always'],
-    'style/operator-linebreak': ['error', 'before'],
-    'style/quote-props': ['error', 'consistent-as-needed'],
-    'style/quotes': ['error', 'single', { allowTemplateLiterals: true }],
-    'style/semi': ['error', 'always'],
-    'style/space-before-blocks': ['error', 'always'],
-    'style/spaced-comment': [
-      'error',
-      'always',
-      {
-        markers: ['/'],
-      },
-    ],
-    'style/template-curly-spacing': 'error',
-
     // import plugin
-    'import/export': 'error',
     'import/first': 'error',
-    'import/order': 'error', // based
-    'import/no-cycle': 'error',
     'import/no-duplicates': 'error',
-    'import/no-extraneous-dependencies': 'error',
+    'import/no-mutable-exports': 'error',
+    'import/no-named-default': 'error',
 
     // unicorn plugin
     'unicorn/better-regex': 'error',
@@ -228,9 +187,96 @@ module.exports = {
     'unicorn/template-indent': 'error',
     'unicorn/throw-new-error': 'error',
 
-    // node plugins
-    'node/no-deprecated-api': 'error',
-    'node/no-path-concat': 'error',
-    'node/process-exit-as-throw': 'error',
+    // perfectionist, import and key sorting
+    'perfect/sort-exports': ['error', { order: 'asc', type: 'natural' }],
+    'perfect/sort-imports': ['error', {
+      order: 'asc',
+      type: 'natural',
+      groups: [
+        'type',
+        ['parent-type', 'sibling-type', 'index-type', 'internal-type'],
+
+        'builtin',
+        'external',
+        'internal',
+        ['parent', 'sibling', 'index'],
+        'side-effect',
+        'object',
+        'unknown',
+      ],
+      newlinesBetween: 'always',
+    }],
+    'perfect/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
+    'perfect/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
+  },
+};
+
+export const STYLISTIC_CONFIG: Linter.Config = {
+  plugins: {
+    style: style,
+    import: importPlugin,
+  },
+  rules: {
+    // stylistic plugin
+    'style/array-bracket-spacing': 'error',
+    'style/arrow-spacing': 'error',
+    'style/block-spacing': 'error',
+    'style/comma-dangle': ['error', 'always-multiline'],
+    'style/comma-spacing': 'error',
+    'style/comma-style': 'error',
+    'style/computed-property-spacing': 'error',
+    'style/dot-location': 'error',
+    'style/eol-last': 'error',
+    'style/function-call-spacing': 'error',
+    'style/function-paren-newline': ['error', 'consistent'],
+    'style/indent': [
+      'error',
+      2,
+      {
+        SwitchCase: 1,
+      },
+    ],
+    'style/key-spacing': 'error',
+    'style/keyword-spacing': 'error',
+    'style/linebreak-style': 'error',
+    'style/lines-between-class-members': 'error',
+    'style/max-len': [
+      'error',
+      {
+        code: 120,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreUrls: true,
+        tabWidth: 2,
+      },
+    ],
+    'style/max-statements-per-line': ['error', { max: 1 }],
+    'style/multiline-ternary': ['error', 'always-multiline'],
+    'style/new-parens': 'error',
+    'style/no-confusing-arrow': 'error',
+    'style/no-floating-decimal': 'error',
+    'style/no-extra-semi': 'error',
+    'style/no-mixed-operators': 'error',
+    'style/no-mixed-spaces-and-tabs': 'error',
+    'style/no-multi-spaces': 'error',
+    'style/no-tabs': 'error',
+    'style/no-trailing-spaces': 'error',
+    'style/no-whitespace-before-property': 'error',
+    'style/object-curly-spacing': ['error', 'always'],
+    'style/operator-linebreak': ['error', 'before'],
+    'style/quote-props': ['error', 'consistent-as-needed'],
+    'style/quotes': ['error', 'single', { allowTemplateLiterals: true }],
+    'style/semi': ['error', 'always'],
+    'style/space-before-blocks': ['error', 'always'],
+    'style/spaced-comment': [
+      'error',
+      'always',
+      {
+        markers: ['/'],
+      },
+    ],
+    'style/template-curly-spacing': 'error',
+
+    'import/newline-after-import': 'error',
   },
 };

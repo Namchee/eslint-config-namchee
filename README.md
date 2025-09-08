@@ -1,6 +1,13 @@
 # ESLint Config Namchee
 
-Personal and opinionated ESLint shareable configuration. Uses [ESLint Stylistic](https://eslint.style/), [why?](https://github.com/eslint/eslint/issues/17522).
+Personal and opinionated ESLint shareable configuration with the following goodness:
+
+1. One liner factory function for clean setup, powered by ESLint flat configuration
+2. Work out of the box with JavaScript and TypeScript projects
+3. Automatically organizes pesky imports with reasonable defaults, powered by [Perfectionist](https://perfectionist.dev/).
+4. Includes `package.json` and `tsconfig.json` linting too
+5. Supports Astro, Vue, Markdown, YAML, and TOML
+6. Includes Stylistic rules by default. Powered by [ESLint Stylistic](https://eslint.style/) instead of [Prettier](https://prettier.io/), [why?](https://github.com/eslint/eslint/issues/17522)
 
 ## Installation
 
@@ -20,42 +27,44 @@ pnpm add @namchee/eslint-config -D
 bun add @namchee/eslint-config -D
 ```
 
-> Since the introduction of [ESLint flat config][flat config], this config uses flat config for the latest package `@namchee/eslint-config`. For legacy config, please install `eslint-config-namchee` instead.
-
 ## Usage
 
 To use the ESLint configuration, you can extend your configuration by importing the config directly:
 
 ```js
-// with "type": "module" in package.json
-import config from '@namchee/eslint-config';
+import { createESLintConfig } from '@namchee/eslint-config';
 
-export default [...config];
+export default createESLintConfig();
 ```
 
-```js
-// without "type": "module" in package.json
-const config = require('@namchee/eslint-config');
+The factory function accepts an optional parameter in form of key-value objects, with the following idenfitiers:
 
-module.exports = [...config];
-```
-
-> For legacy config, you can extend the config by specifying it using the `extends` keyword:
-> ```js
-> module.exports = {
->   extends: ['eslint-config-namchee'], // or 'namchee' for short 
-> }
+| Name | Description | Default |
+| --- | --- | --- |
+| `typescript` | Enables TypeScript rules, including rules for linting tsconfig.json and its derivatives. | `true` |
+| `json` | Enables JSON rules, including JSONC and JSON5. | `false` |
+| `yaml` | Enables YAML rules. | `false` |
+| `stylistic` | Enable Stylistic rules used to format code, replacing prettier. | `true` |
+| `node` | Enables JS and TS rules exclusively for NodeJS API. | `false` |
+| `markdown` | Enables Markdown rules used to lint markdown files, including MDX. | `false` |
+| `astro` | Enables Astro rules. Does not include linting markdown files. | `false` |
+| `vue` | Enables Vue rules. | `false` |
+| `toml` | Enables TOML rules. | `false` |
 
 ## VSCode Settings
 
-If you're using VSCode, use the following settings for maximum DX with this configuration
+If you're using VSCode, use the following settings for maximum DX with this configuration:
 
 ```json
 {
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": true,
+        // let ESLint rules handle this
+        "source.organizeImports": "never"
     },
-    "eslint.experimental.useFlatConfig": true,
+    "eslint.codeAction.showDocumentation": {
+        "enable": true
+    },
     "eslint.format.enable": true,
         "eslint.rules.customizations": [
         { "rule": "style/*", "severity": "off" },
@@ -75,23 +84,25 @@ If you're using VSCode, use the following settings for maximum DX with this conf
         "typescriptreact",
         "json",
         "jsonc",
-        "yaml"
+        "yaml",
+        "astro",
+        "vue",
+        "toml",
+        "markdown"
     ],
+
+    // disable prettier and let ESLint stylistic handle it
     "prettier.enable": false
 }
 ```
 
-## Supported Languages
+## Acknowledgements
 
-- JavaScript - `.js`, `.mjs`, `.cjs`, `.jsx`
-- TypeScript - `.ts`, `.mts`, `.tsx`
-- JSON - `.json`, `.json5`, `.jsonc`
-- YAML - `.yaml`, `.yml`
-- Vue - *planned*
-- Markdown - *planned*
+This project is inspired by:
+
+- [antfu's ESLint Configuration](https://github.com/antfu/eslint-config). Import sorting configuration are extracted from this configuration!
+- [sxzz's ESLint Configuration](https://github.com/sxzz/eslint-config)
 
 ## License
 
 This project is licensed under the [MIT License](./LICENSE)
-
-[flat config]: https://eslint.org/blog/2022/08/new-config-system-part-1/
