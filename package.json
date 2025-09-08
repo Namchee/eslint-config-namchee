@@ -23,6 +23,7 @@
   ],
   "scripts": {
     "build": "tsdown",
+    "changeset": "changeset",
     "lint:debug": "eslint configs/. --debug",
     "lint:fix": "eslint . --debug --fix",
     "release": "changeset publish",
