@@ -50,6 +50,7 @@ The factory function accepts an optional parameter in form of key-value objects,
 | `astro` | Enables Astro rules. Does not include linting markdown files. | `false` |
 | `vue` | Enables Vue rules. | `false` |
 | `toml` | Enables TOML rules. | `false` |
+| `unocss` | Enables UnoCSS-specific rules. | `false` |
 
 ## VSCode Settings
 

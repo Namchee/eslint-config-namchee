@@ -57,4 +57,10 @@ export interface Options {
    * Defaults to `false`
    */
   toml: boolean;
+  /**
+   * Enables UnoCSS rules.
+   * 
+   * Defaults to `false`
+   */
+  unocss: boolean;
 }
