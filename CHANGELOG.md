@@ -1,5 +1,11 @@
 # @namchee/eslint-config
 
+## 3.0.3
+
+### Patch Changes
+
+- [#37](https://github.com/Namchee/eslint-config-namchee/pull/37) [`858cc9c`](https://github.com/Namchee/eslint-config-namchee/commit/858cc9cbd07e7f0e59666b20e19c0e994b307f20) Thanks [@Namchee](https://github.com/Namchee)! - chore: remove deprecated ESLint plugin markdown
+
 ## 3.0.2
 
 ### Patch Changes
