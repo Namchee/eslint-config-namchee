@@ -1,5 +1,11 @@
 # @namchee/eslint-config
 
+## 3.0.2
+
+### Patch Changes
+
+- [#35](https://github.com/Namchee/eslint-config-namchee/pull/35) [`e6042fe`](https://github.com/Namchee/eslint-config-namchee/commit/e6042fef89f61f20c17f845e742baf7b37ffc641) Thanks [@Namchee](https://github.com/Namchee)! - fix: expose UnoCSS options to user config
+
 ## 3.0.1
 
 ### Patch Changes
