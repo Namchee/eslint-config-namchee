@@ -14,6 +14,7 @@ import packageCfg from './configs/package';
 import toml from './configs/toml';
 import tsconfig from './configs/tsconfig';
 import typescript from './configs/typescript';
+import unocss from './configs/unocss';
 import vue from './configs/vue';
 import yaml from './configs/yaml';
 
@@ -29,6 +30,7 @@ const CONFIG_MAP: Record<
   astro,
   vue,
   toml,
+  unocss,
 };
 
 /**
@@ -50,6 +52,7 @@ export function createESLintConfig(
     astro: false,
     vue: false,
     toml: false,
+    unocss: false,
     ...userConfig,
   };
 
