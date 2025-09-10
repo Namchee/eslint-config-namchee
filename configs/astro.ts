@@ -50,7 +50,7 @@ export default function (config: Partial<Options> = {}): Linter.Config {
       'astro/valid-compile': 'error',
       'astro/prefer-class-list-directive': 'error',
 
-      ...(config.stylistic ? STYLISTIC_CONFIG.rules : {}),
+      ...(config.stylistic ? { ...STYLISTIC_CONFIG.rules } : {}),
     },
   };
 }

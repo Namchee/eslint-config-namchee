@@ -5,9 +5,14 @@ import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
 import { JS_FILES } from './const/globs';
 
 export default function(config: Partial<Options>): Linter.Config {
+  const files = [JS_FILES];
+  if (config.astro) {
+    files.push('**/*.astro/*.js');
+  }
+
   return {
     name: 'namchee/eslint/javascript',
-    files: [JS_FILES],
+    files: files,
     languageOptions: BASE_CONFIG.languageOptions,
     linterOptions: BASE_CONFIG.linterOptions,
     plugins: {

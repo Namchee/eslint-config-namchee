@@ -35,13 +35,7 @@ export const BASE_CONFIG: Linter.Config = {
   rules: {
     'accessor-pairs': ['error', { enforceForClassMembers: true, setWithoutGet: true }],
     'array-callback-return': 'error',
-    'arrow-parens': [
-      'error',
-      'as-needed',
-      {
-        requireForBlockBody: true,
-      },
-    ],
+
     'block-scoped-var': 'error',
     'capitalized-comments': 'off',
     'constructor-super': 'error',
@@ -83,8 +77,8 @@ export const BASE_CONFIG: Linter.Config = {
     'no-multi-str': 'error',
     'no-new': 'error',
     'no-new-func': 'error',
-    'no-new-object': 'error',
-    'no-new-symbol': 'error',
+    'no-object-constructor': 'error',
+    'no-new-native-nonconstructor': 'error',
     'no-new-wrappers': 'error',
     'no-obj-calls': 'error',
     'no-octal': 'error',
@@ -93,8 +87,6 @@ export const BASE_CONFIG: Linter.Config = {
     'no-prototype-builtins': 'error',
     'no-redeclare': 'error',
     'no-regex-spaces': 'error',
-    'no-tabs': 'error',
-    'no-trailing-spaces': 'error',
     'no-restricted-properties': [
       'error',
       { message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.', property: '__proto__' },
@@ -158,12 +150,12 @@ export const BASE_CONFIG: Linter.Config = {
     'unicorn/no-abusive-eslint-disable': 'error',
     'unicorn/no-array-for-each': 'error',
     'unicorn/no-array-method-this-argument': 'error',
-    'unicorn/no-array-push-push': 'error',
+    'unicorn/prefer-single-call': 'error',
     'unicorn/no-await-expression-member': 'error',
     'unicorn/no-console-spaces': 'error',
     'unicorn/no-empty-file': 'error',
     'unicorn/no-hex-escape': 'error',
-    'unicorn/no-instanceof-array': 'error',
+    'unicorn/no-instanceof-builtins': 'error',
     'unicorn/no-invalid-remove-event-listener': 'error',
     'unicorn/no-keyword-prefix': 'error',
     'unicorn/no-lonely-if': 'error',
@@ -217,8 +209,14 @@ export const STYLISTIC_CONFIG: Linter.Config = {
     import: importPlugin,
   },
   rules: {
-    // stylistic plugin
     'style/array-bracket-spacing': 'error',
+    'style/arrow-parens': [
+      'error',
+      'as-needed',
+      {
+        requireForBlockBody: true,
+      },
+    ],
     'style/arrow-spacing': 'error',
     'style/block-spacing': 'error',
     'style/comma-dangle': ['error', 'always-multiline'],

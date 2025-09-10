@@ -30,6 +30,7 @@
     "version": "changeset version"
   },
   "dependencies": {
+    "@antfu/eslint-config": "5.3.0",
     "@eslint/js": "^9.34.0",
     "@eslint/markdown": "^7.2.0",
     "@stylistic/eslint-plugin": "^5.3.1",

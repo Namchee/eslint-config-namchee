@@ -10,7 +10,7 @@ import canonical from 'eslint-plugin-canonical';
 import importPlugin from 'eslint-plugin-import-lite';
 
 import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
-import { TS_FILES } from './const/globs';
+import { ASTRO_INLINE_SCRIPTS, TS_FILES } from './const/globs';
 
 const configPath = path.resolve(process.cwd(), 'tsconfig.json');
 const isConfigDefined = fs.existsSync(configPath);
@@ -23,7 +23,6 @@ export const TYPESCRIPT_RULES: Linter.RulesRecord = {
   'typescript/consistent-type-definitions': ['error', 'interface'],
   'typescript/no-dupe-class-members': 'error',
   'typescript/no-import-type-side-effects': 'error',
-  'typescript/no-loss-of-precision': 'error',
   'typescript/no-redeclare': 'error',
   'typescript/no-unused-vars': ['error', {
     args: 'all',
@@ -34,8 +33,7 @@ export const TYPESCRIPT_RULES: Linter.RulesRecord = {
     varsIgnorePattern: '^_',
     ignoreRestSiblings: true,
   }],
-  'typescript/no-var-requires': 'off',
-  'typescript/prefer-ts-expect-error': 'error',
+  'typescript/no-require-imports': 'off',
   'typescript/prefer-literal-enum-member': [
     'error',
     { allowBitwiseExpressions: true },
@@ -67,9 +65,14 @@ export const TYPESCRIPT_RULES: Linter.RulesRecord = {
 };
 
 export default function (config: Partial<Options>): Linter.Config {
+  const files = [TS_FILES];
+  if (config.astro) {
+    files.push(ASTRO_INLINE_SCRIPTS);
+  }
+
   return {
     name: 'namchee/eslint/typescript',
-    files: [TS_FILES],
+    files: files,
     ignores: ['*.d.ts'],
     languageOptions: {
       ...BASE_CONFIG.languageOptions,
