@@ -6,6 +6,6 @@ export default function (): Linter.Config {
   // no modification for now, it's quite good already
   return {
     ...unocss as any,
-    name: 'namchee/eslint/config',
+    name: 'namchee/eslint/unocss',
   };
 }

@@ -209,6 +209,8 @@ export const STYLISTIC_CONFIG: Linter.Config = {
     import: importPlugin,
   },
   rules: {
+    'prettier/prettier': 'off',
+    
     'style/array-bracket-spacing': 'error',
     'style/arrow-parens': [
       'error',

@@ -72,30 +72,21 @@ export default function (config: Partial<Options>): Linter.Config {
 
   return {
     name: 'namchee/eslint/typescript',
-    files: files,
+    files: ['**/*.astro/*.ts', '*.astro/*.ts'],
     ignores: ['*.d.ts'],
     languageOptions: {
-      ...BASE_CONFIG.languageOptions,
+      globals: BASE_CONFIG.languageOptions?.globals,
+      sourceType: 'module',
       parser: parser,
       parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        ...(isConfigDefined
-          ? { projectService: true, tsconfigRootDir: path.dirname(configPath) }
-          : {}),
+        project: null,
       },
     },
-    linterOptions: BASE_CONFIG.linterOptions,
     plugins: {
-      ...BASE_CONFIG.plugins,
-      // broken typings
-      typescript: ts as any,
-      canonical: canonical,
-      import: importPlugin,
       ...(config.stylistic ? STYLISTIC_CONFIG.plugins : {}),
     },
     rules: {
-      ...TYPESCRIPT_RULES,
+      // ...TYPESCRIPT_RULES,
       ...(config.stylistic ? STYLISTIC_CONFIG.rules : {}),
     },
   };

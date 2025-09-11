@@ -6,9 +6,7 @@ import { JS_FILES } from './const/globs';
 
 export default function(config: Partial<Options>): Linter.Config {
   const files = [JS_FILES];
-  if (config.astro) {
-    files.push('**/*.astro/*.js');
-  }
+
 
   return {
     name: 'namchee/eslint/javascript',

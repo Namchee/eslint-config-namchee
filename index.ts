@@ -56,7 +56,7 @@ export function createESLintConfig(
     ...userConfig,
   };
 
-  const linters: Linter.Config[] = [javascript(config), packageCfg(config)];
+  const linters: Linter.Config[] = [];
 
   if (config.typescript) {
     linters.push(typescript(config), tsconfig(config));
