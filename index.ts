@@ -58,14 +58,14 @@ export function createESLintConfig(
 
   const linters: Linter.Config[] = [];
 
-  if (config.typescript) {
-    linters.push(typescript(config), tsconfig(config));
-  }
-
   for (const [key, value] of Object.entries(config)) {
     if (value && CONFIG_MAP[key]) {
       linters.push(CONFIG_MAP[key](config));
     }
+  }
+
+  if (config.typescript) {
+    linters.push(tsconfig(config));
   }
 
   return defineConfig([
