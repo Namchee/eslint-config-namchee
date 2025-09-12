@@ -13,8 +13,10 @@ import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
 import { ASTRO_FILES } from './const/globs';
 import { TYPESCRIPT_RULES } from './typescript';
 
-export default function (config: Partial<Options> = {}): Linter.Config {
-  return {
+export default function (config: Partial<Options> = {}): Linter.Config[] {
+  return [];
+  
+  {
     name: 'namchee/eslint/astro',
     files: [ASTRO_FILES],
     languageOptions: {
