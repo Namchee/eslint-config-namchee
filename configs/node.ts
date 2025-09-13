@@ -3,8 +3,8 @@ import type { Linter } from 'eslint';
 import node from 'eslint-plugin-n';
 import globals from 'globals';
 
-export default function(): Linter.Config {
-  return {
+export default function(): Linter.Config[] {
+  return [{
     name: 'namchee/eslint/node',
     languageOptions: {
       ecmaVersion: 'latest',
@@ -22,5 +22,5 @@ export default function(): Linter.Config {
       'node/no-unsupported-features/es-builtins': 'off',
       'node/no-unsupported-features/es-syntax': 'off',
     },
-  };
+  }];
 }

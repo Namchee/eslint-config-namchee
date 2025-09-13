@@ -5,8 +5,8 @@ import parser from 'jsonc-eslint-parser';
 
 import { JSON_FILES } from './const/globs';
 
-export default function(): Linter.Config {
-  return {
+export default function(): Linter.Config[] {
+  return [{
     name: 'namchee/eslint/json',
     files: [JSON_FILES],
     plugins: {
@@ -21,5 +21,5 @@ export default function(): Linter.Config {
       ...json.configs['recommended-with-json'].rules as any,
       'jsonc/indent': ['error', 2],
     },
-  };
+  }];
 }

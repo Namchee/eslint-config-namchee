@@ -4,13 +4,10 @@ import type { Options } from 'options';
 import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
 import { JS_FILES } from './const/globs';
 
-export default function(config: Partial<Options>): Linter.Config {
-  const files = [JS_FILES];
-
-
-  return {
+export default function(config: Partial<Options>): Linter.Config[] {
+  return [{
     name: 'namchee/eslint/javascript',
-    files: files,
+    files: [JS_FILES],
     languageOptions: BASE_CONFIG.languageOptions,
     linterOptions: BASE_CONFIG.linterOptions,
     plugins: {
@@ -21,5 +18,5 @@ export default function(config: Partial<Options>): Linter.Config {
       ...BASE_CONFIG.rules,
       ...(config.stylistic ? STYLISTIC_CONFIG.rules : {}),
     },
-  };
+  }];
 }
