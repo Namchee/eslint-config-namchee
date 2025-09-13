@@ -5,8 +5,8 @@ import parser from 'toml-eslint-parser';
 
 import { TOML_FILES } from './const/globs';
 
-export default function (): Linter.Config {
-  return {
+export default function (): Linter.Config[] {
+  return [{
     name: 'namchee/eslint/toml',
     files: [TOML_FILES],
     plugins: {
@@ -25,5 +25,5 @@ export default function (): Linter.Config {
       'toml/tables-order': 'error',
       'toml/indent': ['error', 2],
     },
-  };
+  }];
 }

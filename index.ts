@@ -5,14 +5,13 @@ import type { Options } from './options';
 import { defineConfig } from 'eslint/config';
 
 import astro from './configs/astro';
-import { GLOB_IGNORES } from './configs/const/globs';
+import ignores from './configs/ignores';
 import javascript from './configs/javascript';
 import json from './configs/json';
 import markdown from './configs/markdown';
 import node from './configs/node';
 import packageCfg from './configs/package';
 import toml from './configs/toml';
-import tsconfig from './configs/tsconfig';
 import typescript from './configs/typescript';
 import unocss from './configs/unocss';
 import vue from './configs/vue';
@@ -20,17 +19,18 @@ import yaml from './configs/yaml';
 
 const CONFIG_MAP: Record<
   string,
-  (config: Partial<Options>) => Linter.Config
+  (config: Partial<Options>) => Linter.Config[]
 > = {
-  typescript,
-  json,
-  yaml,
-  node,
-  markdown,
-  astro,
-  vue,
-  toml,
-  unocss,
+  typescript: typescript,
+  json: json,
+  yaml: yaml,
+  node: node,
+  markdown: markdown,
+  astro: astro,
+  vue: vue,
+  toml: toml,
+  unocss: unocss,
+  package: packageCfg,
 };
 
 /**
@@ -53,26 +53,17 @@ export function createESLintConfig(
     vue: false,
     toml: false,
     unocss: false,
+    package: true,
     ...userConfig,
   };
 
-  const linters: Linter.Config[] = [javascript(config), packageCfg(config)];
-
-  if (config.typescript) {
-    linters.push(typescript(config), tsconfig(config));
-  }
+  const linters: Linter.Config[] = [...ignores(config), ...javascript(config)];
 
   for (const [key, value] of Object.entries(config)) {
     if (value && CONFIG_MAP[key]) {
-      linters.push(CONFIG_MAP[key](config));
+      linters.push(...CONFIG_MAP[key](config));
     }
   }
 
-  return defineConfig([
-    {
-      ignores: GLOB_IGNORES,
-    },
-    ...linters,
-  ]);
+  return defineConfig(linters);
 }
-

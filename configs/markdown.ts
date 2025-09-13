@@ -4,8 +4,8 @@ import markdown from '@eslint/markdown';
 
 import { MARKDOWN_FILES } from './const/globs';
 
-export default function (): Linter.Config {
-  return {
+export default function (): Linter.Config[] {
+  return [{
     name: 'namchee/eslint/markdown',
     files: [MARKDOWN_FILES],
     plugins: {
@@ -29,6 +29,6 @@ export default function (): Linter.Config {
       'markdown/require-alt-text': 'error',
       'markdown/table-column-count': 'error',
     },
-  };
+  }];
 }
 

@@ -51,6 +51,7 @@ The factory function accepts an optional parameter in form of key-value objects,
 | `vue` | Enables Vue rules. | `false` |
 | `toml` | Enables TOML rules. | `false` |
 | `unocss` | Enables UnoCSS-specific rules. | `false` |
+| `package` | Enables `package.json` rules. | `true` |
 
 ## VSCode Settings
 

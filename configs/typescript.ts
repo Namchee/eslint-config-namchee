@@ -8,9 +8,11 @@ import ts from '@typescript-eslint/eslint-plugin';
 import parser from '@typescript-eslint/parser';
 import canonical from 'eslint-plugin-canonical';
 import importPlugin from 'eslint-plugin-import-lite';
+import json from 'eslint-plugin-jsonc';
+import jsonParser from 'jsonc-eslint-parser';
 
 import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
-import { TS_FILES } from './const/globs';
+import { ASTRO_SCRIPTS_TS_FILES, TS_FILES, TYPEDEF_FILES } from './const/globs';
 
 const configPath = path.resolve(process.cwd(), 'tsconfig.json');
 const isConfigDefined = fs.existsSync(configPath);
@@ -23,7 +25,6 @@ export const TYPESCRIPT_RULES: Linter.RulesRecord = {
   'typescript/consistent-type-definitions': ['error', 'interface'],
   'typescript/no-dupe-class-members': 'error',
   'typescript/no-import-type-side-effects': 'error',
-  'typescript/no-loss-of-precision': 'error',
   'typescript/no-redeclare': 'error',
   'typescript/no-unused-vars': ['error', {
     args: 'all',
@@ -34,8 +35,7 @@ export const TYPESCRIPT_RULES: Linter.RulesRecord = {
     varsIgnorePattern: '^_',
     ignoreRestSiblings: true,
   }],
-  'typescript/no-var-requires': 'off',
-  'typescript/prefer-ts-expect-error': 'error',
+  'typescript/no-require-imports': 'off',
   'typescript/prefer-literal-enum-member': [
     'error',
     { allowBitwiseExpressions: true },
@@ -66,11 +66,12 @@ export const TYPESCRIPT_RULES: Linter.RulesRecord = {
   'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
 };
 
-export default function (config: Partial<Options>): Linter.Config {
-  return {
+export default function (config: Partial<Options>): Linter.Config[] {
+  return [{
     name: 'namchee/eslint/typescript',
     files: [TS_FILES],
-    ignores: ['*.d.ts'],
+    // astro scripts are handled differently
+    ignores: [TYPEDEF_FILES, ASTRO_SCRIPTS_TS_FILES],
     languageOptions: {
       ...BASE_CONFIG.languageOptions,
       parser: parser,
@@ -95,5 +96,137 @@ export default function (config: Partial<Options>): Linter.Config {
       ...TYPESCRIPT_RULES,
       ...(config.stylistic ? STYLISTIC_CONFIG.rules : {}),
     },
-  };
+  },
+  {
+    name: 'namchee/eslint/tsconfig',
+    files: ['**/[jt]sconfig.json', '**/[jt]sconfig.*.json'],
+    plugins: {
+      // typing issues
+      jsonc: json as any,
+    },
+    languageOptions: {
+      parser: jsonParser,
+    },
+    rules: {
+      'jsonc/indent': ['error', 2],
+      'jsonc/sort-keys': [
+        'error',
+        {
+          order: [
+            'extends',
+            'compilerOptions',
+            'references',
+            'files',
+            'include',
+            'exclude',
+          ],
+          pathPattern: '^$',
+        },
+        {
+          order: [
+            /* Projects */
+            'incremental',
+            'composite',
+            'tsBuildInfoFile',
+            'disableSourceOfProjectReferenceRedirect',
+            'disableSolutionSearching',
+            'disableReferencedProjectLoad',
+            /* Language and Environment */
+            'target',
+            'jsx',
+            'jsxFactory',
+            'jsxFragmentFactory',
+            'jsxImportSource',
+            'lib',
+            'moduleDetection',
+            'noLib',
+            'reactNamespace',
+            'useDefineForClassFields',
+            'emitDecoratorMetadata',
+            'experimentalDecorators',
+            'libReplacement',
+            /* Modules */
+            'baseUrl',
+            'rootDir',
+            'rootDirs',
+            'customConditions',
+            'module',
+            'moduleResolution',
+            'moduleSuffixes',
+            'noResolve',
+            'paths',
+            'resolveJsonModule',
+            'resolvePackageJsonExports',
+            'resolvePackageJsonImports',
+            'typeRoots',
+            'types',
+            'allowArbitraryExtensions',
+            'allowImportingTsExtensions',
+            'allowUmdGlobalAccess',
+            /* JavaScript Support */
+            'allowJs',
+            'checkJs',
+            'maxNodeModuleJsDepth',
+            /* Type Checking */
+            'strict',
+            'strictBindCallApply',
+            'strictFunctionTypes',
+            'strictNullChecks',
+            'strictPropertyInitialization',
+            'allowUnreachableCode',
+            'allowUnusedLabels',
+            'alwaysStrict',
+            'exactOptionalPropertyTypes',
+            'noFallthroughCasesInSwitch',
+            'noImplicitAny',
+            'noImplicitOverride',
+            'noImplicitReturns',
+            'noImplicitThis',
+            'noPropertyAccessFromIndexSignature',
+            'noUncheckedIndexedAccess',
+            'noUnusedLocals',
+            'noUnusedParameters',
+            'useUnknownInCatchVariables',
+            /* Emit */
+            'declaration',
+            'declarationDir',
+            'declarationMap',
+            'downlevelIteration',
+            'emitBOM',
+            'emitDeclarationOnly',
+            'importHelpers',
+            'importsNotUsedAsValues',
+            'inlineSourceMap',
+            'inlineSources',
+            'mapRoot',
+            'newLine',
+            'noEmit',
+            'noEmitHelpers',
+            'noEmitOnError',
+            'outDir',
+            'outFile',
+            'preserveConstEnums',
+            'preserveValueImports',
+            'removeComments',
+            'sourceMap',
+            'sourceRoot',
+            'stripInternal',
+            /* Interop Constraints */
+            'allowSyntheticDefaultImports',
+            'esModuleInterop',
+            'forceConsistentCasingInFileNames',
+            'isolatedDeclarations',
+            'isolatedModules',
+            'preserveSymlinks',
+            'verbatimModuleSyntax',
+            'erasableSyntaxOnly',
+            /* Completeness */
+            'skipDefaultLibCheck',
+            'skipLibCheck',
+          ],
+          pathPattern: '^compilerOptions$',
+        },
+      ],
+    },
+  }];
 }

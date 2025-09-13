@@ -59,8 +59,14 @@ export interface Options {
   toml: boolean;
   /**
    * Enables UnoCSS rules.
-   * 
+   *
    * Defaults to `false`
    */
   unocss: boolean;
+  /**
+   * Enable rules that checks package.json
+   *
+   * Defaults to `true`
+   */
+  package: boolean;
 }
