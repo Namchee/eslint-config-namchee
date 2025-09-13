@@ -1,5 +1,14 @@
 # @namchee/eslint-config
 
+## 3.0.4
+
+### Patch Changes
+
+- [#39](https://github.com/Namchee/eslint-config-namchee/pull/39) [`8b98df9`](https://github.com/Namchee/eslint-config-namchee/commit/8b98df907140697fa681bf321bb7852026143993) Thanks [@Namchee](https://github.com/Namchee)! - fix: extend unocss from /flat path
+  refactor: deprecate various rules and replace them with equivalent
+  fix: setup astro scripts linting correctly
+  refactor: extract package.json rules
+
 ## 3.0.3
 
 ### Patch Changes
