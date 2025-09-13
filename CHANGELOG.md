@@ -1,5 +1,11 @@
 # @namchee/eslint-config
 
+## 3.1.0
+
+### Minor Changes
+
+- [#41](https://github.com/Namchee/eslint-config-namchee/pull/41) [`3655728`](https://github.com/Namchee/eslint-config-namchee/commit/3655728c5588aefcc469555fdf8c3dba4188da43) Thanks [@Namchee](https://github.com/Namchee)! - feat: introduce type-aware rules
+
 ## 3.0.4
 
 ### Patch Changes
