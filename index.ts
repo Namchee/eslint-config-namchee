@@ -21,15 +21,16 @@ const CONFIG_MAP: Record<
   string,
   (config: Partial<Options>) => Linter.Config[]
 > = {
-  typescript,
-  json,
-  yaml,
-  node,
-  markdown,
-  astro,
-  vue,
-  toml,
-  unocss,
+  typescript: typescript,
+  json: json,
+  yaml: yaml,
+  node: node,
+  markdown: markdown,
+  astro: astro,
+  vue: vue,
+  toml: toml,
+  unocss: unocss,
+  package: packageCfg,
 };
 
 /**
@@ -52,10 +53,11 @@ export function createESLintConfig(
     vue: false,
     toml: false,
     unocss: false,
+    package: true,
     ...userConfig,
   };
 
-  const linters: Linter.Config[] = [...ignores(config), ...javascript(config), ...packageCfg(config)];
+  const linters: Linter.Config[] = [...ignores(config), ...javascript(config)];
 
   for (const [key, value] of Object.entries(config)) {
     if (value && CONFIG_MAP[key]) {

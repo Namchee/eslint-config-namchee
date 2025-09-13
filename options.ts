@@ -63,4 +63,10 @@ export interface Options {
    * Defaults to `false`
    */
   unocss: boolean;
+  /**
+   * Enable rules that checks package.json
+   *
+   * Defaults to `true`
+   */
+  package: boolean;
 }
