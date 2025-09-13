@@ -83,6 +83,32 @@ export const STYLISTIC_TYPESCRIPT_RULES: Linter.RulesRecord = {
   'typescript/prefer-function-type': 'error',
 };
 
+const TYPE_AWARE_RULES: Linter.RulesRecord = {
+  'dot-notation': 'off',
+  'typescript/dot-notation': ['error', { allowKeywords: true }],
+  'no-implied-eval': 'off',
+  'typescript/no-implied-eval': 'error',
+  'typescript/return-await': ['error', 'in-try-catch'],
+  'typescript/no-misused-promises': 'error',
+  'typescript/no-base-to-string': 'error',
+  'typescript/no-duplicate-enum-values': 'error',
+  'typescript/no-duplicate-type-constituents': 'error',
+  'typescript/no-empty-object-type': 'error',
+  'typescript/no-floating-promises': 'error',
+  'typescript/no-for-in-array': 'error',
+  'typescript/no-unsafe-argument': 'error',
+  'typescript/no-unsafe-assignment': 'error',
+  'typescript/no-unsafe-call': 'error',
+  'typescript/no-unsafe-member-access': 'error',
+  'typescript/no-unsafe-return': 'error',
+  'typescript/promise-function-async': 'error',
+  'typescript/only-throw-error': 'error',
+  'typescript/restrict-plus-operands': 'error',
+  'typescript/restrict-template-expressions': 'error',
+  'typescript/unbound-method': 'error',
+  'typescript/switch-exhaustiveness-check': 'error',
+};
+
 export default function (config: Partial<Options>): Linter.Config[] {
   return [{
     name: 'namchee/eslint/typescript',
@@ -111,6 +137,7 @@ export default function (config: Partial<Options>): Linter.Config[] {
     },
     rules: {
       ...TYPESCRIPT_RULES,
+      ...(config.typecheck ? TYPE_AWARE_RULES : {}),
       ...(config.stylistic ? { ...STYLISTIC_CONFIG.rules, ...STYLISTIC_TYPESCRIPT_RULES } : {}),
     },
   },
