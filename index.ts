@@ -54,12 +54,17 @@ export function createESLintConfig(
     toml: false,
     unocss: false,
     package: true,
+    typecheck: true,
     ...userConfig,
   };
 
   const linters: Linter.Config[] = [...ignores(config), ...javascript(config)];
 
   for (const [key, value] of Object.entries(config)) {
+    if (key === 'typecheck') {
+      continue;
+    }
+
     if (value && CONFIG_MAP[key]) {
       linters.push(...CONFIG_MAP[key](config));
     }

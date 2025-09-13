@@ -52,6 +52,7 @@ The factory function accepts an optional parameter in form of key-value objects,
 | `toml` | Enables TOML rules. | `false` |
 | `unocss` | Enables UnoCSS-specific rules. | `false` |
 | `package` | Enables `package.json` rules. | `true` |
+| `typecheck` | Enables type-aware rules for TypeScript files. Do note for possible performance hit. | `true` |
 
 ## VSCode Settings
 
