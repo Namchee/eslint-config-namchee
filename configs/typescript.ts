@@ -66,6 +66,23 @@ export const TYPESCRIPT_RULES: Linter.RulesRecord = {
   'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
 };
 
+export const STYLISTIC_TYPESCRIPT_RULES: Linter.RulesRecord = {
+  'typescript/adjacent-overload-signatures': 'error',
+  'typescript/array-type': 'error',
+  'typescript/ban-tslint-comment': 'error',
+  'typescript/class-literal-property-style': 'error',
+  'typescript/consistent-generic-constructors': 'error',
+  'typescript/consistent-indexed-object-style': 'error',
+  'typescript/consistent-type-assertions': 'error',
+  'typescript/consistent-type-definitions': 'error',
+  'typescript/no-confusing-non-null-assertion': 'error',
+  'no-empty-function': 'off',
+  'typescript/no-empty-function': 'error',
+  'typescript/no-inferrable-types': 'error',
+  'typescript/prefer-for-of': 'error',
+  'typescript/prefer-function-type': 'error',
+};
+
 export default function (config: Partial<Options>): Linter.Config[] {
   return [{
     name: 'namchee/eslint/typescript',
@@ -94,7 +111,7 @@ export default function (config: Partial<Options>): Linter.Config[] {
     },
     rules: {
       ...TYPESCRIPT_RULES,
-      ...(config.stylistic ? STYLISTIC_CONFIG.rules : {}),
+      ...(config.stylistic ? { ...STYLISTIC_CONFIG.rules, ...STYLISTIC_TYPESCRIPT_RULES } : {}),
     },
   },
   {

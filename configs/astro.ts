@@ -12,7 +12,7 @@ import globals from 'globals';
 
 import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
 import { ASTRO_FILES, ASTRO_SCRIPTS_TS_FILES } from './const/globs';
-import { TYPESCRIPT_RULES } from './typescript';
+import { STYLISTIC_TYPESCRIPT_RULES, TYPESCRIPT_RULES } from './typescript';
 
 export default function (config: Partial<Options> = {}): Linter.Config[] {
   return [
@@ -82,7 +82,7 @@ export default function (config: Partial<Options> = {}): Linter.Config[] {
       },
       rules: {
         ...TYPESCRIPT_RULES,
-        ...(config.stylistic ? { ...STYLISTIC_CONFIG.rules } : {}),
+        ...(config.stylistic ? { ...STYLISTIC_CONFIG.rules, ...STYLISTIC_TYPESCRIPT_RULES } : {}),
       },
     },
   ];

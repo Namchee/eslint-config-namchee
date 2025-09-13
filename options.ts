@@ -69,4 +69,11 @@ export interface Options {
    * Defaults to `true`
    */
   package: boolean;
+
+  /**
+   * Enable type-aware rules for TypeScript files.
+   *
+   * Defaults to `false` due to performance hit.
+   */
+  typecheck: boolean;
 }
