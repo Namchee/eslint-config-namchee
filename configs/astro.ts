@@ -16,8 +16,6 @@ import { TYPESCRIPT_RULES } from './typescript';
 
 export default function (config: Partial<Options> = {}): Linter.Config[] {
   return [
-    // extend the base to avoid unparseable script tag
-    ...astro.configs.base,
     {
       name: 'namchee/eslint/astro',
       files: [ASTRO_FILES],
@@ -57,6 +55,8 @@ export default function (config: Partial<Options> = {}): Linter.Config[] {
 
         ...(config.stylistic ? { ...STYLISTIC_CONFIG.rules } : {}),
       },
+      // Avoid unparseable script tag
+      processor: astro.processors['client-side-ts'],
     },
     {
       name: 'namchee/eslint/astro-client-ts',
