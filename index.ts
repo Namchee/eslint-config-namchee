@@ -54,7 +54,7 @@ export function createESLintConfig(
     toml: false,
     unocss: false,
     package: true,
-    typecheck: false,
+    typecheck: true,
     ...userConfig,
   };
 
