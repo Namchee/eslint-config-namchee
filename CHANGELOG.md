@@ -1,5 +1,11 @@
 # @namchee/eslint-config
 
+## 3.1.1
+
+### Patch Changes
+
+- [#43](https://github.com/Namchee/eslint-config-namchee/pull/43) [`3bcafc5`](https://github.com/Namchee/eslint-config-namchee/commit/3bcafc5e655a01e6bfe318c38fd0269539439441) Thanks [@Namchee](https://github.com/Namchee)! - chore: ensure dot-notation on prop
+
 ## 3.1.0
 
 ### Minor Changes
