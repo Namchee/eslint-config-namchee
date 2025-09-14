@@ -54,6 +54,9 @@ export default function (config: Partial<Options> = {}): Linter.Config[] {
         'astro/prefer-class-list-directive': 'error',
 
         ...(config.stylistic ? { ...STYLISTIC_CONFIG.rules } : {}),
+
+        // astro passes class with className
+        'unicorn/no-keyword-prefix': 'off',
       },
       // Avoid unparseable script tag
       processor: astro.processors['client-side-ts'],
@@ -84,8 +87,6 @@ export default function (config: Partial<Options> = {}): Linter.Config[] {
       rules: {
         ...TYPESCRIPT_RULES,
         ...(config.stylistic ? { ...STYLISTIC_CONFIG.rules, ...STYLISTIC_TYPESCRIPT_RULES } : {}),
-        // astro passes class with className
-        'unicorn/no-keyword-prefix': 'off',
       },
     },
   ];
