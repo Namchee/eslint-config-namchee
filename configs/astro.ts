@@ -75,6 +75,7 @@ export default function (config: Partial<Options> = {}): Linter.Config[] {
       plugins: {
         ...BASE_CONFIG.plugins,
         // broken typings
+        // eslint-disable-next-line typescript/no-unsafe-assignment
         typescript: tsPlugin as any,
         canonical: canonical,
         import: importPlugin,
@@ -83,6 +84,8 @@ export default function (config: Partial<Options> = {}): Linter.Config[] {
       rules: {
         ...TYPESCRIPT_RULES,
         ...(config.stylistic ? { ...STYLISTIC_CONFIG.rules, ...STYLISTIC_TYPESCRIPT_RULES } : {}),
+        // astro passes class with className
+        'unicorn/no-keyword-prefix': 'off',
       },
     },
   ];

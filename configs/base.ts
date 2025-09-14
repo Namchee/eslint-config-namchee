@@ -225,7 +225,7 @@ export const STYLISTIC_CONFIG: Linter.Config = {
     'style/comma-spacing': 'error',
     'style/comma-style': 'error',
     'style/computed-property-spacing': 'error',
-    'style/dot-location': 'error',
+    'style/dot-location': ['error', 'property'],
     'style/eol-last': 'error',
     'style/function-call-spacing': 'error',
     'style/function-paren-newline': ['error', 'consistent'],
