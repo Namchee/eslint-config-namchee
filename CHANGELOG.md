@@ -1,5 +1,11 @@
 # @namchee/eslint-config
 
+## 3.1.2
+
+### Patch Changes
+
+- [#46](https://github.com/Namchee/eslint-config-namchee/pull/46) [`26186ae`](https://github.com/Namchee/eslint-config-namchee/commit/26186ae6eadf92d52dcc72793e5ee733300b4677) Thanks [@Namchee](https://github.com/Namchee)! - fix(astro): apply no-keyword-prefix rule to Astro-fenced code
+
 ## 3.1.1
 
 ### Patch Changes
