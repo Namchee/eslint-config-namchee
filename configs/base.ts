@@ -165,7 +165,7 @@ export const BASE_CONFIG: Linter.Config = {
     'unicorn/no-unnecessary-await': 'error',
     'unicorn/no-useless-switch-case': 'error',
     'unicorn/number-literal-case': 'error',
-    'unicorn/numeric-separators-style': 'error',
+    'unicorn/numeric-separators-style': ['error', { number: { minimumDigits: 0, groupLength: 3 } }],
     'unicorn/prefer-keyboard-event-key': 'error',
     'unicorn/prefer-logical-operator-over-ternary': 'error',
     'unicorn/prefer-node-protocol': 'error',
