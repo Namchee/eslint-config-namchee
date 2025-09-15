@@ -1,5 +1,11 @@
 # @namchee/eslint-config
 
+## 3.1.3
+
+### Patch Changes
+
+- [#49](https://github.com/Namchee/eslint-config-namchee/pull/49) [`37ce85b`](https://github.com/Namchee/eslint-config-namchee/commit/37ce85bb2ea5862f3ab2d7ff5af99224f873ecd5) Thanks [@Namchee](https://github.com/Namchee)! - feat: enforce separator via unicorn rule
+
 ## 3.1.2
 
 ### Patch Changes
