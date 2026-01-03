@@ -35,6 +35,7 @@ export default function (config: Partial<Options> = {}): Linter.Config[] {
       plugins: {
         ...BASE_CONFIG.plugins,
         astro: astro,
+        // eslint-disable-next-line typescript/no-unsafe-assignment
         typescript: tsPlugin as any,
         canonical: canonical,
         import: importPlugin,
@@ -86,7 +87,9 @@ export default function (config: Partial<Options> = {}): Linter.Config[] {
       },
       rules: {
         ...TYPESCRIPT_RULES,
-        ...(config.stylistic ? { ...STYLISTIC_CONFIG.rules, ...STYLISTIC_TYPESCRIPT_RULES } : {}),
+        ...(config.stylistic
+          ? { ...STYLISTIC_CONFIG.rules, ...STYLISTIC_TYPESCRIPT_RULES }
+          : {}),
       },
     },
   ];

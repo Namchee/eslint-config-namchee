@@ -33,7 +33,10 @@ export const BASE_CONFIG: Linter.Config = {
     reportUnusedDisableDirectives: 'error',
   },
   rules: {
-    'accessor-pairs': ['error', { enforceForClassMembers: true, setWithoutGet: true }],
+    'accessor-pairs': [
+      'error',
+      { enforceForClassMembers: true, setWithoutGet: true },
+    ],
     'array-callback-return': 'error',
 
     'block-scoped-var': 'error',
@@ -89,11 +92,26 @@ export const BASE_CONFIG: Linter.Config = {
     'no-regex-spaces': 'error',
     'no-restricted-properties': [
       'error',
-      { message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.', property: '__proto__' },
-      { message: 'Use `Object.defineProperty` instead.', property: '__defineGetter__' },
-      { message: 'Use `Object.defineProperty` instead.', property: '__defineSetter__' },
-      { message: 'Use `Object.getOwnPropertyDescriptor` instead.', property: '__lookupGetter__' },
-      { message: 'Use `Object.getOwnPropertyDescriptor` instead.', property: '__lookupSetter__' },
+      {
+        message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.',
+        property: '__proto__',
+      },
+      {
+        message: 'Use `Object.defineProperty` instead.',
+        property: '__defineGetter__',
+      },
+      {
+        message: 'Use `Object.defineProperty` instead.',
+        property: '__defineSetter__',
+      },
+      {
+        message: 'Use `Object.getOwnPropertyDescriptor` instead.',
+        property: '__lookupGetter__',
+      },
+      {
+        message: 'Use `Object.getOwnPropertyDescriptor` instead.',
+        property: '__lookupSetter__',
+      },
     ],
     'no-self-compare': 'error',
     'no-sequences': 'error',
@@ -107,17 +125,23 @@ export const BASE_CONFIG: Linter.Config = {
     'no-unreachable-loop': 'error',
     'no-unsafe-finally': 'error',
     'no-unsafe-negation': 'error',
-    'no-unused-vars': ['error', {
-      args: 'all',
-      argsIgnorePattern: '^_',
-      caughtErrors: 'all',
-      caughtErrorsIgnorePattern: '^_',
-      destructuredArrayIgnorePattern: '^_',
-      varsIgnorePattern: '^_',
-      ignoreRestSiblings: true,
-    }],
+    'no-unused-vars': [
+      'error',
+      {
+        args: 'all',
+        argsIgnorePattern: '^_',
+        caughtErrors: 'all',
+        caughtErrorsIgnorePattern: '^_',
+        destructuredArrayIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        ignoreRestSiblings: true,
+      },
+    ],
     'no-unassigned-vars': 'error',
-    'no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
+    'no-use-before-define': [
+      'error',
+      { classes: false, functions: false, variables: true },
+    ],
     'no-useless-call': 'error',
     'no-useless-catch': 'error',
     'no-var': 'error',
@@ -165,7 +189,10 @@ export const BASE_CONFIG: Linter.Config = {
     'unicorn/no-unnecessary-await': 'error',
     'unicorn/no-useless-switch-case': 'error',
     'unicorn/number-literal-case': 'error',
-    'unicorn/numeric-separators-style': ['error', { number: { minimumDigits: 0, groupLength: 3 } }],
+    'unicorn/numeric-separators-style': [
+      'error',
+      { number: { minimumDigits: 0, groupLength: 3 } },
+    ],
     'unicorn/prefer-keyboard-event-key': 'error',
     'unicorn/prefer-logical-operator-over-ternary': 'error',
     'unicorn/prefer-node-protocol': 'error',
@@ -181,23 +208,26 @@ export const BASE_CONFIG: Linter.Config = {
 
     // perfectionist, import and key sorting
     'perfect/sort-exports': ['error', { order: 'asc', type: 'natural' }],
-    'perfect/sort-imports': ['error', {
-      order: 'asc',
-      type: 'natural',
-      groups: [
-        'type',
-        ['parent-type', 'sibling-type', 'index-type', 'internal-type'],
+    'perfect/sort-imports': [
+      'error',
+      {
+        order: 'asc',
+        type: 'natural',
+        groups: [
+          'type',
+          ['parent-type', 'sibling-type', 'index-type', 'internal-type'],
 
-        'builtin',
-        'external',
-        'internal',
-        ['parent', 'sibling', 'index'],
-        'side-effect',
-        'object',
-        'unknown',
-      ],
-      newlinesBetween: 'always',
-    }],
+          'builtin',
+          'external',
+          'internal',
+          ['parent', 'sibling', 'index'],
+          'side-effect',
+          'object',
+          'unknown',
+        ],
+        newlinesBetween: 'always',
+      },
+    ],
     'perfect/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
     'perfect/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
   },
@@ -265,7 +295,11 @@ export const STYLISTIC_CONFIG: Linter.Config = {
     'style/object-curly-spacing': ['error', 'always'],
     'style/operator-linebreak': ['error', 'before'],
     'style/quote-props': ['error', 'consistent-as-needed'],
-    'style/quotes': ['error', 'single', { allowTemplateLiterals: true }],
+    'style/quotes': [
+      'error',
+      'single',
+      { allowTemplateLiterals: 'avoidEscape' },
+    ],
     'style/semi': ['error', 'always'],
     'style/space-before-blocks': ['error', 'always'],
     'style/spaced-comment': [
