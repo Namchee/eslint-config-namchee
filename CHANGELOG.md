@@ -1,5 +1,11 @@
 # @namchee/eslint-config
 
+## 3.1.5
+
+### Patch Changes
+
+- [#54](https://github.com/Namchee/eslint-config-namchee/pull/54) [`5fd8a2c`](https://github.com/Namchee/eslint-config-namchee/commit/5fd8a2c63a60cd880930f2ea73db7a46522211ba) Thanks [@Namchee](https://github.com/Namchee)! - chore: setup package provenance
+
 ## 3.1.4
 
 ### Patch Changes
