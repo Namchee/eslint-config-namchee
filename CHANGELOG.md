@@ -1,5 +1,11 @@
 # @namchee/eslint-config
 
+## 3.1.4
+
+### Patch Changes
+
+- [#52](https://github.com/Namchee/eslint-config-namchee/pull/52) [`1ee5cdf`](https://github.com/Namchee/eslint-config-namchee/commit/1ee5cdf447c7a0fbefca0616fc5935ca666e29e9) Thanks [@Namchee](https://github.com/Namchee)! - chore: patch allowTemplateLiteral value with non-deprecated value of avoidEscape
+
 ## 3.1.3
 
 ### Patch Changes
