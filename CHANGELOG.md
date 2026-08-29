@@ -1,5 +1,11 @@
 # @namchee/eslint-config
 
+## 3.3.0
+
+### Minor Changes
+
+- [#64](https://github.com/Namchee/eslint-config-namchee/pull/64) [`c3ce9c7`](https://github.com/Namchee/eslint-config-namchee/commit/c3ce9c7ba4553c5b3e5580203346dd3c83dc635c) Thanks [@Namchee](https://github.com/Namchee)! - Introduce RegExp and e18e rules"
+
 ## 3.2.1
 
 ### Patch Changes
