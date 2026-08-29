@@ -5,7 +5,7 @@ import * as parser from 'toml-eslint-parser';
 
 import { TOML_FILES } from './const/globs';
 
-export default function(): Linter.Config[] {
+export default async function (): Promise<Linter.Config[]> {
   return [{
     name: 'namchee/eslint/toml',
     files: [TOML_FILES],

@@ -4,7 +4,7 @@ import type { Options } from 'options';
 import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
 import { JS_FILES } from './const/globs';
 
-export default function(config: Partial<Options>): Linter.Config[] {
+export default async function (config: Partial<Options>): Promise<Linter.Config[]> {
   return [{
     name: 'namchee/eslint/javascript',
     files: [JS_FILES],

@@ -4,14 +4,14 @@ import type { Options } from 'options';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import importPlugin from 'eslint-plugin-import-lite';
-import vue from 'eslint-plugin-vue';
-import vueParser from 'vue-eslint-parser';
 
 import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
 import { VUE_FILES } from './const/globs';
 import { STYLISTIC_TYPESCRIPT_RULES, TYPESCRIPT_RULES } from './typescript';
 
-export default function(config: Partial<Options>): Linter.Config[] {
+export default async function (config: Partial<Options>): Promise<Linter.Config[]> {
+  const [vue, vueParser] = await Promise.all([import('eslint-plugin-vue'), import('vue-eslint-parser')]);
+
   return [{
     name: 'namchee/eslint/vue',
     files: [VUE_FILES],

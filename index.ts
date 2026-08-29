@@ -20,7 +20,7 @@ import yaml from './configs/yaml';
 
 const CONFIG_MAP: Record<
   string,
-  (config: Partial<Options>) => Linter.Config[]
+  (config: Partial<Options>) => Promise<Linter.Config[]>
 > = {
   typescript: typescript,
   json: json,
@@ -39,11 +39,11 @@ const CONFIG_MAP: Record<
  * Create a new opinionated ESLint configuration object based on options.
  *
  * @param {Options} userConfig Configuration object
- * @returns {Linter.Config[]} Ready-to-use ESLint configuration object.
+ * @returns {Promise<Linter.Config[]>} A Promise that resolves into ready-to-use ESLint configuration object.
  */
-export function createESLintConfig(
+export async function createESLintConfig(
   userConfig: Partial<Options> = {},
-): Linter.Config[] {
+): Promise<Linter.Config[]> {
   const config = {
     typescript: true,
     json: false,
@@ -61,17 +61,19 @@ export function createESLintConfig(
     ...userConfig,
   };
 
-  const linters: Linter.Config[] = [...ignores(config), ...javascript(config)];
+  const enabled = Object.entries(config)
+    .filter(
+      ([key, value]) => key !== 'typecheck' && value && CONFIG_MAP[key],
+    )
+    .map(([key]) => key);
 
-  for (const [key, value] of Object.entries(config)) {
-    if (key === 'typecheck') {
-      continue;
-    }
+  const factories: Promise<Linter.Config[]>[] = [
+    ignores(config),
+    javascript(config),
+    ...enabled.map(async key => CONFIG_MAP[key](config)),
+  ];
 
-    if (value && CONFIG_MAP[key]) {
-      linters.push(...CONFIG_MAP[key](config));
-    }
-  }
+  const results = await Promise.all(factories);
 
-  return defineConfig(linters);
+  return defineConfig(results.flat());
 }

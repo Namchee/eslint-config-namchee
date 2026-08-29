@@ -4,7 +4,7 @@ import markdown from '@eslint/markdown';
 
 import { MARKDOWN_FILES } from './const/globs';
 
-export default function (): Linter.Config[] {
+export default async function (): Promise<Linter.Config[]> {
   return [{
     name: 'namchee/eslint/markdown',
     files: [MARKDOWN_FILES],
@@ -31,4 +31,3 @@ export default function (): Linter.Config[] {
     },
   }];
 }
-

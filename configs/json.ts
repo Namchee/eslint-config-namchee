@@ -5,7 +5,7 @@ import * as parser from 'jsonc-eslint-parser';
 
 import { JSON_FILES } from './const/globs';
 
-export default function(): Linter.Config[] {
+export default async function (): Promise<Linter.Config[]> {
   return [{
     name: 'namchee/eslint/json',
     files: [JSON_FILES],
