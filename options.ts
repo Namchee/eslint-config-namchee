@@ -76,4 +76,11 @@ export interface Options {
    * Defaults to `false` due to performance hit.
    */
   typecheck: boolean;
+
+  /**
+   * Enable e18e rules for modern JavaScript
+   *
+   * Defaults to `true`
+   */
+  e18e: boolean;
 }

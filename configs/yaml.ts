@@ -1,17 +1,17 @@
 import type { Linter } from 'eslint';
 
 import yml from 'eslint-plugin-yml';
-import parser from 'yaml-eslint-parser';
+import * as parser from 'yaml-eslint-parser';
 
 import { YAML_FILES } from './const/globs';
 
-export default function (): Linter.Config[] {
+export default function(): Linter.Config[] {
   return [{
     name: 'namchee/eslint/yaml',
     files: [YAML_FILES],
     ignores: ['**/pnpm-lock.yaml'],
     plugins: {
-      yml: yml as any,
+      yml,
     },
     languageOptions: {
       parser,

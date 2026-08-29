@@ -125,8 +125,8 @@ export default function(config: Partial<Options>): Linter.Config[] {
     plugins: {
       ...BASE_CONFIG.plugins,
       // broken typings
+      /* eslint-disable typescript/no-unsafe-assignment */
       typescript: ts as any,
-      canonical: canonical,
       import: importPlugin,
       ...(config.stylistic ? STYLISTIC_CONFIG.plugins : {}),
     },
@@ -140,7 +140,7 @@ export default function(config: Partial<Options>): Linter.Config[] {
     name: 'namchee/eslint/tsconfig',
     files: ['**/[jt]sconfig.json', '**/[jt]sconfig.*.json'],
     plugins: {
-      // typing issues
+      /* eslint-disable typescript/no-unsafe-assignment */
       jsonc: json as any,
     },
     languageOptions: {
