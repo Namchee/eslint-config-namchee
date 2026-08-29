@@ -58,10 +58,6 @@ export const TYPESCRIPT_RULES: Linter.RulesRecord = {
     'property',
   ],
 
-  // canonical plugin, because this only works in TypeScript
-  'canonical/no-barrel-import': 'error',
-  'canonical/no-use-extend-native': 'error',
-
   // imports
   'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
 };
@@ -109,7 +105,7 @@ const TYPE_AWARE_RULES: Linter.RulesRecord = {
   'typescript/switch-exhaustiveness-check': 'error',
 };
 
-export default function (config: Partial<Options>): Linter.Config[] {
+export default function(config: Partial<Options>): Linter.Config[] {
   return [{
     name: 'namchee/eslint/typescript',
     files: [TS_FILES],

@@ -147,6 +147,7 @@ export const BASE_CONFIG: Linter.Config = {
     'no-var': 'error',
     'no-void': 'error',
     'no-with': 'error',
+    'no-extend-native': 'error',
     'object-shorthand': ['error', 'consistent-as-needed'],
     'prefer-const': 'error',
     'prefer-promise-reject-errors': 'error',
@@ -205,6 +206,7 @@ export const BASE_CONFIG: Linter.Config = {
     'unicorn/prefer-type-error': 'error',
     'unicorn/template-indent': 'error',
     'unicorn/throw-new-error': 'error',
+    'unicorn/no-barrel-files': 'error',
 
     // perfectionist, import and key sorting
     'perfect/sort-exports': ['error', { order: 'asc', type: 'natural' }],
