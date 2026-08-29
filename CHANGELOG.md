@@ -1,5 +1,11 @@
 # @namchee/eslint-config
 
+## 3.2.1
+
+### Patch Changes
+
+- [#62](https://github.com/Namchee/eslint-config-namchee/pull/62) [`58355e2`](https://github.com/Namchee/eslint-config-namchee/commit/58355e2b01f9fc8dd8c51b5f7bf92cf01c68ed7b) Thanks [@Namchee](https://github.com/Namchee)! - Use ESLint 10
+
 ## 3.2.0
 
 ### Minor Changes
