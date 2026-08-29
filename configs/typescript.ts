@@ -6,10 +6,9 @@ import path from 'node:path';
 
 import ts from '@typescript-eslint/eslint-plugin';
 import parser from '@typescript-eslint/parser';
-import canonical from 'eslint-plugin-canonical';
 import importPlugin from 'eslint-plugin-import-lite';
 import json from 'eslint-plugin-jsonc';
-import jsonParser from 'jsonc-eslint-parser';
+import * as jsonParser from 'jsonc-eslint-parser';
 
 import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
 import { ASTRO_SCRIPTS_TS_FILES, TS_FILES, TYPEDEF_FILES } from './const/globs';

@@ -3,6 +3,7 @@ import type { Linter } from 'eslint';
 import style from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import-lite';
 import perfectionist from 'eslint-plugin-perfectionist';
+import regexp from 'eslint-plugin-regexp';
 import unicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 
@@ -28,6 +29,7 @@ export const BASE_CONFIG: Linter.Config = {
     import: importPlugin,
     unicorn: unicorn,
     perfect: perfectionist,
+    regexp: regexp,
   },
   linterOptions: {
     reportUnusedDisableDirectives: 'error',
@@ -147,7 +149,6 @@ export const BASE_CONFIG: Linter.Config = {
     'no-var': 'error',
     'no-void': 'error',
     'no-with': 'error',
-    'no-extend-native': 'error',
     'object-shorthand': ['error', 'consistent-as-needed'],
     'prefer-const': 'error',
     'prefer-promise-reject-errors': 'error',
@@ -232,8 +233,12 @@ export const BASE_CONFIG: Linter.Config = {
     ],
     'perfect/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
     'perfect/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
+
+    // regexp rules
+    ...regexp.configs['flat/all'].rules,
   },
 };
+
 
 export const STYLISTIC_CONFIG: Linter.Config = {
   plugins: {
