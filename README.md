@@ -205,11 +205,18 @@ If you're using Zed, use the following settings in `.zed/settings.json` for maxi
 
 ## FAQ
 
-1. Why not [OXLint](https://oxc.rs/)?
+### Why not [OXLint](https://oxc.rs/)?
 
 While OXLint is great, it [doesn't have good support](https://oxc.rs/compatibility.html) for several languages that I oftenly use yet.
 
 If in the future, OXLint support those language perfectly, this config will be migrated to OXLint config.
+
+### When should I use this config?
+
+When you're dealing with either of these:
+
+- Astro
+- Vue
 
 ## Acknowledgements
 
