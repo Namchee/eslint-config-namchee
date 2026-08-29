@@ -3,7 +3,7 @@ import type { Linter } from 'eslint';
 import node from 'eslint-plugin-n';
 import globals from 'globals';
 
-export default function(): Linter.Config[] {
+export default async function (): Promise<Linter.Config[]> {
   return [{
     name: 'namchee/eslint/node',
     languageOptions: {

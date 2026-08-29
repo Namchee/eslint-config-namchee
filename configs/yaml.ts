@@ -5,7 +5,7 @@ import * as parser from 'yaml-eslint-parser';
 
 import { YAML_FILES } from './const/globs';
 
-export default function(): Linter.Config[] {
+export default async function (): Promise<Linter.Config[]> {
   return [{
     name: 'namchee/eslint/yaml',
     files: [YAML_FILES],

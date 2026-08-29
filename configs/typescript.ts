@@ -104,7 +104,7 @@ const TYPE_AWARE_RULES: Linter.RulesRecord = {
   'typescript/switch-exhaustiveness-check': 'error',
 };
 
-export default function(config: Partial<Options>): Linter.Config[] {
+export default async function (config: Partial<Options>): Promise<Linter.Config[]> {
   return [{
     name: 'namchee/eslint/typescript',
     files: [TS_FILES],
