@@ -57,9 +57,12 @@ The factory function accepts an optional parameter in form of key-value objects,
 | `package`    | Enables `package.json` rules.                                                            | `true`  |
 | `typecheck`  | Enables type-aware rules for TypeScript files. Do note for possible performance hit.     | `true`  |
 
-## VSCode Settings
+## IDE Integration
 
-If you're using VSCode, use the following settings for maximum DX with this configuration:
+<details>
+    <summary>VSCode</summary>
+
+If you're using VSCode, use the following settings in `.vscode/settings.json` for maximum DX with this configuration:
 
 ```json
 {
@@ -102,9 +105,115 @@ If you're using VSCode, use the following settings for maximum DX with this conf
 }
 ```
 
+</details>
+
+<details>
+    <summary>Zed</summary>
+
+If you're using Zed, use the following settings in `.zed/settings.json` for maximum DX with this configuration:
+
+```json
+{
+  "format_on_save": "on",
+  "formatter": "language_server",
+  "code_actions_on_format": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  "prettier": {
+    "allowed": false
+  },
+  "languages": {
+    "JavaScript": {
+      "language_servers": [
+        "eslint"
+        // ...
+      ]
+    },
+    "TypeScript": {
+      "language_servers": [
+        "vtsls",
+        "!typescript-ls", // This config doesn't
+        "eslint"
+        // ...
+      ]
+    }
+  },
+  "lsp": {
+    "eslint": {
+      "settings": {
+        "workingDirectories": ["./"],
+        "rulesCustomizations": [
+          {
+            "rule": "style/*",
+            "severity": "off",
+            "fixable": true
+          },
+          {
+            "rule": "format/*",
+            "severity": "off",
+            "fixable": true
+          },
+          {
+            "rule": "*-indent",
+            "severity": "off",
+            "fixable": true
+          },
+          {
+            "rule": "*-spacing",
+            "severity": "off",
+            "fixable": true
+          },
+          {
+            "rule": "*-spaces",
+            "severity": "off",
+            "fixable": true
+          },
+          {
+            "rule": "*-order",
+            "severity": "off",
+            "fixable": true
+          },
+          {
+            "rule": "*-dangle",
+            "severity": "off",
+            "fixable": true
+          },
+          {
+            "rule": "*-newline",
+            "severity": "off",
+            "fixable": true
+          },
+          {
+            "rule": "*quotes",
+            "severity": "off",
+            "fixable": true
+          },
+          {
+            "rule": "*semi",
+            "severity": "off",
+            "fixable": true
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+</details>
+
+## FAQ
+
+1. Why not [OXLint](https://oxc.rs/)?
+
+While OXLint is great, it [doesn't have good support](https://oxc.rs/compatibility.html) for several languages that I oftenly use yet.
+
+If in the future, OXLint support those language perfectly, this config will be migrated to OXLint config.
+
 ## Acknowledgements
 
-This project is inspired by:
+This configuration is inspired by:
 
 - [antfu's ESLint Configuration](https://github.com/antfu/eslint-config). Import sorting configuration are extracted from this configuration!
 - [sxzz's ESLint Configuration](https://github.com/sxzz/eslint-config)
