@@ -1,5 +1,11 @@
 # @namchee/eslint-config
 
+## 3.3.1
+
+### Patch Changes
+
+- [#66](https://github.com/Namchee/eslint-config-namchee/pull/66) [`2cb1a25`](https://github.com/Namchee/eslint-config-namchee/commit/2cb1a25800ad8a7a62884e9fd50bfe7b06b17356) Thanks [@Namchee](https://github.com/Namchee)! - Use async resolver for optional dependencies
+
 ## 3.3.0
 
 ### Minor Changes
