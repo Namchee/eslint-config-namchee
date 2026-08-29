@@ -4,9 +4,8 @@ import type { Options } from '../options';
 
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import parser from 'astro-eslint-parser';
+import * as parser from 'astro-eslint-parser';
 import astro from 'eslint-plugin-astro';
-import canonical from 'eslint-plugin-canonical';
 import importPlugin from 'eslint-plugin-import-lite';
 import globals from 'globals';
 
@@ -14,14 +13,14 @@ import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
 import { ASTRO_FILES, ASTRO_SCRIPTS_TS_FILES } from './const/globs';
 import { STYLISTIC_TYPESCRIPT_RULES, TYPESCRIPT_RULES } from './typescript';
 
-export default function (config: Partial<Options> = {}): Linter.Config[] {
+export default function(config: Partial<Options> = {}): Linter.Config[] {
   return [
     {
       name: 'namchee/eslint/astro',
       files: [ASTRO_FILES],
       languageOptions: {
         globals: {
-          ...BASE_CONFIG.languageOptions?.globals,
+          ...(BASE_CONFIG.languageOptions?.globals ?? {}),
           ...globals.node,
           ...astro.environments.astro.globals,
         },
@@ -37,7 +36,6 @@ export default function (config: Partial<Options> = {}): Linter.Config[] {
         astro: astro,
         // eslint-disable-next-line typescript/no-unsafe-assignment
         typescript: tsPlugin as any,
-        canonical: canonical,
         import: importPlugin,
         ...(config.stylistic ? STYLISTIC_CONFIG.plugins : {}),
       },
@@ -78,10 +76,8 @@ export default function (config: Partial<Options> = {}): Linter.Config[] {
       },
       plugins: {
         ...BASE_CONFIG.plugins,
-        // broken typings
-        // eslint-disable-next-line typescript/no-unsafe-assignment
+        /* eslint-disable-next-line typescript/no-unsafe-assignment */
         typescript: tsPlugin as any,
-        canonical: canonical,
         import: importPlugin,
         ...(config.stylistic ? STYLISTIC_CONFIG.plugins : {}),
       },

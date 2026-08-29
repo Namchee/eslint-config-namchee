@@ -6,10 +6,9 @@ import path from 'node:path';
 
 import ts from '@typescript-eslint/eslint-plugin';
 import parser from '@typescript-eslint/parser';
-import canonical from 'eslint-plugin-canonical';
 import importPlugin from 'eslint-plugin-import-lite';
 import json from 'eslint-plugin-jsonc';
-import jsonParser from 'jsonc-eslint-parser';
+import * as jsonParser from 'jsonc-eslint-parser';
 
 import { BASE_CONFIG, STYLISTIC_CONFIG } from './base';
 import { ASTRO_SCRIPTS_TS_FILES, TS_FILES, TYPEDEF_FILES } from './const/globs';
@@ -58,10 +57,6 @@ export const TYPESCRIPT_RULES: Linter.RulesRecord = {
     'property',
   ],
 
-  // canonical plugin, because this only works in TypeScript
-  'canonical/no-barrel-import': 'error',
-  'canonical/no-use-extend-native': 'error',
-
   // imports
   'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
 };
@@ -109,7 +104,7 @@ const TYPE_AWARE_RULES: Linter.RulesRecord = {
   'typescript/switch-exhaustiveness-check': 'error',
 };
 
-export default function (config: Partial<Options>): Linter.Config[] {
+export default function(config: Partial<Options>): Linter.Config[] {
   return [{
     name: 'namchee/eslint/typescript',
     files: [TS_FILES],
@@ -130,8 +125,8 @@ export default function (config: Partial<Options>): Linter.Config[] {
     plugins: {
       ...BASE_CONFIG.plugins,
       // broken typings
+      /* eslint-disable typescript/no-unsafe-assignment */
       typescript: ts as any,
-      canonical: canonical,
       import: importPlugin,
       ...(config.stylistic ? STYLISTIC_CONFIG.plugins : {}),
     },
@@ -145,7 +140,7 @@ export default function (config: Partial<Options>): Linter.Config[] {
     name: 'namchee/eslint/tsconfig',
     files: ['**/[jt]sconfig.json', '**/[jt]sconfig.*.json'],
     plugins: {
-      // typing issues
+      /* eslint-disable typescript/no-unsafe-assignment */
       jsonc: json as any,
     },
     languageOptions: {

@@ -3,6 +3,7 @@ import type { Linter } from 'eslint';
 import style from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import-lite';
 import perfectionist from 'eslint-plugin-perfectionist';
+import regexp from 'eslint-plugin-regexp';
 import unicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 
@@ -28,6 +29,7 @@ export const BASE_CONFIG: Linter.Config = {
     import: importPlugin,
     unicorn: unicorn,
     perfect: perfectionist,
+    regexp: regexp,
   },
   linterOptions: {
     reportUnusedDisableDirectives: 'error',
@@ -172,7 +174,7 @@ export const BASE_CONFIG: Linter.Config = {
     'unicorn/escape-case': 'error',
     'unicorn/new-for-builtins': 'error',
     'unicorn/no-abusive-eslint-disable': 'error',
-    'unicorn/no-array-for-each': 'error',
+    'unicorn/no-for-each': 'error',
     'unicorn/no-array-method-this-argument': 'error',
     'unicorn/prefer-single-call': 'error',
     'unicorn/no-await-expression-member': 'error',
@@ -205,6 +207,7 @@ export const BASE_CONFIG: Linter.Config = {
     'unicorn/prefer-type-error': 'error',
     'unicorn/template-indent': 'error',
     'unicorn/throw-new-error': 'error',
+    'unicorn/no-barrel-files': 'error',
 
     // perfectionist, import and key sorting
     'perfect/sort-exports': ['error', { order: 'asc', type: 'natural' }],
@@ -214,24 +217,28 @@ export const BASE_CONFIG: Linter.Config = {
         order: 'asc',
         type: 'natural',
         groups: [
-          'type',
-          ['parent-type', 'sibling-type', 'index-type', 'internal-type'],
+          'type-import',
+          ['type-parent', 'type-sibling', 'type-index', 'type-internal'],
 
-          'builtin',
-          'external',
-          'internal',
-          ['parent', 'sibling', 'index'],
+          'value-builtin',
+          'value-external',
+          'value-internal',
+          ['value-parent', 'value-sibling', 'value-index'],
           'side-effect',
-          'object',
+          'ts-equals-import',
           'unknown',
         ],
-        newlinesBetween: 'always',
+        newlinesBetween: 1,
       },
     ],
     'perfect/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
     'perfect/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
+
+    // regexp rules
+    ...regexp.configs['flat/all'].rules,
   },
 };
+
 
 export const STYLISTIC_CONFIG: Linter.Config = {
   plugins: {

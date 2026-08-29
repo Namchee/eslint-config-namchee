@@ -5,6 +5,7 @@ import type { Options } from './options';
 import { defineConfig } from 'eslint/config';
 
 import astro from './configs/astro';
+import e18e from './configs/e18e';
 import ignores from './configs/ignores';
 import javascript from './configs/javascript';
 import json from './configs/json';
@@ -31,6 +32,7 @@ const CONFIG_MAP: Record<
   toml: toml,
   unocss: unocss,
   package: packageCfg,
+  e18e: e18e,
 };
 
 /**
@@ -55,6 +57,7 @@ export function createESLintConfig(
     unocss: false,
     package: true,
     typecheck: true,
+    e18e: true,
     ...userConfig,
   };
 

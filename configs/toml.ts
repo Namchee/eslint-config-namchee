@@ -1,16 +1,16 @@
 import type { Linter } from 'eslint';
 
 import toml from 'eslint-plugin-toml';
-import parser from 'toml-eslint-parser';
+import * as parser from 'toml-eslint-parser';
 
 import { TOML_FILES } from './const/globs';
 
-export default function (): Linter.Config[] {
+export default function(): Linter.Config[] {
   return [{
     name: 'namchee/eslint/toml',
     files: [TOML_FILES],
     plugins: {
-      toml: toml as any,
+      toml,
     },
     languageOptions: {
       parser,
